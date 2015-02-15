@@ -61,6 +61,12 @@
   <ItemGroup>
     <Content Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TEAM4OIES\TEAM4OIES.csproj">
+      <Project>{1ADA403F-D178-4959-B4E0-931F61667B2A}</Project>
+      <Name>TEAM4OIES</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

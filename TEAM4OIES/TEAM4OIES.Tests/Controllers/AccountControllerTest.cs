@@ -1,11 +1,9 @@
-﻿using System;
-using System.Security.Principal;
+﻿using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TEAM4OIES;
 using TEAM4OIES.Controllers;
 using TEAM4OIES.Models;
 
@@ -124,7 +122,7 @@ namespace TEAM4OIES.Tests.Controllers
             RedirectToRouteResult redirectResult = (RedirectToRouteResult)result;
             Assert.AreEqual("Home", redirectResult.RouteValues["controller"]);
             Assert.AreEqual("Index", redirectResult.RouteValues["action"]);
-            Assert.IsTrue(((MockFormsAuthenticationService)controller.FormsService).SignOut_WasCalled);
+            Assert.IsTrue(((MockFormsAuthenticationService)controller.FormsService).SignOutWasCalled);
         }
 
         [TestMethod]
@@ -160,7 +158,7 @@ namespace TEAM4OIES.Tests.Controllers
             RedirectToRouteResult redirectResult = (RedirectToRouteResult)result;
             Assert.AreEqual("Home", redirectResult.RouteValues["controller"]);
             Assert.AreEqual("Index", redirectResult.RouteValues["action"]);
-            Assert.IsTrue(((MockFormsAuthenticationService)controller.FormsService).SignIn_WasCalled);
+            Assert.IsTrue(((MockFormsAuthenticationService)controller.FormsService).SignInWasCalled);
         }
 
         [TestMethod]
@@ -182,7 +180,7 @@ namespace TEAM4OIES.Tests.Controllers
             Assert.IsInstanceOfType(result, typeof(RedirectResult));
             RedirectResult redirectResult = (RedirectResult)result;
             Assert.AreEqual("/someUrl", redirectResult.Url);
-            Assert.IsTrue(((MockFormsAuthenticationService)controller.FormsService).SignIn_WasCalled);
+            Assert.IsTrue(((MockFormsAuthenticationService)controller.FormsService).SignInWasCalled);
         }
 
         [TestMethod]
@@ -331,8 +329,8 @@ namespace TEAM4OIES.Tests.Controllers
 
         private class MockFormsAuthenticationService : IFormsAuthenticationService
         {
-            public bool SignIn_WasCalled;
-            public bool SignOut_WasCalled;
+            public bool SignInWasCalled;
+            public bool SignOutWasCalled;
 
             public void SignIn(string userName, bool createPersistentCookie)
             {
@@ -340,12 +338,12 @@ namespace TEAM4OIES.Tests.Controllers
                 Assert.AreEqual("someUser", userName);
                 Assert.IsFalse(createPersistentCookie);
 
-                SignIn_WasCalled = true;
+                SignInWasCalled = true;
             }
 
             public void SignOut()
             {
-                SignOut_WasCalled = true;
+                SignOutWasCalled = true;
             }
         }
 
