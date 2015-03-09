@@ -11,7 +11,7 @@ namespace TEAM4OIES.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to Team 4 Project MVC!";
+            ViewData["Message"] = "TEAM4OIES";
 
             return View();
         }

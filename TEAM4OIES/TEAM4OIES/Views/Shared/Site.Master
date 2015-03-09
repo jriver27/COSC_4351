@@ -8,32 +8,36 @@
 </head>
 
 <body>
-    <div class="page">
+    <div class="page" >
 
-        <div id="header">
+        <div id="header" class="container">
             <div id="title">
-                <h1>My MVC Application</h1>
+                <h1 style="font-family: 'Courier New', Courier, monospace; color: #000000; text-decoration: underline blink;">TEAM4OIES&nbsp; </h1>
             </div>
               
             <div id="logindisplay">
-                <% Html.RenderPartial("LogOnUserControl"); %>
+              
             </div> 
-            
-            <div id="menucontainer">
-            
-                <ul id="menu">              
-                    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
-                </ul>
-            
-            </div>
         </div>
-
+        <div id="leftMenuContainer" >
+            <li><% Html.RenderPartial("LogOnUserControl"); %></li>
+            <ul class="navigation">
+                 
+					<li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
+                    <li><%: Html.ActionLink("Contact Us", "Index", "ContactUs") %></li>
+                    <li><%: Html.ActionLink("Testimonials Search", "Index", "Testimonials") %></li>
+                    <li>Chat goes here!!</li>
+                    <li>News Feed here.</li>
+                    <li>UH logo goes here</li>
+              </ul>           
+        </div>
         <div id="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-
-            <div id="footer">
-            </div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="footer">
+                Please contact the webmaster if you have any questions.
         </div>
     </div>
 </body>

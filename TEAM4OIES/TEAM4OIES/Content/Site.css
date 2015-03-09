@@ -5,12 +5,13 @@ to use a different color start by replacing all instances of
 ----------------------------------------------------------*/
 body
 {
-    background-color: #5c87b2;
+    background-color: #ffffff;
     font-size: .75em;
     font-family: Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
     color: #696969;
+    height: 283px;
 }
 
 a:link
@@ -87,14 +88,18 @@ page width. Or, you can specify an exact pixel width. */
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    height: 282px;
+    color: rgb(0, 0, 0);
 }
 
 #header
 {
+    border-color: rgb(206, 67, 67);
     position: relative;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     color: #000;
     padding: 0;
+    border-style: dashed;
 }
 
 #header h1
@@ -119,23 +124,28 @@ page width. Or, you can specify an exact pixel width. */
 
 #footer
 {
-    color: #999;
+    color: #999999;
     padding: 10px 0;
     text-align: center;
     line-height: normal;
     margin: 0;
     font-size: .9em;
+    height: 31px;
+    border-style: solid;
 }
 
 /* TAB MENU   
 ----------------------------------------------------------*/
 ul#menu
 {
-    border-bottom: 1px #5C87B2 solid;
-    padding: 0 0 2px;
+    border-bottom: 1px #a65aa4 solid;
+    padding: 0 0 2px;    
+    padding-left: 50%;
     position: relative;
     margin: 0;
     text-align: right;
+    top: -1px;
+    left: 2px;
 }
 
 ul#menu li
@@ -160,7 +170,7 @@ ul#menu li a
     text-decoration: none;
     line-height: 2.8em;
     background-color: #e8eef4;
-    color: #034af3;
+    color: #828fff;
 }
 
 ul#menu li a:hover
@@ -205,8 +215,9 @@ legend
 
 input[type="text"] 
 {
-    width: 200px;
+    width: 108px;
     border: 1px solid #CCC;
+    height: 29px;
 }
 
 input[type="password"] 
@@ -240,6 +251,70 @@ table th
 
 /* MISC  
 ----------------------------------------------------------*/
+.navigation {
+	text-align: left;
+	width: 100%;
+	float: left;
+}
+
+.navigation {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	width: 100%;
+}
+
+.navigation li {
+	width: 100%;
+	height: 50px;
+	font-family: helvetica;
+	font-size: 120%;
+}
+
+.navigation li a {
+	display: block;
+	text-decoration: none;
+	color: #fcdfdf;
+	height: 100%;
+}
+
+.navigation li a:hover {
+	background: #ff9d9d;
+	color: #333300;
+	box-shadow: 2px 2px 5px #000000;
+}
+
+.navigation ul {
+	position: relative;
+	display: none;
+	list-style: none;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+}
+
+.navigation li:hover ul {
+	display: block;
+	left: 100%;
+	background: #fe8888;
+	box-shadow: 2px 2px 2px #000000;
+	top: auto;
+	width: 150px;
+	margin-top: -50px;
+}
+
+.navigation li ul a {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	color: #333300;
+}
+
+.navigation li ul a:hover {
+	color: #333300;
+	width: 110%;
+	padding-bottom: 0px;
+	background: #F8F283;
+}
 .clear
 {
     clear: both;
@@ -249,10 +324,25 @@ table th
 {
     color:Red;
 }
-
+#leftMenuContainer 
+{
+    background: #c80202;
+    height: auto;
+    width: auto;
+    float: left;
+    color: #000000;
+    border-color: #000000;
+    margin-bottom: 1px;
+    _height: auto;
+    height: auto;
+    border-width: inherit;
+    padding: 5px;
+    list-style-type: none;
+    
+}
 #menucontainer
 {
-    margin-top:40px;
+    margin-left: 40px;
 }
 
 div#title
@@ -260,6 +350,7 @@ div#title
     display:block;
     float:left;
     text-align:left;
+    width: 668px;
 }
 
 #logindisplay
@@ -269,6 +360,7 @@ div#title
     text-align:right;
     margin:10px;
     color:White;
+    height: 88px;
 }
 
 #logindisplay a:link
