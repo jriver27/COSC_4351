@@ -11,9 +11,13 @@ body
     margin: 0;
     padding: 0;
     color: #696969;
-    height: 283px;
+    height: 100%;
 }
 
+.wrapper{
+    max-height: 100%;
+    margin: 0 auto -155px;
+}
 a:link
 {
     color: #034af3;
