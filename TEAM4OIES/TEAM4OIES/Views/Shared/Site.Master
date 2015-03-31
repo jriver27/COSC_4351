@@ -4,37 +4,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../Content/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../Content/sticky-footer-navbar.css"/>
 </head>
 
 <body>
-    <div class="page" >
-        <div class="wrapper">
-            <div id="header" class="container">
-                <div id="title">
-                    <h1 style="font-family: 'Courier New', Courier, monospace; color: #000000; text-decoration: underline blink;">TEAM4OIES&nbsp; </h1>
-                </div>
-              
-            <div id="logindisplay"></div> 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class = container>
+        <div class="navbar-header">
+        <a class="navbar-brand" href="../Home/">TEAM4OIES </a>
+        <a class="navbar-brand" href="../Home/About">About</a>  
+        <a class="navbar-brand" href="../Testimonials">Testimonials</a> 
         </div>
-        <div id="leftMenuContainer" >
-            <li><% Html.RenderPartial("LogOnUserControl"); %></li>
-            <ul class="navigation">
-                 
-					<li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
-                    <li><%: Html.ActionLink("Contact Us", "Index", "ContactUs") %></li>
-                    <li><%: Html.ActionLink("Testimonials Search", "Index", "Testimonials") %></li>
-              </ul>           
-        </div>
+    </div>
+</nav>
+
+<div class="container" >
+
         <div id="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-</div>
-        <div id="footer">
-                Please contact the webmaster if you have any questions.
-        </div>
+            <div class="container">
+                <hr><hr/>
+                   <footer>
+                    <p>© COSC 4351 2015</p>
+                      Please contact the webmaster if you have any questions.
+                </footer>
+            </div>
     </div>
         <!--Start of Zopim Live Chat Script-->
 <script type="text/javascript">
