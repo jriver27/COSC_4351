@@ -5,12 +5,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    
+    <h2>Testimonials Page</h2>
     <!DOCTYPE html>
    <html>
    <head>
-
-   <h2>Testimonials Page</h2>
     <script language="JavaScript">
         var TRange = null;
 
@@ -58,9 +56,15 @@
 </tr>
    </head>
    <body>
-
-
-   </body>
+	<div class="well">
+		<h4><b>Jenny Johnson:</b></h4><center><p>This website is amazing!</p></center> 
+	</div>
+	<div class="well">
+		<h4><b>Al Albertson:</b></h4><center><p>I'm so glad there is an easy way to upload my EVAR data.</p></center> 
+	</div>
+	<div class="well">
+		<h4><b>Sebastian Smith:</b></h4><center><p>Analyzing data has never been so fun!</p></center> 
+	</div>   </body>
    </html>
 
 </asp:Content>
