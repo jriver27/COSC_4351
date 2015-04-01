@@ -98,7 +98,7 @@ page width. Or, you can specify an exact pixel width. */
 
 #header
 {
-    border-color: rgb(206, 67, 67);
+    border-color: rgb(48, 65, 65);
     position: relative;
     margin-bottom: 0;
     color: #000;
@@ -120,7 +120,7 @@ page width. Or, you can specify an exact pixel width. */
 
 #main
 {
-    padding: 30px 30px 15px 30px;
+    padding: 40px 40px 15px 40px;
     background-color: #fff;
     margin-bottom: 30px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
@@ -257,33 +257,33 @@ table th
 ----------------------------------------------------------*/
 
 
-.navigation 
+.nav nav-pills nav-stacked
 {
-    text-align: left;
-	width: 100%;
+    text-align: center;
+	width: 80%;
 	float: left;
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
 }
 
-.navigation li {
+.nav nav-pills nav-stacked li {
 	width: 100%;
 	height: 55px;
 	font-family: helvetica;
 	font-size: 120%;
 }
 
-.navigation li a {
+.nav nav-pills nav-stacked li a {
 	display: block;
 	text-decoration: none;
 	color: #000000;
 	height: 100%;
 }
 
-.navigation li a:hover {
-	background: #DCE81D;
-	color: #333300;
+.nav nav-pills nav-stacked li a:hover {
+	background: #304162;
+	color: #5ED180;
 	box-shadow: 2px 2px 5px #000000;
 }
 
@@ -298,10 +298,10 @@ table th
 }
 #leftMenuContainer 
 {
-    background: #4EE81D;
-    width: auto;
+    background: #304162;
+    width: 60px;
     float: left;
-    color: #000000;
+    color: #E8EEF4;
     border-color: #000000;
     border-width: inherit;
     list-style-type: none;

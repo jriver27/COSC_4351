@@ -28,7 +28,7 @@
     <!--End of Zopim Live Chat Script-->
 </head>
 
-<body style="background-color: #FFEC20">
+<body style="background-color: #8EAACD">
     <div class="page" >
         <div class="page-header" style="text-align: center">
                 <h1 >TEAM4OIES</h1>
@@ -37,11 +37,11 @@
          <div class="container-fluid" >
              <div id="leftMenuContainer" >
                 <li><%Html.RenderPartial("LogOnUserControl"); %> </li>
-                <ul class="navigation">
-				    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
-                    <li><%: Html.ActionLink("Contact Us", "Index", "ContactUs") %></li>
-                    <li><%: Html.ActionLink("Testimonials Search", "Index", "Testimonials") %></li>
+                <ul class="nav nav-pills nav-stacked">
+				    <li><center><%: Html.ActionLink("Home", "Index", "Home")%></center></li>
+                    <li><center><%: Html.ActionLink("About", "About", "Home")%></center></li>
+                    <li><center><%: Html.ActionLink("Contact Us", "Index", "ContactUs") %></center></li>
+                    <li><center><%: Html.ActionLink("Testimonials Search", "Index", "Testimonials") %></center></li>
                 </ul>           
              </div>
              <div id="main" class = "container">
