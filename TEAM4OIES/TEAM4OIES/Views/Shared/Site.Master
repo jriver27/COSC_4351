@@ -1,13 +1,12 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #FFEC20">
+<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #8EAACD">
 <head runat="server">
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
-	   
     <link rel="stylesheet" href="../../Content/sticky-footer-navbar.css"/>
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    
      <link rel="stylesheet" href="../../Content/bootstrap.min.css"/>
       <!--Start of Zopim Live Chat Script-->
     <script type="text/javascript">
@@ -28,34 +27,44 @@
     <!--End of Zopim Live Chat Script-->
 </head>
 
-<body style="background-color: #8EAACD">
+<body style="background-color: #8EAACD">      
     <div class="page" >
         <div class="page-header" style="text-align: center">
-                <h1 >TEAM4OIES</h1>
-                <h4 >ANONYMIZED EVAR Database</h4>
+			<center> 
+            <h1 style="color: White; 
+                       font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
+                        text-shadow: 2px 1px #d3d3d3l;">TEAM4OIES</h1>
+            <h3 style="color: White; 
+                       font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
+                       text-shadow: 1px 1px #d3d3d3;">ANONYMIZED Long Term Folow up EVAR Database</h3>
+            
+            </center>
+            <li style="text-align: right"><%Html.RenderPartial("LogOnUserControl"); %> </li>  
          </div>
-         <div class="container-fluid" >
-             <div id="leftMenuContainer" >
-                <li><%Html.RenderPartial("LogOnUserControl"); %> </li>
+         <div class="container" align="left">
                 <ul class="nav nav-pills nav-stacked">
-				    <li><center><%: Html.ActionLink("Home", "Index", "Home")%></center></li>
-                    <li><center><%: Html.ActionLink("About", "About", "Home")%></center></li>
-                    <li><center><%: Html.ActionLink("Contact Us", "Index", "ContactUs") %></center></li>
-                    <li><center><%: Html.ActionLink("Testimonials Search", "Index", "Testimonials") %></center></li>
+                    <li><%: Html.ActionLink("Register", "Register", "Account")%></li>
+				    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
+                    <li><%: Html.ActionLink("Contact Us", "Index", "ContactUs") %></li>
+                    <li><%: Html.ActionLink("Testimonials Search", "Index", "Testimonials") %></li>
                 </ul>           
-             </div>
-             <div id="main" class = "container">
+                <div id="main" class = "container">
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
-            </div>
+             
+                </div>
        </div>
-             <div class="container-fluid">
-                <hr><hr/>
-                <footer>
-                    <p>© COSC 4351 2015</p>
-                        Please contact the webmaster if you have any questions.
-                </footer>
-             </div>
+        <div class="container-fluid">
+            <div style="text-align: center">
+                        <p style="font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
+                        color: #FFFFFF;
+                        text-shadow: 1px 1px #000000;">© COSC 4351 2015</p>
+                <p style="font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
+                        color: #FFFFFF;
+                        text-shadow: 1px 1px #000000;">Please contact the webmaster if you have any questions.</p>
+            </div>     
+        </div>
     </div>
 </body>
 </html>

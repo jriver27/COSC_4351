@@ -5,12 +5,13 @@
 </asp:Content>
 
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>About</h2>
+    <h2 >About</h2>
     <p>
-        Welcome to COSC 4351 Team Project for Team 4.
+        Welcome to the EVAR Team Project for Team 4, where our number one goal is to
 
-        Team Project for Dr. Hilford's COSC 4351 Class.
+        abide by HIPPA reulations. HIPPA is maintained by ALWAYS anonymizing patient name and date of birth. Within our website, is a large variety of resources and data that is used to
 
-        This semester's Team Project is an international online database system to be used to store, manage, visualize, and query EVAR (EndoVascular Aneurysm Repair) data (in the form of medical images), metadata, segmentations (2D or 3D reconstruction of the "raw" medical images), CFD (Computational Fluid Dynamics) simulations, etc. It will become the largest such system in the world.
+        store, manage, visualize, and query EVAR (EndoVascular Aneurysm Repair) data (in the form of medical images), metadata, segmentations (2D or 3D reconstruction of the "raw" medical images), CFD (Computational Fluid Dynamics) simulations, etc.
+        To become our valued member, click register to start today! 
     </p>
 </asp:Content>

@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-    <h2>ContactUs</h2>
+    <h2>Contact us :)</h2>
+   
 
 </asp:Content>
