@@ -5,12 +5,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    
+    <h2>Testimonials Page</h2>
     <!DOCTYPE html>
    <html>
    <head>
-
-   <h2>Testimonials Page</h2>
     <script language="JavaScript">
         var TRange = null;
 
@@ -58,8 +56,7 @@
 </tr>
    </head>
    <body>
-
-
+
    </body>
    </html>
 

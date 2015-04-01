@@ -255,22 +255,21 @@ table th
 
 /* MISC  
 ----------------------------------------------------------*/
-.navigation {
-	text-align: left;
+
+
+.navigation 
+{
+    text-align: left;
 	width: 100%;
 	float: left;
-}
-
-.navigation {
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
-	width: 100%;
 }
 
 .navigation li {
 	width: 100%;
-	height: 50px;
+	height: 55px;
 	font-family: helvetica;
 	font-size: 120%;
 }
@@ -278,47 +277,16 @@ table th
 .navigation li a {
 	display: block;
 	text-decoration: none;
-	color: #fcdfdf;
+	color: #000000;
 	height: 100%;
 }
 
 .navigation li a:hover {
-	background: #ff9d9d;
+	background: #DCE81D;
 	color: #333300;
 	box-shadow: 2px 2px 5px #000000;
 }
 
-.navigation ul {
-	position: relative;
-	display: none;
-	list-style: none;
-	text-align: center;
-	padding: 0px;
-	margin: 0px;
-}
-
-.navigation li:hover ul {
-	display: block;
-	left: 100%;
-	background: #fe8888;
-	box-shadow: 2px 2px 2px #000000;
-	top: auto;
-	width: 150px;
-	margin-top: -50px;
-}
-
-.navigation li ul a {
-	padding-top: 8px;
-	padding-bottom: 8px;
-	color: #333300;
-}
-
-.navigation li ul a:hover {
-	color: #333300;
-	width: 110%;
-	padding-bottom: 0px;
-	background: #F8F283;
-}
 .clear
 {
     clear: both;
@@ -330,23 +298,13 @@ table th
 }
 #leftMenuContainer 
 {
-    background: #c80202;
-    height: auto;
+    background: #4EE81D;
     width: auto;
     float: left;
     color: #000000;
     border-color: #000000;
-    margin-bottom: 1px;
-    _height: auto;
-    height: auto;
     border-width: inherit;
-    padding: 5px;
     list-style-type: none;
-    
-}
-#menucontainer
-{
-    margin-left: 40px;
 }
 
 div#title
