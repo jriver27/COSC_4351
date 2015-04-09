@@ -36,7 +36,7 @@
                         text-shadow: 2px 1px #d3d3d3l;">TEAM4OIES</h1>
             <h3 style="color: White; 
                        font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
-                       text-shadow: 1px 1px #d3d3d3;">ANONYMIZED Long Term Folow up EVAR Database</h3>
+                       text-shadow: 1px 1px #d3d3d3;">ANONYMIZED Long Term Follow Up EVAR Database</h3>
             
             </center>
             <li style="text-align: right"><%Html.RenderPartial("LogOnUserControl"); %> </li>  
@@ -62,7 +62,7 @@
                         text-shadow: 1px 1px #000000;">© COSC 4351 2015</p>
                 <p style="font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
                         color: #FFFFFF;
-                        text-shadow: 1px 1px #000000;">Please contact the webmaster if you have any questions.</p>
+                        text-shadow: 1px 1px #000000;">Please contact the webmaster if you have any questions for ANONYMIZED Long Term Follow up EVAR Database</p>
             </div>     
         </div>
     </div>
