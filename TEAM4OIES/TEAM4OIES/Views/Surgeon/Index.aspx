@@ -6,6 +6,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Index</h2>
+    <h2>Surgeon</h2>
+
+    <asp:Hyperlink id="AnonymizeLink" runat="server" 
+        NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleaner.html"
+        Text="Anonymize :)" BackColor= "#0000FF" />
 
 </asp:Content>

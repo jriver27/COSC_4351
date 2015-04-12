@@ -9,7 +9,7 @@ namespace TEAM4OIES.Controllers
     public class SurgeonController : Controller
     {
         //
-        // GET: /Surgeon/
+        // GET: /Surgeon////
 
         public ActionResult Index()
         {
