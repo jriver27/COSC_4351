@@ -56,9 +56,15 @@
 </tr>
    </head>
    <body>
-
-
-   </body>
+	<div class="well">
+		<h4><b>Jenny Johnson:</b></h4><center><p>This website is amazing!</p></center> 
+	</div>
+	<div class="well">
+		<h4><b>Al Albertson:</b></h4><center><p>I'm so glad there is an easy way to upload my EVAR data.</p></center> 
+	</div>
+	<div class="well">
+		<h4><b>Sebastian Smith:</b></h4><center><p>Analyzing data has never been so fun!</p></center> 
+	</div>   </body>
    </html>
 
 </asp:Content>
