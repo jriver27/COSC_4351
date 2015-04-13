@@ -49,14 +49,15 @@
         }
     </script> 
     <iframe id="srchform2" 
- src="javascript:'<html><body style=margin:0px; ><form action=\'javascript:void();\' onSubmit=if(this.t1.value!=\'\')parent.findString(this.t1.value);return(false); ><input type=text id=t1 name=t1 value=Text to find... size=20><input type=submit name=b1 value=Search></form></body></html>'" 
+ src="javascript:'<html><body style=margin:0px; ><form action=\'javascript:void();\' onSubmit=if(this.t1.value!=\'\')parent.findString(this.t1.value);return(false); ><input type=text id=t1 name=t1 value=Search... size=20><input type=submit name=b1 value=Search></form></body></html>'" 
  width=350 height=34 border=0 frameborder=0 scrolling=no>
 </iframe>
 </td><td valign=top width=99 style="padding-top:3px;"><g:plusone size="medium"></g:plusone></td>
 </tr>
    </head>
    <body>
-
+
+
    </body>
    </html>
 
