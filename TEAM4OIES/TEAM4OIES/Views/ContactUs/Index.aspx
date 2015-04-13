@@ -8,7 +8,7 @@
 
     <h2>How To Contact Us</h2>
      <p>
-        The simplest way to contact us is by sending a message to our live chat on the bottum right corner of this screen 
+        The simplest way to contact us is by sending a message to our live chat on the bottom right corner of this screen. 
         If no operator is available and assistance is needed immediately, call our toll free number 284-568-5568 or send 
         us an email at TEAM4OIES@gmail.com
     </p>
