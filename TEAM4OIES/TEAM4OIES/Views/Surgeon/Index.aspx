@@ -10,6 +10,8 @@
 
     <p> To anonymize data click 
 
+    <%:Html.ActionLink("Run DICCOM Cleaner", "RunDiccom", "Surgeon") %>
+
         <asp:Hyperlink id="AnonymizeLink" runat="server" 
         NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleaner.html"
         Text="HERE" BackColor= "#0000FF" /> <br /><br />
