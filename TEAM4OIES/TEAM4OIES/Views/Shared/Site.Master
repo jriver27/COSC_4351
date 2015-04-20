@@ -1,39 +1,69 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #8EAACD">
 <head runat="server">
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <link rel="stylesheet" href="../../Content/sticky-footer-navbar.css"/>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    
+     <link rel="stylesheet" href="../../Content/bootstrap.min.css"/>
+      <!--Start of Zopim Live Chat Script-->
+    <script type="text/javascript">
+             window.$zopim || (function (d, s) {
+            var z = $zopim = function (c) { z._.push(c) }, $ = z.s = d.createElement(s), e = d.getElementsByTagName(s)[0];
+            z.set = function (o) { z.set._.push(o) };
+            z._ = [];
+            z.set._ = [];
+            $.async = !0;
+            $.setAttribute('charset', 'utf-8');
+            $.src = '//v2.zopim.com/?2srgjUGVaum0iKzECFzHSTXjsWYJUVGp';
+            z.t = +new Date;
+            $.type = 'text/javascript';
+                 e.parentNode.insertBefore($, e);
+             })(document, 'script');
+
+    </script>
+    <!--End of Zopim Live Chat Script-->
 </head>
 
-<body>
-    <div class="page">
-
-        <div id="header">
-            <div id="title">
-                <h1>My MVC Application</h1>
-            </div>
-              
-            <div id="logindisplay">
-                <% Html.RenderPartial("LogOnUserControl"); %>
-            </div> 
+<body style="background-color: #8EAACD">      
+    <div class="page" >
+        <div class="page-header" style="text-align: center">
+			<center> 
+            <h1 style="color: White; 
+                       font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
+                        text-shadow: 2px 1px #d3d3d3l;">TEAM4OIES</h1>
+            <h3 style="color: White; 
+                       font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
+                       text-shadow: 1px 1px #d3d3d3;">ANONYMIZED Long Term Follow Up EVAR Database</h3>
             
-            <div id="menucontainer">
-            
-                <ul id="menu">              
-                    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+            </center>
+            <li style="text-align: right"><%Html.RenderPartial("LogOnUserControl"); %> </li>  
+         </div>
+         <div class="container" align="left">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><%: Html.ActionLink("Register", "Register", "Account")%></li>
+				    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
                     <li><%: Html.ActionLink("About", "About", "Home")%></li>
-                </ul>
-            
-            </div>
-        </div>
-
-        <div id="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-
-            <div id="footer">
-            </div>
+                    <li><%: Html.ActionLink("Contact Us", "Index", "ContactUs") %></li>
+                    <li><%: Html.ActionLink("Testimonials Search", "Index", "Testimonials") %></li>
+                </ul>           
+                <div id="main" class = "container">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+             
+                </div>
+       </div>
+        <div class="container-fluid">
+            <div style="text-align: center">
+                        <p style="font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
+                        color: #FFFFFF;
+                        text-shadow: 1px 1px #000000;">© COSC 4351 2015</p>
+                <p style="font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
+                        color: #FFFFFF;
+                        text-shadow: 1px 1px #000000;">Please contact the webmaster if you have any questions for ANONYMIZED Long Term Follow up EVAR Database</p>
+            </div>     
         </div>
     </div>
 </body>

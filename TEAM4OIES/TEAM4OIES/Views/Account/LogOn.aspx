@@ -7,7 +7,7 @@
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Log On</h2>
     <p>
-        Please enter your username and password. <%: Html.ActionLink("Register", "Register") %> if you don't have an account.
+        Please enter your username and password if you have an account. Otherwise, use this link -> <%: Html.ActionLink("Register", "Register") %>
     </p>
 
     <% using (Html.BeginForm()) { %>
@@ -16,23 +16,23 @@
             <fieldset>
                 <legend>Account Information</legend>
                 
-                <div class="editor-label">
-                    <%: Html.LabelFor(m => m.UserName) %>
+                <div class="editor-email">
+                    <%: Html.LabelFor(m => m.Email) %>
                 </div>
-                <div class="editor-field">
-                    <%: Html.TextBoxFor(m => m.UserName) %>
-                    <%: Html.ValidationMessageFor(m => m.UserName) %>
+                <div class="editor-email">
+                    <%: Html.TextBoxFor(m => m.Email) %>
+                    <%: Html.ValidationMessageFor(m => m.Email) %>
                 </div>
                 
-                <div class="editor-label">
+                <div class="editor-password">
                     <%: Html.LabelFor(m => m.Password) %>
                 </div>
-                <div class="editor-field">
+                <div class="editor-password">
                     <%: Html.PasswordFor(m => m.Password) %>
                     <%: Html.ValidationMessageFor(m => m.Password) %>
                 </div>
                 
-                <div class="editor-label">
+                <div class="editor-rememberMe">
                     <%: Html.CheckBoxFor(m => m.RememberMe) %>
                     <%: Html.LabelFor(m => m.RememberMe) %>
                 </div>

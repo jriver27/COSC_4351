@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1ADA403F-D178-4959-B4E0-931F61667B2A}</ProjectGuid>
+    <ProjectGuid>{9FA72E1B-00F5-40E7-9152-90471EBB53E3}</ProjectGuid>
     <ProjectTypeGuids>{F85E285D-A4E0-4152-9332-AB1D724D3325};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -14,6 +14,7 @@
     <AssemblyName>TEAM4OIES</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,15 +67,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestimonialsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterForm.aspx.cs">
+      <DependentUpon>RegisterForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.aspx.designer.cs">
+      <DependentUpon>RegisterForm.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="RegisterForm.aspx" />
+    <Content Include="Views\ContactUs\Create.aspx" />
+    <Content Include="Views\ContactUs\Delete.aspx" />
+    <Content Include="Views\ContactUs\Details.aspx" />
+    <Content Include="Views\ContactUs\Edit.aspx" />
+    <Content Include="Views\ContactUs\Index.aspx" />
+    <Content Include="Views\Home\ContactUs.aspx" />
+    <Content Include="Views\Home\TestimonialsSearch.aspx" />
+    <Content Include="Views\Testimonials\Create.aspx" />
+    <Content Include="Views\Testimonials\Delete.aspx" />
+    <Content Include="Views\Testimonials\Details.aspx" />
+    <Content Include="Views\Testimonials\Edit.aspx" />
+    <Content Include="Views\Testimonials\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -124,7 +147,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49328</DevelopmentServerPort>
+          <DevelopmentServerPort>1200</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
