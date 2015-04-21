@@ -5,10 +5,12 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Testimonials Page</h2>
+    <h2>Testimonials</h2>
+   <p>If you would like to add your testimonial, please click <a href="/Testimonials/Create">here!</a></p>
     <!DOCTYPE html>
    <html>
    <head>
+   
     <script language="JavaScript">
         var TRange = null;
 
@@ -47,6 +49,12 @@
             if (!strFound) alert("String '" + str + "' not found!")
             return;
         }
+
+        var newwindow;
+        function popUpWindow(url) {
+            newwindow = window.open(url, 'name', 'height=500,width=600');
+            if (window.focus) { newwindow.focus() }
+        }
     </script> 
     <iframe id="srchform2" 
  src="javascript:'<html><body style=margin:0px; ><form action=\'javascript:void();\' onSubmit=if(this.t1.value!=\'\')parent.findString(this.t1.value);return(false); ><input type=text id=t1 name=t1 value=Search... size=20><input type=submit name=b1 value=Search></form></body></html>'" 
@@ -56,15 +64,10 @@
 </tr>
    </head>
    <body>
-	<div class="well">
-		<h4><b>Jenny Johnson:</b></h4><center><p>This website is amazing!</p></center> 
-	</div>
-	<div class="well">
-		<h4><b>Al Albertson:</b></h4><center><p>I'm so glad there is an easy way to upload my EVAR data.</p></center> 
-	</div>
-	<div class="well">
-		<h4><b>Sebastian Smith:</b></h4><center><p>Analyzing data has never been so fun!</p></center> 
-	</div>   </body>
+  <p> Display testimonials here!</p>
+  
+   
+	   </body>
    </html>
 
 </asp:Content>

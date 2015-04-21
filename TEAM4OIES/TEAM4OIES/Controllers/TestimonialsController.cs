@@ -13,6 +13,9 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Index()
         {
+
+            TEAM4OIES.Models.TestimonialModels testimonials = new TEAM4OIES.Models.TestimonialModels();
+            testimonials.addToTestimonial(000001, "awesome site", 123456);
             return View();
         }
 
@@ -29,6 +32,7 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Create()
         {
+            
             return View();
         } 
 
