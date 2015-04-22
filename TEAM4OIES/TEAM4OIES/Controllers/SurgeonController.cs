@@ -18,8 +18,6 @@ namespace TEAM4OIES.Controllers
         {
             return View();
         }
-
-
         // This action handles the form POST and the upload
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
@@ -29,13 +27,15 @@ namespace TEAM4OIES.Controllers
             {
                 // extract only the fielname
                 var fileName = System.IO.Path.GetFileName(file.FileName);
+
                 // store the file inside ~/App_Data/uploads folder
-                var path = System.IO.Path.Combine(Server.MapPath("~/zip/"), fileName);
+                var path = System.IO.Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/"
+, fileName);
                 file.SaveAs(path);
             }
             // redirect back to the index action to show the form once again
-            return RedirectToAction("Surgeon");
+            return RedirectToAction("Index");
         }
-
     }
 }
+
