@@ -27,10 +27,6 @@ namespace TEAM4OIES.Controllers
             {
                 // extract only the fielname
                 var fileName = System.IO.Path.GetFileName(file.FileName);
-                if (fileName != null)
-                {
-
-                }
 
                 // store the file inside ~/App_Data/uploads folder
                 var path = System.IO.Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/"
@@ -40,5 +36,6 @@ namespace TEAM4OIES.Controllers
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
         }
-
+    }
 }
+
