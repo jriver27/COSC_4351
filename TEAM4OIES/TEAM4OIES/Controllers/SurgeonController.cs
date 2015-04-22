@@ -35,7 +35,8 @@ namespace TEAM4OIES.Controllers
                 }
 
                 // store the file inside ~/App_Data/uploads folder
-                var path = System.IO.Path.Combine(Server.MapPath("../zip/"), fileName);
+                var path = System.IO.Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/"
+, fileName);
                 file.SaveAs(path);
             }
             // redirect back to the index action to show the form once again
