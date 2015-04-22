@@ -18,8 +18,6 @@ namespace TEAM4OIES.Controllers
         {
             return View();
         }
-
-
         // This action handles the form POST and the upload
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
@@ -43,5 +41,4 @@ namespace TEAM4OIES.Controllers
             return RedirectToAction("Index");
         }
 
-    }
 }
