@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Reflection;
 using System.Diagnostics;
 
+
 namespace TEAM4OIES.Controllers
 {
     public class SurgeonController : Controller
@@ -17,37 +18,29 @@ namespace TEAM4OIES.Controllers
         {
             return View();
         }
-        public void RunDiccom()
+
+
+        // This action handles the form POST and the upload
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase file)
         {
-            System.Diagnostics.ProcessStartInfo processInfo;
-            System.Diagnostics.Process process;
+            // Verify that the user selected a file
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the fielname
+                var fileName = System.IO.Path.GetFileName(file.FileName);
+                if (fileName != null)
+                {
 
+                }
 
-            //string pathname = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
-            string pathname = @"C:\Users\Daniel\Desktop\GITHUB\COSC_4351\TEAM4OIES\TEAM4OIES\bin";
-            pathname += @"\DICCOMcleaner\DicomCleaner.bat";
-
-           // Process.Start(pathname);
-            processInfo = new System.Diagnostics.ProcessStartInfo(pathname);
-
-           // processInfo.RedirectStandardError = true;
-            //processInfo.RedirectStandardOutput = true;
-            //processInfo.UseShellExecute = false;
-           // processInfo.CreateNoWindow = true;
-           // processInfo.UseShellExecute = false;
-
-            process = Process.Start(processInfo);
-            //process.WaitForExit();
-
-
-           
-
-           // process = System.Diagnostics.Process.Start(processInfo);
-           // process.WaitForExit();
-
-
-
-
+                // store the file inside ~/App_Data/uploads folder
+                var path = System.IO.Path.Combine(Server.MapPath("../zip/"), fileName);
+                file.SaveAs(path);
+            }
+            // redirect back to the index action to show the form once again
+            return RedirectToAction("Index");
         }
+
     }
 }
