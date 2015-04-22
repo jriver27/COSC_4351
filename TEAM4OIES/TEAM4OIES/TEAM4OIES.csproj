@@ -130,6 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\DICCOMcleaner\" />
+    <Folder Include="zip\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSet1.xsc">
