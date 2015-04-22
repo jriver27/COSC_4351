@@ -7,21 +7,24 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Surgeon</h2>
+         
+        <div class="rightColumn">
+            <asp:Hyperlink id="AnonymizeLink" runat="server" 
+            NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleaner.html"
+            Text="To anonymize data click HERE" BackColor= "#CCFFCC" Font-Names="Aharoni" 
+                ForeColor="Black" /> <br /><br />
 
-    <p> To anonymize data click 
+            <asp:Hyperlink id="InstructionsLink" runat="server" 
+            NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleanerUsage.html"
+            Text="Instructions on how to use the anonymization tool can be found HERE" BackColor= "#CCFFCC" Font-Names="Aharoni" ForeColor="Black" />
+        
+         <%@ CodeBehind="Index.aspx.cs" Inherits="TEAM4OIES.Views.Surgeon.Index"{
+          ((SurgeonController)this.ViewContext.Controller).AddPatient()};%>
+        </div>
+        
+        <% Html.RenderPartial("~/Views/Surgeon/Patients.ascx");%>
 
-    <%:Html.ActionLink("Run DICCOM Cleaner", "RunDiccom", "Surgeon") %>
-
-        <asp:Hyperlink id="AnonymizeLink" runat="server" 
-        NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleaner.html"
-        Text="HERE" BackColor= "#0000FF" /> <br /><br />
-        Instructions on how to use the anonymization tool can be found 
-        <asp:Hyperlink id="InstructionsLink" runat="server" 
-        NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleanerUsage.html"
-        Text="HERE" BackColor= "#0000FF" />
-
-
-        Upload Anonymized zip </p>
+        <label>Upload Anonymized zip </label>
 
         
        <%  using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) %>
