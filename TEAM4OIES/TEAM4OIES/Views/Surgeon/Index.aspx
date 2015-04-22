@@ -20,5 +20,22 @@
         NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleanerUsage.html"
         Text="HERE" BackColor= "#0000FF" />
 
-        </p>
+
+        Upload Anonymized zip </p>
+
+        
+       <%  using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) %>
+<% { %>
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+<% } %>
+
 </asp:Content>
+
+
+
+
+
+
+
+
