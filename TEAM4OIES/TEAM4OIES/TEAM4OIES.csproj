@@ -91,9 +91,7 @@
     <Compile Include="TEAM4OIESDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    <Compile Include="RegisterForm.aspx.designer.cs">
-      <DependentUpon>RegisterForm.aspx</DependentUpon>
-    </Compile>
+    
       <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
