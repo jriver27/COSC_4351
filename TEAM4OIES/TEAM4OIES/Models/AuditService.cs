@@ -13,6 +13,29 @@ using System.Windows.Forms;
 
 namespace TEAM4OIES.Models
 {
+
+    public class Audit
+    {
+        public int AuditID { private set; get; }
+        public int UserID { private set; get; }
+        public String Username { private set; get; }
+        public DateTime Date { private set; get; }
+        public String Tablename { private set; get; }
+        public String Attribute { private set; get; }
+        public String Access { private set; get; }
+        public Audit(int AuditIDp, int userIDP, String usernamep, DateTime datep, String tablenamep, String attributep, String accessp)
+        {
+            AuditID = AuditIDp;
+            UserID = userIDP;
+            Username = usernamep;
+            Date = datep;
+            Tablename = tablenamep;
+            Attribute = attributep;
+            Access = accessp;
+        }
+
+    }
+
    
     public class AuditService 
     {
@@ -31,17 +54,7 @@ namespace TEAM4OIES.Models
             return getTable;
            
         }
-        public String DisplayRow(DataSet1.AuditDataTable data,int index)
-        {
-            String row =data[index].audit_id.ToString()+ " ";
-            row = row + data[index].UserID.ToString()+ " ";
-            row = row + data[index].username+ " ";
-            row = row + data[index].date.ToString()+ " ";
-            row = row + data[index].table_+ " ";
-            row = row + data[index].attribute+ " ";
-            row = row + data[index].access+ " ";
-            return row;
-        }
+       
         public List<Audit> GetAuditList(DataSet1.AuditDataTable data)
         {
             List<Audit> auditList = new List<Audit>();
@@ -49,6 +62,7 @@ namespace TEAM4OIES.Models
             {
                 Audit currentAudit = new Audit(data[x].audit_id, data[x].UserID, data[x].username, data[x].date, data[x].table_, data[x].attribute, data[x].access);
                 auditList.Add(currentAudit);
+                
             }
             return auditList;
         }
@@ -91,5 +105,6 @@ namespace TEAM4OIES.Models
         }
 
     }
+
    
 }
