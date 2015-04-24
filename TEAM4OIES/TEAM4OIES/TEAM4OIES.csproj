@@ -91,6 +91,9 @@
     <Compile Include="TEAM4OIESDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    <Compile Include="RegisterForm.aspx.designer.cs">
+      <DependentUpon>RegisterForm.aspx</DependentUpon>
+    </Compile>
       <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -105,7 +108,6 @@
     <Content Include="Views\ContactUs\Index.aspx" />
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
-    <Content Include="Views\Surgeon\Index.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />
     <Content Include="Views\Testimonials\Details.aspx" />
@@ -144,8 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\App_LocalResources\" />
-    <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
