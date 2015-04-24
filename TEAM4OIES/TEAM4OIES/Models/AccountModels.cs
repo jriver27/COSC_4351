@@ -7,9 +7,50 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+//using System.Data.EntityClient;
+//using System.Data.Objects;
+//using System.Data.Objects.DataClasses;
 
 namespace TEAM4OIES.Models
 {
+
+    //#region Contexts
+    //public partial class TEAM4OIESEntities : ObjectContext
+    //{
+    //    #region Constructors
+
+    //    /// <summary>
+    //    /// Initializes a new bowlingdatabaseEntities object using the connection string found in the 'bowlingdatabaseEntities' section of the application configuration file.
+    //    /// </summary>
+    //    public TEAM4OIESEntities()
+    //        : base("name=TEAM4OIESEntities", "TEAM4OIESEntities")
+    //    {
+    //        this.ContextOptions.LazyLoadingEnabled = true;
+    //        OnContextCreated();
+    //    }
+
+    //    /// <summary>
+    //    /// Initialize a new bowlingdatabaseEntities object.
+    //    /// </summary>
+    //    public TEAM4OIESEntities(string connectionString)
+    //        : base(connectionString, "TEAM4OEISEntities")
+    //    {
+    //        this.ContextOptions.LazyLoadingEnabled = true;
+    //        OnContextCreated();
+    //    }
+
+    //    /// <summary>
+    //    /// Initialize a new bowlingdatabaseEntities object.
+    //    /// </summary>
+    //    public TEAM4OIESEntities(EntityConnection connection)
+    //        : base(connection, "TEAM4Entities")
+    //    {
+    //        this.ContextOptions.LazyLoadingEnabled = true;
+    //        OnContextCreated();
+    //    }
+    //}
+
+    //#endregion
 
     #region Models
     [PropertiesMustMatch("NewPassword", "ConfirmPassword", ErrorMessage = "The new password and confirmation password do not match.")]
@@ -39,6 +80,10 @@ namespace TEAM4OIES.Models
         public string UserName { get; set; }
 
         [Required]
+        [DisplayName("Email")]
+        public string Email { get; set; }
+
+        [Required]
         [DataType(DataType.Password)]
         [DisplayName("Password")]
         public string Password { get; set; }
@@ -53,6 +98,18 @@ namespace TEAM4OIES.Models
         [Required]
         [DisplayName("User name")]
         public string UserName { get; set; }
+
+        [Required]
+        [DisplayName("First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [DisplayName("Last name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [DisplayName("Institution")]
+        public string Institution { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -183,8 +240,8 @@ namespace TEAM4OIES.Models
             // a full list of status codes.
             switch (createStatus)
             {
-                case MembershipCreateStatus.DuplicateUserName:
-                    return "Username already exists. Please enter a different user name.";
+                //case MembershipCreateStatus.DuplicateUserName:
+                //    return "Username already exists. Please enter a different user name.";
 
                 case MembershipCreateStatus.DuplicateEmail:
                     return "A username for that e-mail address already exists. Please enter a different e-mail address.";
