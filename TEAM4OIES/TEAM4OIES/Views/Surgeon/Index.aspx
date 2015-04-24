@@ -24,7 +24,7 @@
         
        <%  using (Html.BeginForm("Index", "Surgeon", FormMethod.Post, new { enctype = "multipart/form-data" })) %>
 <% { %>
-    <p style="font-size: large"> Choose Anonymized Zip File: 
+    <p style="font-size: large"> Choose Anonymized Zip File: </p>
     <input type="file" name="file" style="font-size: large" /> <br />
         Select OK when ready to upload: 
     <input type="submit" value="OK" style="font-size: large" /> <br />
