@@ -8,7 +8,7 @@
 
     <h2>Surgeon</h2>
 
-    <p> To anonymize data click 
+    <p style="font-size: large"> To anonymize data click 
 
         <asp:Hyperlink id="AnonymizeLink" runat="server" 
         NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleaner.html"
@@ -18,5 +18,24 @@
         NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleanerUsage.html"
         Text="HERE" BackColor= "#0000FF" />
 
-        </p>
+        <br /><br />
+        Upload Anonymized ZIP Below:</p> <br />
+
+        
+       <%  using (Html.BeginForm("Index", "Surgeon", FormMethod.Post, new { enctype = "multipart/form-data" })) %>
+<% { %>
+    <p style="font-size: large"> Choose Anonymized Zip File: 
+    <input type="file" name="file" style="font-size: large" /> <br />
+        Select OK when ready to upload: 
+    <input type="submit" value="OK" style="font-size: large" /> <br />
+<% } %>
+
 </asp:Content>
+
+
+
+
+
+
+
+
