@@ -71,6 +71,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurgeonController.cs" />
     <Compile Include="Controllers\TestimonialsController.cs" />
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,7 +84,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\InstitutionModels.cs" />
+    <Compile Include="Models\SurgeonModels.cs" />
     <Compile Include="Models\TestimonialModels.cs" />
+    <Compile Include="Models\Testimonials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +105,7 @@
     <Content Include="Views\Testimonials\Details.aspx" />
     <Content Include="Views\Testimonials\Edit.aspx" />
     <Content Include="Views\Testimonials\Index.aspx" />
+    <Content Include="Views\Testimonials\Search.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

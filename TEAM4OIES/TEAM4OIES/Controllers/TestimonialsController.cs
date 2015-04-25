@@ -10,13 +10,20 @@ namespace TEAM4OIES.Controllers
     {
         //
         // GET: /Testimonials/
-
         public ActionResult Index()
         {
 
-            TEAM4OIES.Models.TestimonialModels testimonials = new TEAM4OIES.Models.TestimonialModels();
-            testimonials.addToTestimonial(000001, "awesome site", 123456);
-            return View();
+            //TEAM4OIES.Models.InstitutionModels institutions = new TEAM4OIES.Models.InstitutionModels();
+            //institutions.addToInstitution(000002, "123 Hospital");
+            //TEAM4OIES.Models.SurgeonModels surgeon = new TEAM4OIES.Models.SurgeonModels();
+            //surgeon.addToSurgeon(1, 2, "John", "Smith", "jsmith", "1", "jsmith@uh.edu", 000002, true, true);
+            //TEAM4OIES.Models.TestimonialModels testimonials = new TEAM4OIES.Models.TestimonialModels();
+            //testimonials.addToTestimonial(000002, "excellent product!", 2);
+            //TEAM4OIES.Models.TestimonialModels displayTestimonials = new TEAM4OIES.Models.TestimonialModels();
+            //displayTestimonials.showTestimonial();
+            TEAM4OIES.Models.TestimonialModels displayTestimonials = new TEAM4OIES.Models.TestimonialModels();
+            ViewData["testimonials"] = displayTestimonials.displaySurgeonName();
+            return View("Index");
         }
 
         //
@@ -32,20 +39,25 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Create()
         {
-            
-            return View();
-        } 
+            return View("Create");
+        }
 
-        //
-        // POST: /Testimonials/Create
+        [HttpPost] //form action="/Testimonials"
+        public ActionResult Index (FormCollection collection)
+        {
+
+            TEAM4OIES.Models.TestimonialModels testimonials = new TEAM4OIES.Models.TestimonialModels();
+            String comment = Request.Form["comments"];
+            testimonials.addToTestimonial(000003, comment, 3);
+
+            return View("Index");
+        }
 
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
-
                 return RedirectToAction("Index");
             }
             catch
@@ -53,7 +65,25 @@ namespace TEAM4OIES.Controllers
                 return View();
             }
         }
-        
+
+        public ActionResult Search()
+        {
+
+            return View("Search");
+        }
+
+        [HttpPost]
+        public ActionResult Search(FormCollection form)
+        {
+            TEAM4OIES.Models.TestimonialModels search = new TEAM4OIES.Models.TestimonialModels();
+
+            String keyword = Request.Form["searchText"];
+
+            ViewData["search"] =search.getTestimonial(keyword);
+         
+            return View();
+
+        }
         //
         // GET: /Testimonials/Edit/5
  

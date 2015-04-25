@@ -10,63 +10,55 @@
     <!DOCTYPE html>
    <html>
    <head>
-   
-    <script language="JavaScript">
-        var TRange = null;
+    <form action="/Testimonials/Search" method="post">
+    <input type="search" name="searchText" value="Search testimonials..." style="width: 200px"/>
+    <input type="submit" name="searchButton" value="Search" />
+    </form><br />
 
-        function findString(str) {
-            if (parseInt(navigator.appVersion) < 4) return;
-            var strFound;
-            if (window.find) {
-
-                // CODE FOR BROWSERS THAT SUPPORT window.find
-
-                strFound = self.find(str);
-                if (!strFound) {
-                    strFound = self.find(str, 0, 1);
-                    while (self.find(str, 0, 1)) continue;
-                }
-            }
-            else if (navigator.appName.indexOf("Microsoft") != -1) {
-
-                // EXPLORER-SPECIFIC CODE
-
-                if (TRange != null) {
-                    TRange.collapse(false);
-                    strFound = TRange.findText(str);
-                    if (strFound) TRange.select();
-                }
-                if (TRange == null || strFound == 0) {
-                    TRange = self.document.body.createTextRange();
-                    strFound = TRange.findText(str);
-                    if (strFound) TRange.select();
-                }
-            }
-            else if (navigator.appName == "Opera") {
-                alert("Opera browsers not supported, sorry...")
-                return;
-            }
-            if (!strFound) alert("String '" + str + "' not found!")
-            return;
-        }
-
-        var newwindow;
-        function popUpWindow(url) {
-            newwindow = window.open(url, 'name', 'height=500,width=600');
-            if (window.focus) { newwindow.focus() }
-        }
-    </script> 
-    <iframe id="srchform2" 
- src="javascript:'<html><body style=margin:0px; ><form action=\'javascript:void();\' onSubmit=if(this.t1.value!=\'\')parent.findString(this.t1.value);return(false); ><input type=text id=t1 name=t1 value=Search... size=20><input type=submit name=b1 value=Search></form></body></html>'" 
- width=350 height=34 border=0 frameborder=0 scrolling=no>
-</iframe>
 </td><td valign=top width=99 style="padding-top:3px;"><g:plusone size="medium"></g:plusone></td>
 </tr>
    </head>
    <body>
-  <p> Display testimonials here!</p>
-  
-   
+ 
+<table>
+<tr>
+    <%--<th>
+        Testimonial ID
+    </th>--%>
+    <th>
+        First Name
+    </th>
+    <th>
+        Last Name
+    </th>
+    <th>
+        Comments
+    </th>
+    <th>
+        Date
+    </th>
+</tr>
+<%foreach (var currentTest in (ViewData["testimonials"] as IEnumerable<TEAM4OIES.Models.Testimonials>)) 
+  {%>
+  <tr>
+    <td>
+       <% =currentTest.firstName %>
+    </td>
+    <td>
+       <% =currentTest.lastName %>
+    </td>
+    <td>
+        <% =currentTest.content %>
+    </td>
+    <td>
+        <% =currentTest.tDate %>
+    </td>
+
+</tr>
+<%} %>
+</table>
+
+
 	   </body>
    </html>
 
