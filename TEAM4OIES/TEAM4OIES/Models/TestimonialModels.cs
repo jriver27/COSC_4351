@@ -22,7 +22,7 @@ namespace TEAM4OIES.Models
             
             DateTime date = DateTime.Now;
             DataSet1TableAdapters.TestimonialTableAdapter testimonialRowAdapter = new DataSet1TableAdapters.TestimonialTableAdapter();
-            testimonialRowAdapter.InsertQuery(testimonial_ID, content, date, surgeon_ID);
+            testimonialRowAdapter.InsertQuery(content, date, surgeon_ID);
             return true;
         }
 

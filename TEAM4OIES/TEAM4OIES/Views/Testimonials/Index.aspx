@@ -8,8 +8,7 @@
     <h2>Testimonials</h2>
    <p>If you would like to add your testimonial, please click <a href="/Testimonials/Create">here!</a></p>
     <!DOCTYPE html>
-   <html>
-   <head>
+  
     <form action="/Testimonials/Search" method="post">
     <input type="search" name="searchText" value="Search testimonials..." style="width: 200px"/>
     <input type="submit" name="searchButton" value="Search" />
@@ -17,8 +16,7 @@
 
 </td><td valign=top width=99 style="padding-top:3px;"><g:plusone size="medium"></g:plusone></td>
 </tr>
-   </head>
-   <body>
+   
  
 <table>
 <tr>

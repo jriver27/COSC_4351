@@ -8394,10 +8394,12 @@ namespace TEAM4OIES.DataSet1TableAdapters {
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@keyword", global::System.Data.SqlDbType.VarChar, 120, global::System.Data.ParameterDirection.Input, 0, 0, "content", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"INSERT INTO [TEAM4OIES].[Surgeon] ([userType], [surgeonID], [firstName], [lastName], [username], [password], [email], [institution_id], [online], [active]) VALUES (@userType, @surgeonID, @firstName, @lastName, @username, @password, @email, @institution_id, @online, @active)";
+            this._commandCollection[3].CommandText = "INSERT INTO [TEAM4OIES].[Surgeon] ([userType], [firstName], [lastName], [username" +
+                "], [password], [email], [institution_id], [online], [active]) VALUES (@userType," +
+                "@firstName, @lastName, @username, @password, @email, @institution_id, @online, @" +
+                "active)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@surgeonID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "surgeonID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@firstName", global::System.Data.SqlDbType.VarChar, 45, global::System.Data.ParameterDirection.Input, 0, 0, "firstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@lastName", global::System.Data.SqlDbType.VarChar, 45, global::System.Data.ParameterDirection.Input, 0, 0, "lastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 45, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -8678,48 +8680,47 @@ namespace TEAM4OIES.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(int userType, int surgeonID, string firstName, string lastName, string username, string password, string email, global::System.Nullable<int> institution_id, bool online, bool active) {
+        public virtual int InsertQuery(int userType, string firstName, string lastName, string username, string password, string email, global::System.Nullable<int> institution_id, bool online, bool active) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((int)(userType));
-            command.Parameters[1].Value = ((int)(surgeonID));
             if ((firstName == null)) {
                 throw new global::System.ArgumentNullException("firstName");
             }
             else {
-                command.Parameters[2].Value = ((string)(firstName));
+                command.Parameters[1].Value = ((string)(firstName));
             }
             if ((lastName == null)) {
                 throw new global::System.ArgumentNullException("lastName");
             }
             else {
-                command.Parameters[3].Value = ((string)(lastName));
+                command.Parameters[2].Value = ((string)(lastName));
             }
             if ((username == null)) {
                 throw new global::System.ArgumentNullException("username");
             }
             else {
-                command.Parameters[4].Value = ((string)(username));
+                command.Parameters[3].Value = ((string)(username));
             }
             if ((password == null)) {
                 throw new global::System.ArgumentNullException("password");
             }
             else {
-                command.Parameters[5].Value = ((string)(password));
+                command.Parameters[4].Value = ((string)(password));
             }
             if ((email == null)) {
                 throw new global::System.ArgumentNullException("email");
             }
             else {
-                command.Parameters[6].Value = ((string)(email));
+                command.Parameters[5].Value = ((string)(email));
             }
             if ((institution_id.HasValue == true)) {
-                command.Parameters[7].Value = ((int)(institution_id.Value));
+                command.Parameters[6].Value = ((int)(institution_id.Value));
             }
             else {
-                command.Parameters[7].Value = global::System.DBNull.Value;
+                command.Parameters[6].Value = global::System.DBNull.Value;
             }
-            command.Parameters[8].Value = ((bool)(online));
-            command.Parameters[9].Value = ((bool)(active));
+            command.Parameters[7].Value = ((bool)(online));
+            command.Parameters[8].Value = ((bool)(active));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -8925,10 +8926,9 @@ namespace TEAM4OIES.DataSet1TableAdapters {
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@keyword", global::System.Data.SqlDbType.VarChar, 120, global::System.Data.ParameterDirection.Input, 0, 0, "content", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "INSERT INTO [TEAM4OIES].[Testimonial] ([TestimonialID], [content], [tDate], [surg" +
-                "eonID]) VALUES (@TestimonialID, @content, @tDate, @surgeonID)";
+            this._commandCollection[4].CommandText = "INSERT INTO Testimonial\r\n                         ([content], tDate, surgeonID, T" +
+                "estimonialID)\r\nVALUES        (@content,@tDate,@surgeonID,)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TestimonialID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TestimonialID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@content", global::System.Data.SqlDbType.VarChar, 120, global::System.Data.ParameterDirection.Input, 0, 0, "content", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@surgeonID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "surgeonID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9166,17 +9166,16 @@ namespace TEAM4OIES.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(int TestimonialID, string content, System.DateTime tDate, int surgeonID) {
+        public virtual int InsertQuery(string content, System.DateTime tDate, int surgeonID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
-            command.Parameters[0].Value = ((int)(TestimonialID));
             if ((content == null)) {
                 throw new global::System.ArgumentNullException("content");
             }
             else {
-                command.Parameters[1].Value = ((string)(content));
+                command.Parameters[0].Value = ((string)(content));
             }
-            command.Parameters[2].Value = ((System.DateTime)(tDate));
-            command.Parameters[3].Value = ((int)(surgeonID));
+            command.Parameters[1].Value = ((System.DateTime)(tDate));
+            command.Parameters[2].Value = ((int)(surgeonID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
