@@ -30,6 +30,11 @@ namespace TEAM4OIES.Controllers
             return View("Create");
         }
 
+        //Name of Code Artifact:Create
+        //Programmer's Name:Linh Tong
+        //Date it was coded: 04/25/2014
+        //Date Approved:
+        //SQA Approver:
         [HttpPost]//form action="/Testimonials/Create"
         public ActionResult Create(FormCollection form)
         {
@@ -54,6 +59,11 @@ namespace TEAM4OIES.Controllers
             return View("Search");
         }
 
+        //Name of Code Artifact:Search
+        //Programmer's Name:Linh Tong
+        //Date it was coded: 04/25/2014
+        //Date Approved:
+        //SQA Approver:
         [HttpPost]
         public ActionResult Search(FormCollection form)
         {

@@ -14,9 +14,11 @@ namespace TEAM4OIES.Models
 {
     public class TestimonialModels
     {
-        //
-        // GET: /TestimonialModels/
-
+        //Name of Code Artifact:addToTestimonial
+        //Programmer's Name:Linh Tong
+        //Date it was coded: 04/25/2014
+        //Date Approved:
+        //SQA Approver:
         public Boolean addToTestimonial(String content, int surgeon_ID)
         {
             string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
