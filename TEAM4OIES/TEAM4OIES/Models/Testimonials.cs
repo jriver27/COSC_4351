@@ -20,5 +20,12 @@ namespace TEAM4OIES.Models
             tDate = tDate_;
             lastName = lastName_;
         }
+        public Testimonials()
+        {
+           tDate= new DateTime();
+            content=" ";
+            firstName=" ";
+            lastName=" ";
+        }
     }
 }

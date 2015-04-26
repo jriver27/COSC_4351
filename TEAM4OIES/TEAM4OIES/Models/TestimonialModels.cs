@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Data.SqlClient;
 using System.Data;
-
+using System.Data.Entity;
 namespace TEAM4OIES.Models
 {
     public class TestimonialModels
@@ -17,7 +17,7 @@ namespace TEAM4OIES.Models
         //
         // GET: /TestimonialModels/
 
-        public Boolean addToTestimonial(int testimonial_ID, String content, int surgeon_ID)
+        public Boolean addToTestimonial(String content, int surgeon_ID)
         {
             
             DateTime date = DateTime.Now;
@@ -26,21 +26,25 @@ namespace TEAM4OIES.Models
             return true;
         }
 
-        public List<Testimonials> displaySurgeonName()
+       public object displaySurgeonName()
         {
-            List<Testimonials> testimonialsList = new List<Testimonials>();
-            DataSet1TableAdapters.TestimonialTableAdapter testNameAdapter = new DataSet1TableAdapters.TestimonialTableAdapter();
-            DataSet1.TestimonialDataTable testSurgeonTable;
-            DataSet1TableAdapters.SurgeonTableAdapter surgeonNameAdapter = new DataSet1TableAdapters.SurgeonTableAdapter();
-            DataSet1.SurgeonDataTable getSurgeonTable;
-            testSurgeonTable = testNameAdapter.GetDataBy1();            
-            getSurgeonTable = surgeonNameAdapter.GetDataBy1(); //surgeonID is a primary key
-            for (int i = 0; i < getSurgeonTable.Count; i++)
-            {
-                Testimonials currentTest = new Testimonials(testSurgeonTable[i].content, testSurgeonTable[i].tDate, getSurgeonTable[i].firstName, getSurgeonTable[i].lastName);
-                testimonialsList.Add(currentTest);
-            }
-            return testimonialsList;
+          
+            List<Testimonials> testList = new List<Testimonials>();
+            Testimonials currTestimmonial = new Testimonials();
+            DataClasses1DataContext db =new DataClasses1DataContext();
+            var testList2 = from currTest in db.Testimonials
+                            join currSurgeon in db.Surgeons
+                            on currTest.surgeonID equals currSurgeon.surgeonID
+                            select new
+                            {
+                                currTest.tDate,
+                                currTest.content,
+                                currSurgeon.firstName,
+                                currSurgeon.lastName,
+                            };
+            
+            return testList2;
+             
         }
 
         public DataSet1.TestimonialDataTable GetTable()

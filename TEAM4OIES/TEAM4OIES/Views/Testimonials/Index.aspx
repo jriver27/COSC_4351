@@ -36,20 +36,20 @@
         Date
     </th>
 </tr>
-<%foreach (var currentTest in (ViewData["testimonials"] as IEnumerable<TEAM4OIES.Models.Testimonials>)) 
+<%foreach (var currentTest in (ViewData["testimonials"] as IEnumerable<object>)) 
   {%>
   <tr>
     <td>
-       <% =currentTest.firstName %>
+       <% =currentTest.ToString()%>
     </td>
     <td>
-       <% =currentTest.lastName %>
+       
     </td>
     <td>
-        <% =currentTest.content %>
+      
     </td>
     <td>
-        <% =currentTest.tDate %>
+       
     </td>
 
 </tr>
@@ -57,7 +57,5 @@
 </table>
 
 
-	   </body>
-   </html>
-
+	  
 </asp:Content>

@@ -23,7 +23,7 @@ namespace TEAM4OIES.Controllers
             //displayTestimonials.showTestimonial();
             TEAM4OIES.Models.TestimonialModels displayTestimonials = new TEAM4OIES.Models.TestimonialModels();
             ViewData["testimonials"] = displayTestimonials.displaySurgeonName();
-            return View("Index");
+            return View();
         }
 
         //
@@ -48,7 +48,7 @@ namespace TEAM4OIES.Controllers
 
             TEAM4OIES.Models.TestimonialModels testimonials = new TEAM4OIES.Models.TestimonialModels();
             String comment = Request.Form["comments"];
-            testimonials.addToTestimonial(000003, comment, 3);
+            testimonials.addToTestimonial(comment, 2);
 
             return View("Index");
         }

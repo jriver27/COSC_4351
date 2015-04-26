@@ -37,6 +37,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -71,6 +73,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurgeonController.cs" />
     <Compile Include="Controllers\TestimonialsController.cs" />
+    <Compile Include="DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -143,6 +150,11 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -153,6 +165,14 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -170,7 +190,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1200</DevelopmentServerPort>
+          <DevelopmentServerPort>63821</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
