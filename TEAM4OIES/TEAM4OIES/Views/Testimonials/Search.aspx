@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<TEAM4OIES.Models.Testimonials>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Search
@@ -14,12 +14,13 @@
 </tr>
    </head>
    <body>
- <br />
+
 <table>
+   <col width="130" />
+   <col width="130" />
+   <col width="250" />
+   <col width="200" />
 <tr>
-    <%--<th>
-        Testimonial ID
-    </th>--%>
     <th>
         First Name
     </th>
@@ -33,7 +34,7 @@
         Date
     </th>
 </tr>
-<%foreach (var keywordTest in (ViewData["search"] as IEnumerable<TEAM4OIES.Models.Testimonials>)) 
+<%foreach (var keywordTest in Model)
   {%>
   <tr>
     <td>
@@ -51,8 +52,11 @@
 
 </tr>
 <%} %>
-</table>
 
+</table><br />
+<form action="../Testimonials">
+<input type="submit" value="Go Back">
+</form>
 
 	   </body>
    </html>
