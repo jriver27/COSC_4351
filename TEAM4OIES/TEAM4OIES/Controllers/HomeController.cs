@@ -12,6 +12,7 @@ namespace TEAM4OIES.Controllers
         public ActionResult Index()
         {
             ViewData["Message"] = "TEAM4OIES";
+          
 
             return View();
         }
