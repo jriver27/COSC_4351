@@ -12,17 +12,8 @@ namespace TEAM4OIES.Controllers
         // GET: /Testimonials/
         public ActionResult Index()
         {
-
-            //TEAM4OIES.Models.InstitutionModels institutions = new TEAM4OIES.Models.InstitutionModels();
-            //institutions.addToInstitution(000002, "123 Hospital");
-            //TEAM4OIES.Models.SurgeonModels surgeon = new TEAM4OIES.Models.SurgeonModels();
-            //surgeon.addToSurgeon(1, 2, "John", "Smith", "jsmith", "1", "jsmith@uh.edu", 000002, true, true);
-            //TEAM4OIES.Models.TestimonialModels testimonials = new TEAM4OIES.Models.TestimonialModels();
-            //testimonials.addToTestimonial(000002, "excellent product!", 2);
-            //TEAM4OIES.Models.TestimonialModels displayTestimonials = new TEAM4OIES.Models.TestimonialModels();
-            //displayTestimonials.showTestimonial();
             TEAM4OIES.Models.TestimonialModels displayTestimonials = new TEAM4OIES.Models.TestimonialModels();
-            ViewData["testimonials"] = displayTestimonials.displaySurgeonName();
+            ViewData["testimonials"] = displayTestimonials.DisplaySurgeonName();
             return View();
         }
 
@@ -48,7 +39,7 @@ namespace TEAM4OIES.Controllers
 
             TEAM4OIES.Models.TestimonialModels testimonials = new TEAM4OIES.Models.TestimonialModels();
             String comment = Request.Form["comments"];
-            testimonials.addToTestimonial(comment, 2);
+            testimonials.AddToTestimonial(comment, 2);
 
             return View("Index");
         }
@@ -79,7 +70,7 @@ namespace TEAM4OIES.Controllers
 
             String keyword = Request.Form["searchText"];
 
-            ViewData["search"] =search.getTestimonial(keyword);
+            ViewData["search"] =search.GetTestimonial(keyword);
          
             return View();
 

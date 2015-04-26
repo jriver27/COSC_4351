@@ -7,7 +7,7 @@ namespace TEAM4OIES.Models
 {
     public class InstitutionModels
     {
-        public Boolean addToInstitution(int institutionID, String institution)
+        public Boolean addToInstitution(String institution)
         {
             DataSet1TableAdapters.InstitutionTableAdapter institutionRowAdapter = new DataSet1TableAdapters.InstitutionTableAdapter();
             institutionRowAdapter.InsertQuery(institution);

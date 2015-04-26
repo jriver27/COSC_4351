@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using TEAM4OIES;
+using TEAM4OIES.DataSet1TableAdapters;
+
 #pragma warning disable 1591
 
 namespace TEAM4OIES {
@@ -9038,7 +9041,7 @@ namespace TEAM4OIES.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.TestimonialDataTable dataTable) {
+        public virtual int Fill(TEAM4OIES.DataSet1.TestimonialDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -10314,6 +10317,5 @@ namespace TEAM4OIES.DataSet1TableAdapters {
             }
         }
     }
-}
 
 #pragma warning restore 1591
