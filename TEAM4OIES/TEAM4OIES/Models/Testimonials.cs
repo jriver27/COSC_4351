@@ -7,6 +7,10 @@ namespace TEAM4OIES.Models
 {
     public class Testimonials
     {
+        public String content { set; get; }
+        public String tDate{ set; get; }
+        public String firstName { set; get; }
+        public String lastName { set; get; }  
         //public int testimonialID { private set; get; }
         public String content { private set; get; }
         public DateTime tDate{ private set; get; }
@@ -28,4 +32,5 @@ namespace TEAM4OIES.Models
             lastName=" ";
         }
     }
+
 }

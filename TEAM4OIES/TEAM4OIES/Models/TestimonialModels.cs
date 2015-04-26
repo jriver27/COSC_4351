@@ -19,57 +19,49 @@ namespace TEAM4OIES.Models
 
         public Boolean addToTestimonial(String content, int surgeon_ID)
         {
-            
-            DateTime date = DateTime.Now;
-            DataSet1TableAdapters.TestimonialTableAdapter testimonialRowAdapter = new DataSet1TableAdapters.TestimonialTableAdapter();
+            string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
+                using (SqlConnection cnn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        cnn.Open();
+                        SqlCommand insertTest = new SqlCommand("INSERT INTO Testimonial (content, tDate, surgeonID) VALUES(@content, @tDate, @surgeonID);", cnn);
+                        DateTime date = DateTime.Now;
+                        insertTest.Parameters.AddWithValue("@tDate", date);
             testimonialRowAdapter.InsertQuery(content, date, surgeon_ID);
-            return true;
-        }
+                        insertTest.Parameters.AddWithValue("@surgeonID", surgeon_ID);
 
-       public object displaySurgeonName()
-        {
-          
-            List<Testimonials> testList = new List<Testimonials>();
-            Testimonials currTestimmonial = new Testimonials();
-            DataClasses1DataContext db =new DataClasses1DataContext();
-            var testList2 = from currTest in db.Testimonials
-                            join currSurgeon in db.Surgeons
-                            on currTest.surgeonID equals currSurgeon.surgeonID
-                            select new
-                            {
-                                currTest.tDate,
-                                currTest.content,
-                                currSurgeon.firstName,
-                                currSurgeon.lastName,
+                        insertTest.ExecuteNonQuery();
+                        insertTest.Parameters.Clear();
+                        cnn.Close();
+                        return true;
+                    }
+                    catch (Exception e)
+        public List<Testimonials> displaySurgeonName()
+            List<Testimonials> testimonialsList = new List<Testimonials>();
+            DataSet1TableAdapters.TestimonialTableAdapter testNameAdapter = new DataSet1TableAdapters.TestimonialTableAdapter();
+            DataSet1.TestimonialDataTable testSurgeonTable;
+            DataSet1TableAdapters.SurgeonTableAdapter surgeonNameAdapter = new DataSet1TableAdapters.SurgeonTableAdapter();
+            DataSet1.SurgeonDataTable getSurgeonTable;
+            testSurgeonTable = testNameAdapter.GetDataBy1();            
+            getSurgeonTable = surgeonNameAdapter.GetDataBy1(); //surgeonID is a primary key
+            for (int i = 0; i < getSurgeonTable.Count; i++)
+            {
+                Testimonials currentTest = new Testimonials(testSurgeonTable[i].content, testSurgeonTable[i].tDate, getSurgeonTable[i].firstName, getSurgeonTable[i].lastName);
+                testimonialsList.Add(currentTest);
+            }
+            return testimonialsList;
                             };
             
             return testList2;
              
+                    }
+                    finally
+                    {
+                        cnn.Close();
+                    }
+                }
+                return false;
         }
-
-        public DataSet1.TestimonialDataTable GetTable()
-        {
-            DataSet1TableAdapters.TestimonialTableAdapter testRowAdapter = new DataSet1TableAdapters.TestimonialTableAdapter();
-            DataSet1.TestimonialDataTable getTable;
-            getTable = testRowAdapter.GetData();
-            return getTable;
-        }
-
-        public List<Testimonials> getTestimonial(String keyword)
-        {
-            List<Testimonials> testimonialsList = new List<Testimonials>();
-            DataSet1TableAdapters.TestimonialTableAdapter testRowAdapter = new DataSet1TableAdapters.TestimonialTableAdapter();
-            DataSet1.TestimonialDataTable getTable;
-            DataSet1TableAdapters.SurgeonTableAdapter surgeonNameAdapter = new DataSet1TableAdapters.SurgeonTableAdapter();
-            DataSet1.SurgeonDataTable getSurgeonTable;
-            getTable = testRowAdapter.GetDataBy3(keyword);
-            getSurgeonTable = surgeonNameAdapter.GetDataBy3(keyword); //surgeonID is a primary key
-            for (int i = 0; i < getSurgeonTable.Count; i++)
-            {
-                Testimonials keywordTest = new Testimonials(getTable[i].content, getTable[i].tDate, getSurgeonTable[i].firstName, getSurgeonTable[i].lastName);
-                testimonialsList.Add(keywordTest);
-            }
-            return testimonialsList;
-        }
-     }
+   }
 }

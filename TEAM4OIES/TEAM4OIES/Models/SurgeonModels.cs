@@ -7,7 +7,7 @@ namespace TEAM4OIES.Models
 {
     public class SurgeonModels
     {
-        public Boolean addToSurgeon (int userType, int surgeonID, 
+        public Boolean addToSurgeon (int userType, 
             String firstName, String lastName, String userName, 
             String password, String email,
             int institutionID, Boolean online, Boolean active)

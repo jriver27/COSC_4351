@@ -6715,8 +6715,8 @@ namespace TEAM4OIES.DataSet1TableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "INSERT INTO Institution\r\n                         (institution)\r\nVALUES        (@" +
-                "institution)";
+            this._commandCollection[1].CommandText = "INSERT INTO [TEAM4OIES].[Institution] ([institution_id], [institution]) VALUES (@" +
+                "institution_id, @institution)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@institution", global::System.Data.SqlDbType.VarChar, 45, global::System.Data.ParameterDirection.Input, 0, 0, "institution", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -9023,14 +9023,15 @@ namespace TEAM4OIES.DataSet1TableAdapters {
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT * FROM TEAM4OIES.Testimonial, TEAM4OIES.Surgeon WHERE Testimonial.content " +
-                "LIKE \'%\' + @keyword + \'%\' AND Testimonial.surgeonID=Surgeon.surgeonID";
+            this._commandCollection[3].CommandText = "SELECT Surgeon.firstName, Surgeon.lastName, Testimonial.content, Testimonial.tDat" +
+                "e  FROM TEAM4OIES.Testimonial, TEAM4OIES.Surgeon WHERE Testimonial.content LIKE " +
+                "\'%\' + @keyword + \'%\' AND Testimonial.surgeonID=Surgeon.surgeonID";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@keyword", global::System.Data.SqlDbType.VarChar, 120, global::System.Data.ParameterDirection.Input, 0, 0, "content", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "INSERT INTO [TEAM4OIES].[Testimonial] ([content], [tDate], [surgeonID]) VALUES (@" +
-                "content, @tDate, @surgeonID);\r\n";
+                "eonID]) VALUES (@TestimonialID, @content, @tDate, @surgeonID)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@content", global::System.Data.SqlDbType.VarChar, 120, global::System.Data.ParameterDirection.Input, 0, 0, "content", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "tDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
