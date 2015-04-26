@@ -18,6 +18,8 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Index()
         {
+            
+
             return View();
         }
         // This action handles the form POST and the upload
