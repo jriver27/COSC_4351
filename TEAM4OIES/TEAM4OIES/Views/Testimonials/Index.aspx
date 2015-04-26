@@ -7,10 +7,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Testimonials</h2>
     <!DOCTYPE html>
-  
+   <html>
+   <head>
 </td><td valign=top width=99 style="padding-top:3px;"><g:plusone size="medium"></g:plusone></td>
 </tr>
-   
+   </head>
+   <body>
     <label>Search Testimonials:</label><br />
     <p><form action="/Testimonials/Search" method="post">
     <input type="search" name="searchText" value="" style="width: 200px"/>
@@ -19,11 +21,6 @@
     
     <label>Add Testimonials:</label><br />
     <form action="/Testimonials/Create" name="add" method="post" runat="server" id="testimonial">
-<%foreach (var currentTest in (ViewData["testimonials"] as IEnumerable<TEAM4OIES.Models.Testimonials>)) 
-       <% =currentTest.firstName %>
-       <% =currentTest.lastName %>
-        <% =currentTest.content %>
-        <% =currentTest.tDate %>
 
    <p>
    <div class="editor-label">Comments:</div>
@@ -36,6 +33,7 @@
     <input type="submit" id="buttonTest" name="buttonTest" runat="server" value="Submit"/></p>
     </form>  
 
-	   </body>
-	  
+    </body>
+   </html>
+
 </asp:Content>

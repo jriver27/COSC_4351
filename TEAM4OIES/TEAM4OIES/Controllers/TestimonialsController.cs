@@ -14,8 +14,7 @@ namespace TEAM4OIES.Controllers
         // GET: /Testimonials/
         public ActionResult Index()
         {
-            ViewData["testimonials"] = displayTestimonials.DisplaySurgeonName();
-            return View();
+            return View("Index");
         }
 
         [HttpPost] //form action="/Testimonials"
@@ -36,7 +35,7 @@ namespace TEAM4OIES.Controllers
         {
             TEAM4OIES.Models.TestimonialModels testimonials = new TEAM4OIES.Models.TestimonialModels();
             String comment = Request.Form["comments"];
-            testimonials.AddToTestimonial(comment, 2);
+            testimonials.addToTestimonial(comment, 3);
             List<Testimonials> createTestList = new List<Testimonials>();
             DataSet ds = new DataSet();
             SqlConnection con = new SqlConnection("Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#");
@@ -48,7 +47,7 @@ namespace TEAM4OIES.Controllers
             }
 
             return View(createTestList);
-        }     
+        }
 
         public ActionResult Search()
         {
@@ -66,10 +65,10 @@ namespace TEAM4OIES.Controllers
             da.Fill(ds);
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                testimonialsList.Add(new Testimonials() { firstName = dr[0].ToString(), lastName = dr[1].ToString(), content = dr[2].ToString(), tDate = dr[3].ToString()});
+                testimonialsList.Add(new Testimonials() { firstName = dr[0].ToString(), lastName = dr[1].ToString(), content = dr[2].ToString(), tDate = dr[3].ToString() });
             }
 
-            ViewData["search"] =search.GetTestimonial(keyword);
+            return View(testimonialsList);
         }
 
         //
@@ -81,7 +80,7 @@ namespace TEAM4OIES.Controllers
         }
         //
         // GET: /Testimonials/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             return View();
@@ -96,7 +95,7 @@ namespace TEAM4OIES.Controllers
             try
             {
                 // TODO: Add update logic here
- 
+
                 return RedirectToAction("Index");
             }
             catch
@@ -107,7 +106,7 @@ namespace TEAM4OIES.Controllers
 
         //
         // GET: /Testimonials/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
             return View();
@@ -122,7 +121,7 @@ namespace TEAM4OIES.Controllers
             try
             {
                 // TODO: Add delete logic here
- 
+
                 return RedirectToAction("Index");
             }
             catch

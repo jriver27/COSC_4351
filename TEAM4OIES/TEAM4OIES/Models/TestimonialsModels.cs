@@ -1,5 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Security;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace TEAM4OIES.Models
 {
@@ -8,9 +17,9 @@ namespace TEAM4OIES.Models
         //
         // GET: /TestimonialModels/
 
-        public Boolean AddToTestimonial(String content, int surgeonId)
+        public Boolean addToTestimonial(String content, int surgeon_ID)
         {
-            const string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
+            string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
             using (SqlConnection cnn = new SqlConnection(connectionString))
             {
                 try
@@ -20,16 +29,15 @@ namespace TEAM4OIES.Models
                     DateTime date = DateTime.Now;
                     insertTest.Parameters.AddWithValue("@tDate", date);
                     insertTest.Parameters.AddWithValue("@content", content);
-                    insertTest.Parameters.AddWithValue("@surgeonID", surgeonId);
+                    insertTest.Parameters.AddWithValue("@surgeonID", surgeon_ID);
 
                     insertTest.ExecuteNonQuery();
                     insertTest.Parameters.Clear();
                     cnn.Close();
                     return true;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    //Ignored
                 }
                 finally
                 {
@@ -37,16 +45,6 @@ namespace TEAM4OIES.Models
                 }
             }
             return false;
-        }
-
-        public object GetTestimonial(string keyword)
-        {
-            throw new NotImplementedException();
-        }
-
-        public object DisplaySurgeonName()
-        {
-            throw new NotImplementedException();
         }
     }
 }
