@@ -53,6 +53,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -69,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurgeonController.cs" />
@@ -96,9 +98,21 @@
     <Compile Include="Models\TestimonialModels.cs" />
     <Compile Include="Models\Testimonials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TEAM4OIESDataSet.cs">
+      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TEAM4OIESDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    
+      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\Audit.aspx" />
+    <Content Include="Views\Audit\Index.aspx" />
     <Content Include="Views\ContactUs\Create.aspx" />
     <Content Include="Views\ContactUs\Delete.aspx" />
     <Content Include="Views\ContactUs\Details.aspx" />
@@ -106,7 +120,6 @@
     <Content Include="Views\ContactUs\Index.aspx" />
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
-    <Content Include="Views\Surgeon\Index.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />
     <Content Include="Views\Testimonials\Details.aspx" />
@@ -165,6 +178,17 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TEAM4OIESDataSet.xsc">
+      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TEAM4OIESDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TEAM4OIESDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TEAM4OIESDataSet.xss">
+      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
