@@ -7,41 +7,46 @@
     <h2>Surgeon Data Analysis Input Form</h2>
     
     <div class="pull-right">
-        <form class="form-group">
-            <div class="pull-right">
-                <label>Request Patient from Database<input type="text"/></label>
-            </div>
-            <div class="container">
-                <label>Patient Number<input type="text" value=""/></label>
-                <label>Patient D.O.B.<input type="datetime" value=""/></label><label>Sex<input type="text" value=""/></label>
-                <label>Patient Age<input type="number" value=""/></label>
-            </div>
-            <div class="container, input-group">
-                // Box of CT Scans goes here
-                // User selects one
-            </div>
-            
-            <div class="container">
-                <label>CT Scan Date<input type="date" value=""/></label>
-                <label>CT Id<input type="text" value=""/></label>
-                <label>Delay<input type="text" value=""/></label>
-            </div>
-           
-            <div class="container">
-                // Box of CT Series goes here
-                // User selects one
-            </div>
-            
-            <div class="container">
-                //Total # of slices // Thickness // sllice
-                // ROI begins   // Iliac Bif   // ROI ends
-                
-                // Total sent in ROI    // Lenght ROI       //sometihing
+        <form id="savePatientinfoForm"  class="pull-left" runat="server">
+            <div class="pull-left">
+                <div class="pull-right">
+                    <label>Request Patient from Database<input type="text"/></label>
+                </div>
+                <br/>
+                <div class="container">
+                    <label>Patient Number<input type="text" value=""/></label>
+                    <label>Patient D.O.B.<input type="datetime" value=""/></label><label>Sex<input type="text" value=""/></label>
+                    <label>Patient Age<input type="number" value=""/></label>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="container-fluid" style="border: solid">
+                    // Box of CT Scans goes here
+                    // User selects one
 
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <label>CT Scan Date<input type="date" value=""/></label>
+                    <label>CT Id<input type="text" value=""/></label>
+                    <label>Delay<input type="text" value=""/></label>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="container-fluid" style="border: solid">
+                    // Box of CT Series goes here
+                    // User selects one
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <label>Total # of Slices <input type="text" value=""/></label> <label>Thickness <input type="text" value=""/></label><label>Pixel Size<input type="text" value=""/></label>
+                    <label>ROI begin<input type="number" value=""/></label><label>Iliac Bif<input type="text" value=""/></label><label>ROI end<input type="number" value=""/></label>
+                    <label>Total Slices in ROI<input type="number" value=""/></label><label>Length ROI(cm)<input type="number" value=""/></label><label>Commentsw<input type="text" value=""/></label>
+                </div>
+                <asp:Button ID="btnSavePatientInfo" Text="Save Patient Info" BorderColor="Blue" BorderStyle="Solid" BorderWidth="5px"  runat="server"/>
             </div>
-            <button class="pull-right">
-                Submit
-            </button>
         </form>
     </div>
 
