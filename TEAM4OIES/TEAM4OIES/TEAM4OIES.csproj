@@ -81,6 +81,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\DataAnalysisModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UC9.designer.cs">
       <AutoGen>True</AutoGen>
@@ -89,12 +90,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\favicon.ico" />
-    <Content Include="Content\sticky-footer-navbar.css" />
     <Content Include="Global.asax" />
     <Content Include="Views\ContactUs\Create.aspx" />
     <Content Include="Views\ContactUs\Delete.aspx" />
@@ -105,7 +100,6 @@
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
     <Content Include="Views\Surgeon\Index.aspx" />
     <Content Include="Views\Surgeon\Patients.ascx" />
-    <Content Include="Views\Surgeon\SurgeonDataAnalysisInputForm.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />
     <Content Include="Views\Testimonials\Details.aspx" />
@@ -150,8 +144,6 @@
     <Folder Include="zip\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\bootstrap-theme.css.map" />
-    <None Include="Content\bootstrap.css.map" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
