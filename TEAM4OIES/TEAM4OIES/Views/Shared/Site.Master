@@ -50,7 +50,7 @@
                     <li><%: Html.ActionLink("Testimonials Search", "Index", "Testimonials") %></li>
                 </ul>
        </div>
-       <div id="main" class = "leftColumn">
+       <div id="main" class = "container-fluid">
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
        </div>       
