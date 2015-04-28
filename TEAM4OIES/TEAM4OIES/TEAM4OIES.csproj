@@ -77,10 +77,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurgeonController.cs" />
     <Compile Include="Controllers\TestimonialsController.cs" />
-    <Compile Include="DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,11 +87,16 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AuditService.cs" />
-    <Compile Include="Models\InstitutionModels.cs" />
-    <Compile Include="Models\SurgeonModels.cs" />
-    <Compile Include="Models\Testimonials.cs" />
-    <Compile Include="Models\TestimonialsModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TEAM4OIESDataSet.cs">
+      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TEAM4OIESDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -108,13 +109,11 @@
     <Content Include="Views\ContactUs\Index.aspx" />
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
-    <Content Include="Views\Surgeon\Index.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />
     <Content Include="Views\Testimonials\Details.aspx" />
     <Content Include="Views\Testimonials\Edit.aspx" />
     <Content Include="Views\Testimonials\Index.aspx" />
-    <Content Include="Views\Testimonials\Search.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -161,6 +160,17 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TEAM4OIESDataSet.xsc">
+      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TEAM4OIESDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TEAM4OIESDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TEAM4OIESDataSet.xss">
+      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
