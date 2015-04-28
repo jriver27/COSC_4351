@@ -1,4 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%--Name of Artifact: UC3
+    Programmers Name: Daniel Gonzalez
+    Date of Code: 04/27/2015
+    Date of Approval:
+    SQA Name:--%>
+
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 <%@ Import Namespace="System.Web.Mvc.Html" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
@@ -24,14 +31,16 @@
         </div>
         
        <%-- <% Html.RenderPartial("~/Views/Surgeon/Patients.ascx");%>--%>
-
+        Upload Anonymized ZIP Below:</p> <br />
         <label>Upload Anonymized zip </label>
 
         
-       <%  using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) %>
+       <%  using (Html.BeginForm("Index", "Surgeon", FormMethod.Post, new { enctype = "multipart/form-data" })) %>
        <% { %>
-        <input type="file" name="file" />
-        <input type="submit" value="OK" />
+    <p style="font-size: large"> Choose Anonymized Zip File: </p>
+    <input type="file" name="file" style="font-size: large" /> <br />
+        Select OK when ready to upload: 
+    <input type="submit" value="OK" style="font-size: large" /> <br />
         <% } %>
         <%: Html.ActionLink("Data Analysis Input Form", "SurgeonDataAnalysisInputForm", "Surgeon",new{@style="color:#2b1faa"}) %>
 

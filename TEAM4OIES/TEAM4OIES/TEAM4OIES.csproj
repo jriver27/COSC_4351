@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -51,6 +55,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -67,10 +72,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurgeonController.cs" />
     <Compile Include="Controllers\TestimonialsController.cs" />
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,6 +90,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AuditService.cs" />
+    <Compile Include="Models\InstitutionModels.cs" />
+    <Compile Include="Models\SurgeonModels.cs" />
+    <Compile Include="Models\Testimonials.cs" />
+    <Compile Include="Models\TestimonialsModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +105,8 @@
     <Content Include="Content\favicon.ico" />
     <Content Include="Content\sticky-footer-navbar.css" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Audit.aspx" />
+    <Content Include="Views\Audit\Index.aspx" />
     <Content Include="Views\ContactUs\Create.aspx" />
     <Content Include="Views\ContactUs\Delete.aspx" />
     <Content Include="Views\ContactUs\Details.aspx" />
@@ -106,6 +123,7 @@
     <Content Include="Views\Testimonials\Edit.aspx" />
     <Content Include="Views\Testimonials\Index.aspx" />
     <Content Include="Web.config">
+    <Content Include="Views\Testimonials\Search.aspx" />
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Debug.config">
@@ -140,11 +158,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\DICCOMcleaner\" />
-    <Folder Include="zip\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\bootstrap-theme.css.map" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Content\bootstrap.css.map" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>

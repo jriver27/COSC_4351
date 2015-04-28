@@ -5,7 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Reflection;
 using System.Diagnostics;
+using System.IO.Compression;
 using TEAM4OIES.DataSet1TableAdapters;
+using System.IO;
+using Ionic.Zip;
+
+
 
 
 namespace TEAM4OIES.Controllers
@@ -17,9 +22,16 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Index()
         {
+            
+
             return View();
         }
 
+        //Name of Artifact: UC5
+        //Programmers Name: Daniel Gonzalez
+        //Date of Code: 04/27/2015
+        //Date of Approval:
+        //SQA Name:
 
         // This action handles the form POST and the upload
         //[HttpPost]
@@ -40,14 +52,31 @@ namespace TEAM4OIES.Controllers
 
         private void AddPatient()
         {
-         // This function is only being called to add a test patient.   
-            DataSet1TableAdapters.PatientTableAdapter patientTableAdapter = new PatientTableAdapter();
-            patientTableAdapter.InsertQuery(12345, 9876, "Female", new DateTime(2000,1,1), new DateTime(2015,1,1), 1);
-        }
+                    FileStream stream = System.IO.File.OpenRead(Path.GetFullPath(file.FileName));
 
+                    FileStream outFile = System.IO.File.Create(file.FileName + ".zip");
+                    
+                    GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
+
+                }
+
+                // store the file inside D:/COSC4351_Spring2015/TEAM4OIES/ folder
+                var path = System.IO.Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/", fileName);
+                
+                //Unzip File using Ionic.Zip DLL
+                using(ZipFile zip1 = ZipFile.Read(fileName))
+                {
+                    foreach(ZipEntry e in zip1)
+                    {
+                        e.Extract(path, ExtractExistingFileAction.OverwriteSilently);
+                    }
+                }
+            return RedirectToAction("Index");
+        }
         public ActionResult SurgeonDataAnalysisInputForm()
         {
             return View();
         }
     }
 }
+
