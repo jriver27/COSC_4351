@@ -6,7 +6,7 @@
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
     <link rel="stylesheet" href="../../Content/sticky-footer-navbar.css"/>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
-    
+<link href="../../Content/bootstrap.css" rel="stylesheet" type="text/css" />
      <link rel="stylesheet" href="../../Content/bootstrap.min.css"/>
       <!--Start of Zopim Live Chat Script-->
     <script type="text/javascript">
