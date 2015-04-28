@@ -36,11 +36,12 @@
   <ItemGroup>
     <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Ionic.Zip.dll</HintPath>
+      <HintPath>Content\zipDLL\Ionic.Zip.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -87,15 +88,14 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AuditService.cs" />
+    <Compile Include="Models\DataAnalysisModel.cs" />
+    <Compile Include="Models\TestimonialModels.cs" />
+    <Compile Include="Models\Testimonials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TEAM4OIESDataSet.cs">
-      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="TEAM4OIESDataSet.Designer.cs">
+    <Compile Include="UC9.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
+      <DependentUpon>UC9.dbml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -109,12 +109,17 @@
     <Content Include="Views\ContactUs\Index.aspx" />
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
+    <Content Include="Views\Surgeon\Patients.ascx" />
+    <Content Include="Views\Surgeon\SurgeonDataAnalysisInputForm.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />
     <Content Include="Views\Testimonials\Details.aspx" />
     <Content Include="Views\Testimonials\Edit.aspx" />
     <Content Include="Views\Testimonials\Index.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Views\Testimonials\Search.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -149,7 +154,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -161,16 +165,18 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="TEAM4OIESDataSet.xsc">
-      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="TEAM4OIESDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TEAM4OIESDataSet.Designer.cs</LastGenOutput>
+    <None Include="UC9.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>UC9.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="TEAM4OIESDataSet.xss">
-      <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UC9.dbml.layout">
+      <DependentUpon>UC9.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
