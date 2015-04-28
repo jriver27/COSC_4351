@@ -1,13 +1,37 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using TEAM4OIES;
 
 namespace TEAM4OIES.Models
 {
     public class DataAnalysisModel
     {
+        public int PatienId;
+        
+        public string PatientNumber { get; set; }
+        public DateTime PatientDOB { get; set; }
+        public string Sex { get; set; }
+        public string Age { get; set; }
+
+        public IEnumerable CtScansEnumerable { get; set; }
+
+        public DateTime DateOfSurgery { set; get; }
+        public string GraftManufacturer { set; get; }
+
+        public DateTime CtScan { get; set; }
+        public int CTid { get; set; }
+        public int Delay { get; set; }
+
+        public IEnumerable CtSeriesEnumerable { get; set; }
+
+        public int NumOfSlices { get; set; }
+        public int Thickness { get; set; }
+        public int PixelSize{ get; set; }
+        
         public Patient GetPatientStats(int patientIDp)
         {
             Patient patientFound=new Patient();  

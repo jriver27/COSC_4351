@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,6 +12,7 @@ using System.IO;
 using Ionic;
 using Ionic.Zip;
 using TEAM4OIES.Models;
+using AuditTableAdapter = TEAM4OIES.UC13TableAdapters.AuditTableAdapter;
 
 namespace TEAM4OIES.Controllers
 {
@@ -29,9 +31,10 @@ namespace TEAM4OIES.Controllers
         //Date it was coded: 04/28/2015
         //Date Approved:
         //SQA Approver:
+        [HttpGet]
         public ActionResult SurgeonDataAnalysisInputForm()
         {
-            return View();
+            return View(new DataAnalysisModel());
         }
 
         // This action handles the form POST and the upload
@@ -102,13 +105,26 @@ namespace TEAM4OIES.Controllers
         //Date it was coded: 04/28/2014
         //Date Approved:
         //SQA Approver:
-        [AcceptVerbs(HttpVerbs.Post)]
-        private void GetCTScans(int paitentId)
+        [HttpPost]
+        public ActionResult GetCtScans(int patientId, DataAnalysisModel model)
         {
-            string accessType = "Retrieving CTScans for patient " + paitentId;
+            model.PatienId = patientId;
 
-            new AuditService().AddtoAudit(0, null, "" , null, accessType);
-            ViewData["result"] = new DataAnalysisModel().GetCtScans((int)paitentId);
+            string accessType = "Retrieving CTScans for patient: " + patientId;
+            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Study, "Series", accessType);
+
+            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans((int)patientId);
+
+            accessType = "Retrieving patient " + patientId;
+            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
+
+            Patient patient = new DataAnalysisModel().GetPatientStats(patientId);
+            model.PatientNumber = patient.originalID.ToString();
+            //model.Age = new DataAnalysisModel().GetAge(patient.age,patient.entryDate).ToString();
+            model.DateOfSurgery = patient.entryDate;
+            model.GraftManufacturer = patient.Endograft.Brand.ToString();
+
+            return View("SurgeonDataAnalysisInputForm", model);
         }
     }
 }
