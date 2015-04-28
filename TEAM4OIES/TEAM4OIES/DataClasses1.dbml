@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TEAM4OIES" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TEAM4OIESConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="TEAM4OIES.Audit" Member="Audits">
+    <Type Name="Audit">
+      <Column Name="audit_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="table_" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="attribute" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="access" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="TEAM4OIES.Brand" Member="Brands">
+    <Type Name="Brand">
+      <Column Name="brand_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="brand" Member="brand1" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Brand_Endograft" Member="Endografts" ThisKey="brand_id" OtherKey="brand_id" Type="Endograft" />
+    </Type>
+  </Table>
+  <Table Name="TEAM4OIES.Endograft" Member="Endografts">
+    <Type Name="Endograft">
+      <Column Name="endograft_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dateOfSurgery" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="diameter" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="length" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="unilateralLegDiameter" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="unilateralLegLength" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="controlaterLegDiameter" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="controlaterLegLength" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="entryPoint" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="brand_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Endograft_Patient" Member="Patients" ThisKey="endograft_id" OtherKey="endograft_id" Type="Patient" />
+      <Association Name="Brand_Endograft" Member="Brand" ThisKey="brand_id" OtherKey="brand_id" Type="Brand" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="TEAM4OIES.Institution" Member="Institutions">
+    <Type Name="Institution">
+      <Column Name="institution_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="institution" Member="institution1" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Association Name="Institution_Surgeon" Member="Surgeons" ThisKey="institution_id" OtherKey="institution_id" Type="Surgeon" />
+    </Type>
+  </Table>
+  <Table Name="TEAM4OIES.Patient" Member="Patients">
+    <Type Name="Patient">
+      <Column Name="patient_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="originalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sex" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="age" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="entryDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="surgeonID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="endograft_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Patient_Study" Member="Studies" ThisKey="patient_id" OtherKey="patient_id" Type="Study" />
+      <Association Name="Endograft_Patient" Member="Endograft" ThisKey="endograft_id" OtherKey="endograft_id" Type="Endograft" IsForeignKey="true" />
+      <Association Name="Surgeon_Patient" Member="Surgeon" ThisKey="surgeonID" OtherKey="surgeonID" Type="Surgeon" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="TEAM4OIES.Series" Member="Series">
+    <Type Name="Series">
+      <Column Name="series_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="originalSeriesID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="entryDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="study_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Series_Slice" Member="Slices" ThisKey="series_id" OtherKey="series_id" Type="Slice" />
+      <Association Name="Study_Series" Member="Study" ThisKey="study_id" OtherKey="study_id" Type="Study" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="TEAM4OIES.Slice" Member="Slices">
+    <Type Name="Slice">
+      <Column Name="slice_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="inOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="filename" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="width" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="height" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="resolution" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="coordinateOrigin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bitsPerPixel" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="displayRange" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="fullMetaData" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="entryDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="series_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Series_Slice" Member="Series" ThisKey="series_id" OtherKey="series_id" Type="Series" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="TEAM4OIES.Study" Member="Studies">
+    <Type Name="Study">
+      <Column Name="study_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="originalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="modality" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="time" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="referringPhysician" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="additionalPatientHistory" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="patient_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Study_Series" Member="Series" ThisKey="study_id" OtherKey="study_id" Type="Series" />
+      <Association Name="Patient_Study" Member="Patient" ThisKey="patient_id" OtherKey="patient_id" Type="Patient" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="TEAM4OIES.Testimonial" Member="Testimonials">
+    <Type Name="Testimonial">
+      <Column Name="TestimonialID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="content" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="tDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="surgeonID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Surgeon_Testimonial" Member="Surgeon" ThisKey="surgeonID" OtherKey="surgeonID" Type="Surgeon" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="TEAM4OIES.Surgeon" Member="Surgeons">
+    <Type Name="Surgeon">
+      <Column Name="userType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="surgeonID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="firstName" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="lastName" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="institution_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="online" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Surgeon_Patient" Member="Patients" ThisKey="surgeonID" OtherKey="surgeonID" Type="Patient" />
+      <Association Name="Surgeon_Testimonial" Member="Testimonials" ThisKey="surgeonID" OtherKey="surgeonID" Type="Testimonial" />
+      <Association Name="Institution_Surgeon" Member="Institution" ThisKey="institution_id" OtherKey="institution_id" Type="Institution" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

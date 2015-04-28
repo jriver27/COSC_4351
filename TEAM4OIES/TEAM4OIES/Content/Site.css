@@ -20,12 +20,12 @@ body
 }
 a:link
 {
-    color: #FFFFFF;
+    color: #0047B2;
     text-decoration: underline;
 }
 a:visited
 {
-    color: #FFFFFF;
+    color: #000000;
 }
 a:hover
 {
@@ -41,7 +41,6 @@ p, ul
 {
     height: 100%;
 }
-
 
 
 /* HEADINGS   
