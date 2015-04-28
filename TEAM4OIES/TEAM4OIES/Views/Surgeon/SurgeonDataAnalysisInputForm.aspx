@@ -6,14 +6,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Surgeon Data Analysis Input Form</h2>
     
-    <div class="container">
+    <div class="pull-right">
         <form class="form-group">
             <div class="pull-right">
                 <label>Request Patient from Database<input type="text"/></label>
             </div>
             <div class="container">
                 <label>Patient Number<input type="text" value=""/></label>
-                <label>Patient D.O.B.<input type="datetime" value=""/></label<label>Sex<input type="text" value=""/></label>
+                <label>Patient D.O.B.<input type="datetime" value=""/></label><label>Sex<input type="text" value=""/></label>
                 <label>Patient Age<input type="number" value=""/></label>
             </div>
             <div class="container, input-group">
@@ -22,7 +22,7 @@
             </div>
             
             <div class="container">
-                <label>CT Scan Date<input type="datetime" value=""/></label>
+                <label>CT Scan Date<input type="date" value=""/></label>
                 <label>CT Id<input type="text" value=""/></label>
                 <label>Delay<input type="text" value=""/></label>
             </div>
