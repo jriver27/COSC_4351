@@ -45,5 +45,9 @@ namespace TEAM4OIES.Controllers
             patientTableAdapter.InsertQuery(12345, 9876, "Female", new DateTime(2000,1,1), new DateTime(2015,1,1), 1);
         }
 
+        public ActionResult SurgeonDataAnalysisInputForm()
+        {
+            return View();
+        }
     }
 }

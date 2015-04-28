@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+<%@ Import Namespace="System.Web.Mvc.Html" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index
@@ -14,24 +15,25 @@
             Text="To anonymize data click HERE" BackColor= "#CCFFCC" Font-Names="Aharoni" 
                 ForeColor="Black" /> <br /><br />
 
-            <asp:Hyperlink id="InstructionsLink" runat="server" 
+        <asp:Hyperlink id="InstructionsLink" runat="server" 
             NavigateUrl="http://www.dclunie.com/pixelmed/software/webstart/DicomCleanerUsage.html"
             Text="Instructions on how to use the anonymization tool can be found HERE" BackColor= "#CCFFCC" Font-Names="Aharoni" ForeColor="Black" />
         
-         <%@ CodeBehind="Index.aspx.cs" Inherits="TEAM4OIES.Views.Surgeon.Index"{
-          ((SurgeonController)this.ViewContext.Controller).AddPatient()};%>
+         <%--<%@ CodeBehind="Index.aspx.cs" Inherits="TEAM4OIES.Views.Surgeon.Index"{
+          ((SurgeonController)this.ViewContext.Controller).AddPatient()};%>--%>
         </div>
         
-        <% Html.RenderPartial("~/Views/Surgeon/Patients.ascx");%>
+       <%-- <% Html.RenderPartial("~/Views/Surgeon/Patients.ascx");%>--%>
 
         <label>Upload Anonymized zip </label>
 
         
        <%  using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) %>
-<% { %>
-    <input type="file" name="file" />
-    <input type="submit" value="OK" />
-<% } %>
+       <% { %>
+        <input type="file" name="file" />
+        <input type="submit" value="OK" />
+        <% } %>
+        <%: Html.ActionLink("Data Analysis Input Form", "SurgeonDataAnalysisInputForm", "Surgeon",new{@style="color:#2b1faa"}) %>
 
 </asp:Content>
 
