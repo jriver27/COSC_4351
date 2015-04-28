@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Views\Surgeon\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
