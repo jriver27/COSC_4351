@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Diagnostics;
 using System.IO.Compression;
 using System.IO;
+using Ionic.Zip;
 
 namespace TEAM4OIES.Controllers
 {
@@ -17,6 +18,8 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Index()
         {
+            
+
             return View();
         }
         // This action handles the form POST and the upload
@@ -40,6 +43,15 @@ namespace TEAM4OIES.Controllers
                     // store the file inside ~/App_Data/uploads folder
                     var path = System.IO.Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/", fileName);
                     file.SaveAs(path);
+                
+                //Unzip File using Ionic.Zip DLL
+                using(ZipFile zip1 = ZipFile.Read(fileName))
+                {
+                    foreach(ZipEntry e in zip1)
+                    {
+                        e.Extract(path, ExtractExistingFileAction.OverwriteSilently);
+                    }
+                }
                 }
             }
             // redirect back to the index action to show the form once again
