@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Content\zipDLL\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -52,6 +56,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -68,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurgeonController.cs" />
@@ -81,8 +87,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AuditService.cs" />
     <Compile Include="Models\DataAnalysisModel.cs" />
+    <Compile Include="Models\TestimonialModels.cs" />
+    <Compile Include="Models\Testimonials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UC13.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UC9.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,6 +105,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Views\Audit.aspx" />
+    <Content Include="Views\Audit\Index.aspx" />
     <Content Include="Views\ContactUs\Create.aspx" />
     <Content Include="Views\ContactUs\Delete.aspx" />
     <Content Include="Views\ContactUs\Details.aspx" />
@@ -98,13 +114,14 @@
     <Content Include="Views\ContactUs\Index.aspx" />
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
-    <Content Include="Views\Surgeon\Index.aspx" />
     <Content Include="Views\Surgeon\Patients.ascx" />
+    <Content Include="Views\Surgeon\SurgeonDataAnalysisInputForm.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />
     <Content Include="Views\Testimonials\Details.aspx" />
     <Content Include="Views\Testimonials\Edit.aspx" />
     <Content Include="Views\Testimonials\Index.aspx" />
+    <Content Include="Views\Testimonials\Search.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -140,8 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\DICCOMcleaner\" />
-    <Folder Include="zip\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSet1.xsc">
@@ -154,6 +169,17 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="UC13.xsc">
+      <DependentUpon>UC13.xsd</DependentUpon>
+    </None>
+    <None Include="UC13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UC13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UC13.xss">
+      <DependentUpon>UC13.xsd</DependentUpon>
     </None>
     <None Include="UC9.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
