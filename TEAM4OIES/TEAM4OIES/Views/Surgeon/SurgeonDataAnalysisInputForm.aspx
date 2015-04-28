@@ -6,21 +6,27 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Surgeon Data Analysis Input Form</h2>
     
-    <div class="pull-right">
+    <div class="container">
         <form id="savePatientinfoForm"  class="pull-left" runat="server">
-            <div class="pull-left">
+            <div class="container">
                 <div class="pull-right">
-                    <label>Request Patient from Database<input type="text"/></label>
+                    
+                   <%-- <label> Enter Paitent id</label>
+                    <% using (Html.BeginForm("GetCTScans", "Surgeon")) 
+                      { %>
+                    <%= Html.TextBox("Id") %>
+                    <input type="submit" value="submit"/>
+                    <% } %>--%>
                 </div>
                 <br/>
                 <div class="container">
-                    <label>Patient Number<input type="text" value=""/></label>
-                    <label>Patient D.O.B.<input type="datetime" value=""/></label><label>Sex<input type="text" value=""/></label>
+                    <label>Patient Number  <input type="text" value=""/></label>
+                    <label>Patient D.O.B.  <input type="date" value=""/> </label><label>Sex  <input type="text" value=""/></label>
                     <label>Patient Age<input type="number" value=""/></label>
                 </div>
                 <br/>
                 <div class="container">
-                    <div class="container-fluid" style="border: solid">
+                    <div class="well" style="border: solid">
                     // Box of CT Scans goes here
                     // User selects one
 
@@ -34,7 +40,7 @@
                 </div>
                 <br/>
                 <div class="container">
-                    <div class="container-fluid" style="border: solid">
+                    <div class="well" style="border: solid">
                     // Box of CT Series goes here
                     // User selects one
                     </div>
