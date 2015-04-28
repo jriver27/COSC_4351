@@ -38,9 +38,10 @@ namespace TEAM4OIES.Models
                     cnn.Close();
                     return true;
                 }
-                catch 
+                catch (Exception e)
                 {
-                    // ignored
+                    Console.WriteLine("The following error occurred:");
+                    Console.WriteLine(e.Message);
                 }
                 finally
                 {
