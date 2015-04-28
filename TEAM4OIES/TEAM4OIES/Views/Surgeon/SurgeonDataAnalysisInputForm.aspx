@@ -25,6 +25,8 @@ Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>"
                     <label>Patient Number<input name="DataAnalysisModel.PatientNumber"/></label>
                     <label>Patient D.O.B.<input name="DataAnalysisModel.PatientDOB"/> </label><label>Sex  <input name="DataAnalysisModel.Sex"/></label>
                     <label>Patient Age<input name="DataAnalysisModel.Age"/></label>
+                    
+                    <label>Date Of Surgery<input name="DataAnalysisModel.DateOfSurgery"/></label><label>Graft Manufacturer<input name="DataAnalysisModel.GraftManufacturer"/></label>
                 </div>
                 <br/>
                 <div class="container">

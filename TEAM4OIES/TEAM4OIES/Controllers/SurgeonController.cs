@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -114,9 +115,14 @@ namespace TEAM4OIES.Controllers
 
             model.CtScansEnumerable = new DataAnalysisModel().GetCtScans((int)patientId);
 
-            string accessType = "Retrieving patient " + patientId;
-            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Series", accessType);
+            accessType = "Retrieving patient " + patientId;
+            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
 
+            Patient patient = new DataAnalysisModel().GetPatientStats(patientId);
+            model.PatientNumber = patient.originalID.ToString();
+            //model.Age = new DataAnalysisModel().GetAge(patient.age,patient.entryDate).ToString();
+            model.DateOfSurgery = patient.entryDate;
+            model.GraftManufacturer = patient.Endograft.Brand.ToString();
 
             return View("SurgeonDataAnalysisInputForm", model);
         }
