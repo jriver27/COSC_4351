@@ -14,9 +14,7 @@ namespace TEAM4OIES.Controllers
         public ActionResult Index()
         {
 
-            TEAM4OIES.Models.AuditService audit = new TEAM4OIES.Models.AuditService();
-
-            ViewData["audits"] = audit.GetAuditList(audit.GetTable());
+            
             return View("Index");
         }
         public String saveDate(FormCollection form)
@@ -30,7 +28,7 @@ namespace TEAM4OIES.Controllers
             TEAM4OIES.Models.AuditService audit = new TEAM4OIES.Models.AuditService();
 
             String date=saveDate(form);
-            
+            audit.AddtoAudit(1, "Auditor", "Audit", "None", "View");
             ViewData["audits"] = audit.GetAuditList(audit.GetTableByDate(date));
             return View();
 
