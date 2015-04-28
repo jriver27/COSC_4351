@@ -117,13 +117,14 @@
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
     <Content Include="Views\Surgeon\Index.aspx" />
     <Content Include="Views\Surgeon\Patients.ascx" />
+    <Content Include="Views\Surgeon\SurgeonDataAnalysisInputForm.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />
     <Content Include="Views\Testimonials\Details.aspx" />
     <Content Include="Views\Testimonials\Edit.aspx" />
     <Content Include="Views\Testimonials\Index.aspx" />
-    <Content Include="Web.config">
     <Content Include="Views\Testimonials\Search.aspx" />
+    <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Debug.config">
@@ -160,7 +161,11 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -184,6 +189,11 @@
   <ItemGroup>
     <None Include="UC9.dbml.layout">
       <DependentUpon>UC9.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
