@@ -4,10 +4,6 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Security;
-using System.Windows.Forms;
 
 
 
@@ -41,21 +37,14 @@ namespace TEAM4OIES.Models
     {
         public Boolean AddtoAudit(int UserID, String username, String tablename, String attribute, String access)
         {
+            UC13TableAdapters.AuditTableAdapter auditRowAdapter = new UC13TableAdapters.AuditTableAdapter();
             DateTime date = DateTime.Now;
-            DataSet1TableAdapters.AuditTableAdapter auditRowAdapter = new DataSet1TableAdapters.AuditTableAdapter();
             auditRowAdapter.InsertQuery(UserID, username, date, tablename, attribute, access);
             return true;
         }
-        public DataSet1.AuditDataTable GetTable()
-        {
-            DataSet1TableAdapters.AuditTableAdapter auditRowAdapter = new DataSet1TableAdapters.AuditTableAdapter();
-            DataSet1.AuditDataTable getTable;
-            getTable=auditRowAdapter.GetDataBy1();
-            return getTable;
-           
-        }
+        
        
-        public List<Audit> GetAuditList(DataSet1.AuditDataTable data)
+        public List<Audit> GetAuditList(UC13.AuditDataTable data)
         {
             List<Audit> auditList = new List<Audit>();
             for (int x = 0; x < data.Count; x++)
@@ -66,11 +55,11 @@ namespace TEAM4OIES.Models
             }
             return auditList;
         }
-        public DataSet1.AuditDataTable GetTableByDate(String date)
+        public UC13.AuditDataTable GetTableByDate(String date)
         {
             DateTime dateInDateTime=Convert.ToDateTime(date);
-            DataSet1TableAdapters.AuditTableAdapter auditRowAdapter = new DataSet1TableAdapters.AuditTableAdapter();
-            DataSet1.AuditDataTable getTable;
+            UC13TableAdapters.AuditTableAdapter auditRowAdapter = new UC13TableAdapters.AuditTableAdapter();
+            UC13.AuditDataTable getTable;
             String finalDate=GetRealDate(dateInDateTime);
             getTable = auditRowAdapter.GetDataBy2(finalDate);
             return getTable;
