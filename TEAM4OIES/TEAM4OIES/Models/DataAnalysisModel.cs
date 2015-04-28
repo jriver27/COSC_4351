@@ -73,7 +73,11 @@ namespace TEAM4OIES.Models
             return totSlides / thickness;
             //returns ROI length(cm)
         }
+        public int getDelay(DateTime surgery, DateTime scan)
+        {
+            return (surgery - scan).Days;
+        }
 
-        //Everything done except for getdelay, getthick, getpixellen
+        //Everything done except for getdelay
    } 
 }
