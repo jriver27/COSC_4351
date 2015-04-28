@@ -114,7 +114,7 @@ namespace TEAM4OIES.Controllers
 
             model.CtScansEnumerable = new DataAnalysisModel().GetCtScans((int)patientId);
 
-            string accessType = "Retrieving patient " + patientId;
+            accessType = "Retrieving patient " + patientId;
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Series", accessType);
 
 
