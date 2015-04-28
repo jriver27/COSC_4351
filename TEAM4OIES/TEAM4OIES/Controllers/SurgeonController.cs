@@ -10,6 +10,7 @@ using TEAM4OIES.DataSet1TableAdapters;
 using System.IO;
 using Ionic;
 using Ionic.Zip;
+using TEAM4OIES.Models;
 
 namespace TEAM4OIES.Controllers
 {
@@ -22,16 +23,17 @@ namespace TEAM4OIES.Controllers
         {
             return View();
         }
-        /*
-         * SurgeonDataAnalysisInputForm
-         * Javier Rivera
-         * 4/28/2015
-         * 
-         * */
+
+        //Name of Code Artifact:SurgeonDataAnalysisInputForm
+        //Programmer's Name:Javier Rivera
+        //Date it was coded: 04/28/2015
+        //Date Approved:
+        //SQA Approver:
         public ActionResult SurgeonDataAnalysisInputForm()
         {
             return View();
         }
+
         // This action handles the form POST and the upload
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
@@ -50,7 +52,7 @@ namespace TEAM4OIES.Controllers
                     // extract only the fielname
                     var fileName = Path.GetFileName(file.FileName);
 
-                // store the file inside D:/COSC4351_Spring2015/TEAM4OIES/ folder
+                    // store the file inside D:/COSC4351_Spring2015/TEAM4OIES/ folder
                     var path = Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/", fileName);
                     file.SaveAs(path);
 
@@ -67,12 +69,14 @@ namespace TEAM4OIES.Controllers
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
         }
+
         /*
          * UC4ZipAnonymizedPatientData
          * Sarah Moore
          * 4/27/2015
          * 
          * */
+
         private static void UC4ZipAnonymizedPatientData(HttpPostedFileBase file)
         {
             //while the file is open
@@ -92,6 +96,19 @@ namespace TEAM4OIES.Controllers
                 }
             }
         }
+
+        //Name of Code Artifact:GetCTScans
+        //Programmer's Name:Javier Rivera
+        //Date it was coded: 04/28/2014
+        //Date Approved:
+        //SQA Approver:
+        [AcceptVerbs(HttpVerbs.Post)]
+        private void GetCTScans(int paitentId)
+        {
+            string accessType = "Retrieving CTScans for patient " + paitentId;
+
+            new AuditService().AddtoAudit(0, null, "" , null, accessType);
+            ViewData["result"] = new DataAnalysisModel().GetCtScans((int)paitentId);
+        }
     }
 }
-
