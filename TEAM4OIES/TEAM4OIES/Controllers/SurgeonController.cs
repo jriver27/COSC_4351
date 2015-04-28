@@ -9,9 +9,6 @@ using System.IO.Compression;
 using System.IO;
 using Ionic.Zip;
 
-
-
-
 namespace TEAM4OIES.Controllers
 {
     public class SurgeonController : Controller
@@ -21,17 +18,8 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Index()
         {
-            
-
             return View();
         }
-
-        //Name of Artifact: UC5
-        //Programmers Name: Daniel Gonzalez
-        //Date of Code: 04/27/2015
-        //Date of Approval:
-        //SQA Name:
-
         // This action handles the form POST and the upload
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
@@ -52,7 +40,7 @@ namespace TEAM4OIES.Controllers
                 // extract only the fielname
                 var fileName = System.IO.Path.GetFileName(file.FileName);
 
-                // store the file inside D:/COSC4351_Spring2015/TEAM4OIES/ folder
+                // store the file inside ~/App_Data/uploads folder
                 var path = System.IO.Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/", fileName);
                 file.SaveAs(path);
                 
