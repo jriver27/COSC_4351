@@ -44,12 +44,20 @@
                     <%: Html.ValidationMessageFor(m => m.UserName) %>
                 </div>
 
-                <div class="editor-institution">
-                    <%: Html.LabelFor(m => m.Institution) %>
+                <div class="editor-label">
+                    <%: Html.LabelFor(m => m.InstitutionID) %>
                 </div>
-                <div class="editor-institution">
-                    <%: Html.TextBoxFor(m => m.Institution) %>
-                    <%: Html.ValidationMessageFor(m => m.Institution) %>
+                <div class="editor-field">
+                    <%: Html.TextBoxFor(m => m.InstitutionID) %>
+                    <%: Html.ValidationMessageFor(m => m.InstitutionID) %>
+                </div>
+
+                <div class="editor-label">
+                    <%: Html.LabelFor(m => m.InstitutionName) %>
+                </div>
+                <div class="editor-field">
+                    <%: Html.TextBoxFor(m => m.InstitutionName) %>
+                    <%: Html.ValidationMessageFor(m => m.InstitutionName) %>
                 </div>
 
                 <div class="editor-email">
