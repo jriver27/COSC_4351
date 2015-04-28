@@ -78,10 +78,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurgeonController.cs" />
     <Compile Include="Controllers\TestimonialsController.cs" />
-    <Compile Include="DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,10 +89,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AuditService.cs" />
     <Compile Include="Models\DataAnalysisModel.cs" />
-    <Compile Include="Models\InstitutionModels.cs" />
-    <Compile Include="Models\SurgeonModels.cs" />
+    <Compile Include="Models\TestimonialModels.cs" />
     <Compile Include="Models\Testimonials.cs" />
-    <Compile Include="Models\TestimonialsModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UC9.designer.cs">
       <AutoGen>True</AutoGen>
@@ -115,7 +109,6 @@
     <Content Include="Views\ContactUs\Index.aspx" />
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
-    <Content Include="Views\Surgeon\Index.aspx" />
     <Content Include="Views\Surgeon\Patients.ascx" />
     <Content Include="Views\Surgeon\SurgeonDataAnalysisInputForm.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
@@ -161,11 +154,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataClasses1.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -189,11 +177,6 @@
   <ItemGroup>
     <None Include="UC9.dbml.layout">
       <DependentUpon>UC9.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
