@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.IO.Compression;
 using TEAM4OIES.DataSet1TableAdapters;
 using System.IO;
-//using Ionic.Zip;
 using Ionic;
 using Ionic.Zip;
 
@@ -24,6 +23,17 @@ namespace TEAM4OIES.Controllers
         {
             
 
+            return View();
+        }
+
+        /*
+         * SurgeonDataAnalysisInputForm
+         * Javier Rivera
+         * 4/28/2015
+         * 
+         * */
+        public ActionResult SurgeonDataAnalysisInputForm()
+        {
             return View();
         }
 
