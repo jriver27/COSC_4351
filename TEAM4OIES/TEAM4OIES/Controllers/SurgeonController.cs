@@ -31,7 +31,39 @@ namespace TEAM4OIES.Controllers
         //SQA Approver:
         public ActionResult SurgeonDataAnalysisInputForm()
         {
-            return View(new DataAnalysisModel());
+          
+            return View();
+        }
+        //Name of Code Artifact:GetCTScans
+        //Programmer's Name:Javier Rivera, Paul Miller
+        //Date it was coded: 04/28/2014
+        //Date Approved:
+        //SQA Approver:
+       
+        public ActionResult GetCtScans(String patientp)
+        {
+            
+           
+            DataAnalysisModel model = new DataAnalysisModel();
+           
+            model.PatienId = patientp;
+           
+
+            string accessType = "Retrieving CTScans for patient: " + patientp;
+            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Study, "Series", accessType);
+
+            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans(Int32.Parse(patientp));
+
+            accessType = "Retrieving patient " + patientp;
+            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
+
+            Patient patient = new DataAnalysisModel().GetPatientStats(Int32.Parse(patientp));
+            model.PatientNumber = patient.originalID.ToString();
+            //model.Age = new DataAnalysisModel().GetAge(patient.age,patient.entryDate).ToString();
+            model.DateOfSurgery = patient.entryDate;
+            model.GraftManufacturer = patient.Endograft.Brand.ToString();
+
+            return View("SurgeonDataAnalysisInputForm", model);
         }
 
         // This action handles the form POST and the upload
@@ -97,33 +129,6 @@ namespace TEAM4OIES.Controllers
             }
         }
 
-        //Name of Code Artifact:GetCTScans
-        //Programmer's Name:Javier Rivera
-        //Date it was coded: 04/28/2014
-        //Date Approved:
-        //SQA Approver:
-        [HttpPost]
-        public ActionResult GetCtScans(FormCollection form)
-        {
-            String patientId = Request.Form["patient"];
-            DataAnalysisModel model = new DataAnalysisModel();
-            model.PatienId = patientId;
-
-            string accessType = "Retrieving CTScans for patient: " + patientId;
-            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Study, "Series", accessType);
-
-            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans(Int32.Parse(patientId));
-
-            accessType = "Retrieving patient " + patientId;
-            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
-
-            Patient patient = new DataAnalysisModel().GetPatientStats(Int32.Parse(patientId));
-            model.PatientNumber = patient.originalID.ToString();
-            //model.Age = new DataAnalysisModel().GetAge(patient.age,patient.entryDate).ToString();
-            model.DateOfSurgery = patient.entryDate;
-            model.GraftManufacturer = patient.Endograft.Brand.ToString();
-
-            return View("SurgeonDataAnalysisInputForm", model);
-        }
+       
     }
 }

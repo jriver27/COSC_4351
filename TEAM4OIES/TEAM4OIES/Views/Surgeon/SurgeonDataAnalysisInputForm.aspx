@@ -8,14 +8,18 @@ Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>"
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Surgeon Data Analysis Input Form</h2>
     
-    <div class="container">
+    <!--<div class="container">
         <form id="savePatientinfoForm"  class="pull-left" runat="server">
             <div class="container">
-                <div class="pull-right">
-                    <form action="SurgeonDataAnalysisInputForm." method="POST">
-                        <label>Enter Patient id<input name="patient" value="patient" type="number"/></label>
-                        <input type="submit" value="Get Scans" />
-                    </form>
+                <div class="pull-right">-->
+    <% Html.BeginForm("GetCtScans", "Surgeon"); %>              
+    <input type="text" id="patientp" name="patientp" />
+    <input type="submit" id="patient submit" value="Submit Email" />
+    <% Html.EndForm(); %>
+                    
+                     
+                  
+               <!--     
                 </div>
                 <br/>
                 <div class="container">
@@ -53,7 +57,7 @@ Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>"
                 </div>
                 <asp:Button ID="btnSavePatientInfo" Text="Save Patient Info" BorderColor="Blue" BorderStyle="Solid" BorderWidth="5px"  runat="server"/>
             </div>
-        </form>
+        </form>-->
     </div>
 
 </asp:Content>
