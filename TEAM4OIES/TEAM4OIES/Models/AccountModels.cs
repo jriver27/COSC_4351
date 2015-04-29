@@ -1,10 +1,4 @@
-﻿/*
- * TM: Janaye Maggart
- * LogOnModel,Register Model CreateUser 
- * April 24, 2015
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -15,9 +9,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Data.SqlClient;
 using System.Data;
-//using System.Data.EntityClient;
-//using System.Data.Objects;
-//using System.Data.Objects.DataClasses;
+
 
 namespace TEAM4OIES.Models
 {
@@ -26,6 +18,7 @@ namespace TEAM4OIES.Models
     {
         //Artifact Name: account login model
         //DBA: Logan Stark
+        //TM: Janaye Maggart
         //Date: 4/27/2015
         //approval:
         //approval date:
@@ -64,6 +57,7 @@ namespace TEAM4OIES.Models
 
         //Artifact Name: account register model
         //DBA: Logan Stark
+        //TM: Janaye Maggart
         //Date: 4/27/2015
         //approval:
         //approval date:
