@@ -2,9 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Data;
-using TEAM4OIES;
 
 namespace TEAM4OIES.Models
 {
@@ -43,10 +40,9 @@ namespace TEAM4OIES.Models
             UC9DataContext db = new UC9DataContext();
             var correctPatient = db.Patients.Single(u => u.patient_id == patientIDp);
            
-           
             return correctPatient;
-          //Javier, this function returns the patient with the matching id
         }
+        
         //Name of Code Artifact: GetAge
         //Programmer's Name:Paul Miller
         //Date it was coded: 04/25/2014
@@ -56,6 +52,7 @@ namespace TEAM4OIES.Models
         {
             return ageinDB+ (DateTime.Now.Year-dateofSurg.Year);
         }
+
         //Name of Code Artifact: GetCTScans
         //Programmer's Name:Paul Miller
         //Date it was coded: 04/25/2014
@@ -63,14 +60,13 @@ namespace TEAM4OIES.Models
         //SQA Approver:
         public List<Study> GetCtScans(int patientIDp)
         {
-            
             UC9DataContext db = new UC9DataContext();
             var allScans = from scan in db.Studies
                            where scan.patient_id == patientIDp
                            select scan;
             return allScans.ToList();
-            //Jaiver, this function returns all the ct scans under a patient
         }
+
         //Name of Code Artifact: GetSeries
         //Programmer's Name:Paul Miller
         //Date it was coded: 04/25/2014
@@ -83,9 +79,9 @@ namespace TEAM4OIES.Models
                            where scan.study_id == studyiD
                            select scan;
             return allScans.ToList();
-            //Jaiver, this function returns all the series under a study
             
         }
+
         //Name of Code Artifact: GetSlices
         //Programmer's Name:Paul Miller
         //Date it was coded: 04/25/2014
@@ -98,9 +94,8 @@ namespace TEAM4OIES.Models
                            where scan.series_id == seriesID
                            select scan;
             return allScans.ToList();
-            //Jaiver, this function returns all the slices under a series
-            //Total # of slides=size of this list    
         }
+
         //Name of Code Artifact: GetROIEND
         //Programmer's Name:Paul Miller
         //Date it was coded: 04/25/2014
@@ -109,9 +104,8 @@ namespace TEAM4OIES.Models
         public double GetRoIend(double thickness, int illiacbif)
         {
              return Math.Round(10/thickness+illiacbif);
-            
-            //returns ROI end
         }
+
         //Name of Code Artifact: TotSlidesRoi
         //Programmer's Name:Paul Miller
         //Date it was coded: 04/25/2014
@@ -120,8 +114,8 @@ namespace TEAM4OIES.Models
         public double TotSlidesRoi(int ROIbegin, int ROIend, double thickness)
         {
             return Math.Round((ROIend - ROIbegin) * thickness);
-            //return totalSlides
         }
+
         //Name of Code Artifact: ROIlen
         //Programmer's Name:Paul Miller
         //Date it was coded: 04/25/2014
@@ -130,8 +124,8 @@ namespace TEAM4OIES.Models
         public double ROIlen(double totSlides, double thickness)
         {
             return totSlides / thickness;
-            //returns ROI length(cm)
         }
+
         //Name of Code Artifact: getDelay
         //Programmer's Name:Paul Miller
         //Date it was coded: 04/25/2014
@@ -141,7 +135,5 @@ namespace TEAM4OIES.Models
         {
             return (surgery - scan).Days;
         }
-
-        //Everything done except for getdelay
-   } 
+    } 
 }

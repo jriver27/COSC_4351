@@ -93,7 +93,10 @@
     <Compile Include="Misc\TableNames.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AuditService.cs" />
+    <Compile Include="Models\CTScanModel.cs" />
     <Compile Include="Models\DataAnalysisModel.cs" />
+    <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Models\SeriesModel.cs" />
     <Compile Include="Models\TestimonialModels.cs" />
     <Compile Include="Models\Testimonials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
