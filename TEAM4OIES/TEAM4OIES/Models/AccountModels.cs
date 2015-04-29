@@ -4,8 +4,6 @@
  * April 24, 2015
  */
 
-
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
