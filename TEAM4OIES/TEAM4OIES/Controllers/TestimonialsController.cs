@@ -14,7 +14,17 @@ namespace TEAM4OIES.Controllers
         // GET: /Testimonials/
         public ActionResult Index()
         {
-            return View("Index");
+            List<Testimonials> createTestList2 = new List<Testimonials>();
+            DataSet ds = new DataSet();
+            SqlConnection con = new SqlConnection("Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#");
+            SqlDataAdapter da = new SqlDataAdapter("SELECT Surgeon.firstName,Surgeon.lastName, Testimonial.content, Testimonial.tDate FROM Testimonial, Surgeon WHERE Testimonial.surgeonID=Surgeon.surgeonID;", con);
+            da.Fill(ds);
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                createTestList2.Add(new Testimonials() { firstName = dr[0].ToString(), lastName = dr[1].ToString(), content = dr[2].ToString(), tDate = dr[3].ToString() });
+            }
+
+            return View(createTestList2);
         }
 
         [HttpPost] //form action="/Testimonials"
@@ -33,8 +43,8 @@ namespace TEAM4OIES.Controllers
         //Name of Code Artifact:Create
         //Programmer's Name:Linh Tong
         //Date it was coded: 04/25/2014
-        //Date Approved:
-        //SQA Approver:
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
         [HttpPost]//form action="/Testimonials/Create"
         public ActionResult Create(FormCollection form)
         {
@@ -62,8 +72,8 @@ namespace TEAM4OIES.Controllers
         //Name of Code Artifact:Search
         //Programmer's Name:Linh Tong
         //Date it was coded: 04/25/2014
-        //Date Approved:
-        //SQA Approver:
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
         [HttpPost]
         public ActionResult Search(FormCollection form)
         {

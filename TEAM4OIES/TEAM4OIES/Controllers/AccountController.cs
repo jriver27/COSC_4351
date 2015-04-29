@@ -152,8 +152,8 @@ namespace TEAM4OIES.Controllers
         //Artifact Name: account login controller
         //DBA: Logan Stark
         //Date: 4/27/2015
-        //approval:
-        //approval date:
+        //approval: Linh Tong
+        //approval date: 04/29/2015  
         public ActionResult LogInform(String username, String password)
         {
             Session["username"] = username;
@@ -169,6 +169,12 @@ namespace TEAM4OIES.Controllers
                 Session["userID"] = classify.Substring(1);
                 getUserID();
                 return View("~/Views/Surgeon/Index.aspx");
+            }
+            else if (classify[0] == '3')
+            {
+                Session["userID"] = classify.Substring(1);
+                getUserID();
+                return View("~/Views/Home/Index.aspx");
             }
             else
             {

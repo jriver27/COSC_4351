@@ -20,8 +20,8 @@ namespace TEAM4OIES.Models
         //DBA: Logan Stark
         //TM: Janaye Maggart
         //Date: 4/27/2015
-        //approval:
-        //approval date:
+        //approval: Linh Tong
+        //approval date: 04/29/2015  
         public String accountLogin(String username, String password)
         {
             string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
@@ -59,8 +59,8 @@ namespace TEAM4OIES.Models
         //DBA: Logan Stark
         //TM: Janaye Maggart
         //Date: 4/27/2015
-        //approval:
-        //approval date:
+        //approval: Linh Tong
+        //approval date: 04/29/2015  
         public Boolean createAccount(int userType, String firstName, String lastName, String username, String password, String email, int institution_id)
         {
             string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
