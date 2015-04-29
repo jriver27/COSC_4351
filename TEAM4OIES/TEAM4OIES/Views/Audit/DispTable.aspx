@@ -1,9 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
-<%--Name of Artifact: DispTable.aspx
-    Programmers Name: Paul Miller
-    Date of Code: 04/27/2015
-    Date of Approval:
-    SQA Name:--%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Audit Table
 </asp:Content>
