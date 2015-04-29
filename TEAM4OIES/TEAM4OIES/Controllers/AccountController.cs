@@ -170,6 +170,12 @@ namespace TEAM4OIES.Controllers
                 getUserID();
                 return View("~/Views/Surgeon/Index.aspx");
             }
+            else if (classify[0] == '3')
+            {
+                Session["userID"] = classify.Substring(1);
+                getUserID();
+                return View("~/Views/Home/Index.aspx");
+            }
             else
             {
                 TempData["notice"] = "Error: Invalid username or password";
