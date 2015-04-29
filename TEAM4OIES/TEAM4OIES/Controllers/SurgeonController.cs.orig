@@ -31,6 +31,7 @@ namespace TEAM4OIES.Controllers
         //Date it was coded: 04/28/2015
         //Date Approved:
         //SQA Approver:
+        [HttpGet]
         public ActionResult SurgeonDataAnalysisInputForm()
         {
             return View(new DataAnalysisModel());
@@ -115,7 +116,11 @@ namespace TEAM4OIES.Controllers
             model.CtScansEnumerable = new DataAnalysisModel().GetCtScans((int)patientId);
 
             accessType = "Retrieving patient " + patientId;
+<<<<<<< HEAD
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
+=======
+            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Series", accessType);
+>>>>>>> master
 
             Patient patient = new DataAnalysisModel().GetPatientStats(patientId);
             model.PatientNumber = patient.originalID.ToString();

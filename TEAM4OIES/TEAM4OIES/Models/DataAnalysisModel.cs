@@ -19,6 +19,9 @@ namespace TEAM4OIES.Models
 
         public IEnumerable CtScansEnumerable { get; set; }
 
+        public DateTime DateOfSurgery { set; get; }
+        public string GraftManufacturer { set; get; }
+
         public DateTime CtScan { get; set; }
         public int CTid { get; set; }
         public int Delay { get; set; }
@@ -27,7 +30,7 @@ namespace TEAM4OIES.Models
 
         public int NumOfSlices { get; set; }
         public int Thickness { get; set; }
-        public int PixelSize { get; set; }
+        public int PixelSize{ get; set; }
         
         public Patient GetPatientStats(int patientIDp)
         {
@@ -89,7 +92,11 @@ namespace TEAM4OIES.Models
             return totSlides / thickness;
             //returns ROI length(cm)
         }
+        public int getDelay(DateTime surgery, DateTime scan)
+        {
+            return (surgery - scan).Days;
+        }
 
-        //Everything done except for getdelay, getthick, getpixellen
+        //Everything done except for getdelay
    } 
 }
