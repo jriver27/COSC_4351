@@ -18,14 +18,10 @@ using System.Data;
 //using System.Data.EntityClient;
 //using System.Data.Objects;
 //using System.Data.Objects.DataClasses;
-using System.Data.SqlClient;
-using System.Data.SqlTypes;
 
 namespace TEAM4OIES.Models
 {
 
-<<<<<<< HEAD
-=======
     class AccountModels
     {
         //Artifact Name: account login model
@@ -143,7 +139,6 @@ namespace TEAM4OIES.Models
 
     //#endregion
 
->>>>>>> origin/master
     #region Models
     [PropertiesMustMatch("NewPassword", "ConfirmPassword", ErrorMessage = "The new password and confirmation password do not match.")]
     public class ChangePasswordModel
@@ -204,14 +199,6 @@ namespace TEAM4OIES.Models
         public string Institution { get; set; }
 
         [Required]
-        [DisplayName("Institution ID")]
-        public string InstitutionID { get; set; }
-
-        [Required]
-        [DisplayName("InstitutionName")]
-        public string InstitutionName { get; set; }
-
-        [Required]
         [DataType(DataType.EmailAddress)]
         [DisplayName("Email address")]
         public string Email { get; set; }
@@ -247,10 +234,6 @@ namespace TEAM4OIES.Models
     public class AccountMembershipService : IMembershipService
     {
         private readonly MembershipProvider _provider;
-        private bool isConnectionInitialized = false;
-        private bool connectionClosed = true;
-        private SqlConnection con;
-        private string connectionString = "Server=sqlserver.cs.uh.edu,1044; User id=TEAM4OIES;Password=TEAM4OIES#;Database=TEAM4OIES";
 
         public AccountMembershipService()
             : this(null)
@@ -270,159 +253,23 @@ namespace TEAM4OIES.Models
             }
         }
 
-        //    //Artifact Name: account login model
-        //    //DBA: Logan Stark
-        //    //Date: 4/27/2015
-        //    //approval:
-        //    //approval date:
-        //    public int accountLogin(String username,String password)
-        //    {
-        //        string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
-
-
-        //        using (SqlConnection cnn = new SqlConnection(connectionString))
-        //        {
-        //            try
-        //            {
-        //                cnn.Open()
-        //                string sql = "SELECT Surgeon.userType FROM Surgeon WHERE Surgeon.username = @username AND Surgeon.password = @password”
-        //                SqlCommand getClassification = new SqlCommand(sql,cnn);
-        //                getClassification.Parameters.AddWithValue(“@username”,username);
-        //                getClassification.Parameters.AddWithValue(“@password”,password);
-
-        //                SqlDataReader reader = getClassification.ExecuteREader();
-        //                if(reader.HasRows && reader.Read())
-        //                {
-        //                    return reader.getInt16();
-        //                }
-
-        //            finally
-        //            {
-        //                return -1;
-        //            }
-        //            }
-        //        }
-        //}
-
-        public bool ValidateUser(string UserName, string Password)
+        public bool ValidateUser(string userName, string password)
         {
-            if (String.IsNullOrEmpty(UserName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
-            if (String.IsNullOrEmpty(Password)) throw new ArgumentException("Value cannot be null or empty.", "password");
+            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
+            if (String.IsNullOrEmpty(password)) throw new ArgumentException("Value cannot be null or empty.", "password");
 
-            //connection = new SqlConnection(connectionString);
-            initializeConnection();
-            try
-            {
-            SqlDataAdapter sqlid = new SqlDataAdapter("SELECT username, password FROM Surgeon WHERE username ='" + UserName + "'AND password ='" + Password + "'", con);
-            System.Data.DataTable dt = new System.Data.DataTable();
-            System.Data.DataTable dtemp = new System.Data.DataTable();
-            sqlid.Fill(dt);
-
-            return _provider.ValidateUser(UserName, Password);
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            return _provider.ValidateUser(userName, password);
         }
 
-        ////Artifact Name: register account model
-        ////DBA: Logan Stark
-        ////Date: 4/27/2015
-        ////approval:
-        ////approval date:
-        //public Boolean createAccount(int userType, String firstName, String lastName,
-        //String username,String password,String email, int institution_id)
-        //{
-        //    string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
-        //    using (SqlConnection cnn = new SqlConnection(connectionString))
-        //    {
-        //        try
-        //        {
-        //            cnn.Open();
-        //            string sql = "INSERT INTO Surgeon (userType,firstName,lastName,username,password,email,institution_id) VALUES(@userType,@firstName,@lastName,@username,@password,@email,@institution_id)”;
-        //            SqlCommand registerSurgeon= new SqlCommand(sql,cnn);
-        //            registerSurgeon.Parameters.AddWithValue(“@userType”,userType);
-        //            registerSurgeon.Parameters.AddWithValue(“@firstName”,firstName);
-        //            registerSurgeon.Parameters.AddWithValue(“@lastName”,lastName);
-        //            registerSurgeon.Parameters.AddWithValue(“@username”,username);
-        //            registerSurgeon.Parameters.AddWithValue(“@password”,password);
-        //            registerSurgeon.Parameters.AddWithValue(“@email”,email);
-        //            registerSurgeon.Parameters.AddWithValue(“@institution_id”,institution_id);
-
-        //            registerSurgeon.ExecuteNonQuery();
-        //            cnn.Close();
-        //            return true;
-        //        }
-        //        catch(Exception e)
-        //        {
-        //        }
-        //        finally
-        //        {
-        //            cnn.Close();
-        //        }
-        //    }
-        //}
-
-        public MembershipCreateStatus CreateUser(string UserName, string Password, string Email)
-        //public MembershipCreateStatus CreateUser(string userName, string password, string email)
+        public MembershipCreateStatus CreateUser(string userName, string password, string email)
         {
-            if (String.IsNullOrEmpty(UserName)) throw new ArgumentException("Value cannot be null or empty.", "UserName");
-            if (String.IsNullOrEmpty(Password)) throw new ArgumentException("Value cannot be null or empty.", "Password");
-            if (String.IsNullOrEmpty(Email)) throw new ArgumentException("Value cannot be null or empty.", "Email");
+            if (String.IsNullOrEmpty(userName)) throw new ArgumentException("Value cannot be null or empty.", "userName");
+            if (String.IsNullOrEmpty(password)) throw new ArgumentException("Value cannot be null or empty.", "password");
+            if (String.IsNullOrEmpty(email)) throw new ArgumentException("Value cannot be null or empty.", "email");
 
-            initializeConnection();
-            //openConnection();
-            string surgeonID = surgeonIDRandomSelector();
-            RegisterModel model = new RegisterModel();
-
-            while (!checkSurgeonIDUniqueness(surgeonID))
-            {
-                surgeonID = surgeonIDRandomSelector();
-            }
-            openConnection();
             MembershipCreateStatus status;
-            try
-            {
-                _provider.CreateUser(UserName, Password, Email, null, null, true, null, out status);
-
-
-                SqlDataAdapter sqlid = new SqlDataAdapter("SELECT username, password, email, firstName, lastName, institution_id FROM Surgeon WHERE username ='" + UserName + "'AND password ='" + Password + "'AND email ='" + Email + "'AND firstName ='" + model.FirstName + "'AND lastName ='" + model.LastName + "'AND institution_id ='" + model.InstitutionID + "'", con);
-                System.Data.DataTable dt = new System.Data.DataTable();
-                //System.Data.DataTable dtemp = new System.Data.DataTable();
-                sqlid.Fill(dt);
-                if (dt.Rows.Count != 0)
-                    return MembershipCreateStatus.DuplicateUserName;
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = "INSERT INTO Surgeon(surgeonID,username,password, email, firstName, lastName, institution_id) VALUES('" + surgeonID
-                    + "','"
-                    + UserName + "','"
-                    + Password + "','"
-                    + Email + "','"
-                    + model.FirstName + "','"
-                    + model.LastName + "','"
-                    + model.InstitutionID + "')";
-
-                SqlCommand cmd2 = new SqlCommand();
-                cmd2.CommandType = System.Data.CommandType.Text;
-                cmd2.CommandText = "INSERT INTO Institution(institution_id,institution) VALUES('" + model.InstitutionID
-                    + "','"
-                    + model.InstitutionName + "')";
-
-
-                cmd.Connection = con;
-                //con.Open();
-                cmd.ExecuteNonQuery();
-                //con.Close();
-                closeConnection();
-
-                return MembershipCreateStatus.Success;
-            }
-            catch (Exception ex)
-            {
-                return MembershipCreateStatus.ProviderError;
-            }
+            _provider.CreateUser(userName, password, email, null, null, true, null, out status);
+            return status;
         }
 
         public bool ChangePassword(string userName, string oldPassword, string newPassword)
@@ -446,71 +293,6 @@ namespace TEAM4OIES.Models
             {
                 return false;
             }
-        }
-
-        private string surgeonIDRandomSelector()
-        {
-            string surgeonID = "";
-            int randnum = 0;
-            int numberOfDigits = 0;
-            Random r = new Random();
-            randnum = r.Next(1, 999);
-            numberOfDigits = randnum.ToString().Length;
-
-            if (numberOfDigits < 3)
-            {
-                int numberRemaining = 3 - numberOfDigits;
-                for (int i = 0; i < numberRemaining; i++)
-                {
-                    surgeonID += "0";
-                }
-                surgeonID += randnum.ToString();
-            }
-            else
-                surgeonID = randnum.ToString();
-            return surgeonID;
-        }
-
-        private bool checkSurgeonIDUniqueness(string newSurgeonID)
-        {
-            initializeConnection();
-            openConnection();
-            SqlDataAdapter sqlid = new SqlDataAdapter("SELECT surgeonID FROM Surgeon WHERE surgeonID ='" + newSurgeonID + "'", con);
-            System.Data.DataTable dt = new System.Data.DataTable();
-            //System.Data.DataTable dtemp = new System.Data.DataTable();
-            sqlid.Fill(dt);
-            int rowCount = dt.Rows.Count;
-            closeConnection();
-            if (rowCount != 0)
-                return false;
-            return true;
-        }
-
-        private bool openConnection()
-        {
-            if (connectionClosed)
-            {
-                con.Open();
-                connectionClosed = false;
-            }
-            return true;
-        }
-
-        private bool closeConnection()
-        {
-            if (!connectionClosed)
-            {
-                con.Close();
-                connectionClosed = true;
-            }
-            return true;
-        }
-
-        private bool initializeConnection()
-        {
-            if (!isConnectionInitialized)
-                con = new SqlConnection(connectionString);
-            return isConnectionInitialized = true;
         }
     }
 
@@ -545,8 +327,8 @@ namespace TEAM4OIES.Models
             // a full list of status codes.
             switch (createStatus)
             {
-                case MembershipCreateStatus.DuplicateUserName:
-                    return "Username already exists. Please enter a different user name.";
+                //case MembershipCreateStatus.DuplicateUserName:
+                //    return "Username already exists. Please enter a different user name.";
 
                 case MembershipCreateStatus.DuplicateEmail:
                     return "A username for that e-mail address already exists. Please enter a different e-mail address.";

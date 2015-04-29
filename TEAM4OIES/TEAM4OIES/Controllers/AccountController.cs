@@ -63,29 +63,6 @@ namespace TEAM4OIES.Controllers
             return View(model);
         }
 
-        ////Artifact Name: account login controller
-        ////DBA: Logan Stark
-        ////Date: 4/27/2015
-        ////approval:
-        ////approval date:
-        //public ActionResult LogInform(String username, String password)
-        //{
-        //    int class = TEAM4OIES.Models.accountLogin(username,password);
-        //    if(class == 2)
-        //    {
-        //        return View(“~/Views/Audit/Index.aspx”);
-        //    }
-        //    else if(class == 1)
-        //    {
-        //        return View(“~/Views/Surgeon/Index.aspx”);
-        //    }
-        //    else
-        //    {
-        //        //TempDate[“notice”] = “Error: Invalid username or password”;
-        //        return View(“LogOn”);
-        //    }
-        //}
-
         // **************************************
         // URL: /Account/LogOff
         // **************************************
@@ -113,7 +90,7 @@ namespace TEAM4OIES.Controllers
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
-                MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
+                MembershipCreateStatus createStatus = MembershipService.CreateUser(model.LastName, model.Password, model.Email);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
