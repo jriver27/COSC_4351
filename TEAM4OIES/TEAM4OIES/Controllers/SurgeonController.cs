@@ -27,11 +27,12 @@ namespace TEAM4OIES.Controllers
         //Name of Code Artifact:SurgeonDataAnalysisInputForm
         //Programmer's Name:Javier Rivera
         //Date it was coded: 04/28/2015
-        //Date Approved:
-        //SQA Approver:
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
         public ActionResult SurgeonDataAnalysisInputForm()
         {
-            return View(new DataAnalysisModel());
+          
+            return View();
         }
 
         // This action handles the form POST and the upload
@@ -74,8 +75,8 @@ namespace TEAM4OIES.Controllers
          * UC4ZipAnonymizedPatientData
          * Sarah Moore
          * 4/27/2015
-         * 
-         * */
+         * SQA: Linh Tong
+         * Date: 04/29/2015  */
 
         private static void UC4ZipAnonymizedPatientData(HttpPostedFileBase file)
         {
@@ -98,26 +99,25 @@ namespace TEAM4OIES.Controllers
         }
 
         //Name of Code Artifact:GetCTScans
-        //Programmer's Name:Javier Rivera
+        //Programmer's Name:Javier Rivera, Paul Miller
         //Date it was coded: 04/28/2014
-        //Date Approved:
-        //SQA Approver:
-        [HttpPost]
-        public ActionResult GetCtScans(FormCollection form)
-        {
-            String patientId = Request.Form["patient"];
-            DataAnalysisModel model = new DataAnalysisModel();
-            model.PatienId = patientId;
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
 
-            string accessType = "Retrieving CTScans for patient: " + patientId;
+        public ActionResult GetCtScans(String patientp)
+        {
+            DataAnalysisModel model = new DataAnalysisModel();
+            model.PatienId = patientp;
+            
+            string accessType = "Retrieving CTScans for patient: " + patientp;
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Study, "Series", accessType);
 
-            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans(Int32.Parse(patientId));
+            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans(Int32.Parse(patientp));
 
-            accessType = "Retrieving patient " + patientId;
+            accessType = "Retrieving patient " + patientp;
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
 
-            Patient patient = new DataAnalysisModel().GetPatientStats(Int32.Parse(patientId));
+            Patient patient = new DataAnalysisModel().GetPatientStats(Int32.Parse(patientp));
             model.PatientNumber = patient.originalID.ToString();
             //model.Age = new DataAnalysisModel().GetAge(patient.age,patient.entryDate).ToString();
             model.DateOfSurgery = patient.entryDate;

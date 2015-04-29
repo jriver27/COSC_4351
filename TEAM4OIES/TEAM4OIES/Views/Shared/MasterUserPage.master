@@ -34,8 +34,6 @@
             <h3 style="color: White; 
                        font-family: Arial, 'Helvetica Neue', Helvetica, Sans-Serif;
                        text-shadow: 1px 1px #d3d3d3;">ANONYMIZED Long Term Follow Up EVAR Database</h3>
- 
-            <li style="text-align: right"><%Html.RenderPartial("LogOnUserControl"); %> </li>  
          </div>
 
        <div id="main" class = "container-fluid" style="background-color: rgb(250, 250, 250)">
