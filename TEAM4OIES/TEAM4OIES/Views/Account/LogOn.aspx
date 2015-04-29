@@ -9,7 +9,7 @@
     <p>
         Please enter your username and password if you have an account. Otherwise, use this link -> <%: Html.ActionLink("Register", "Register") %>
     </p>
-
+    <%--
     <% using (Html.BeginForm()) { %>
         <%: Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.") %>
         <div>
@@ -42,5 +42,21 @@
                 </p>
             </fieldset>
         </div>
+    <% } %>--%>
+
+    <% if (TempData["notice"] != null) { %>
+        <p><%= Html.Encode(TempData["notice"]) %></p>
     <% } %>
+
+    <% using(Html.BeginForm("LogInForm","Account")) %>
+    <% { %>
+        <p>
+            Username: <%= Html.TextBox("username") %>
+        </p>
+        <p>
+            Password: <%= Html.Password("password") %>
+        </p>
+        <input type="submit" value="Log In" />
+    <% } %>
+
 </asp:Content>

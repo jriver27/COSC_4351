@@ -7,12 +7,93 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Data.SqlClient;
+using System.Data;
 //using System.Data.EntityClient;
 //using System.Data.Objects;
 //using System.Data.Objects.DataClasses;
 
 namespace TEAM4OIES.Models
 {
+
+    class AccountModels
+    {
+        //Artifact Name: account login model
+        //DBA: Logan Stark
+        //Date: 4/27/2015
+        //approval:
+        //approval date:
+        public String accountLogin(String username, String password)
+        {
+            string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
+            using (SqlConnection cnn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    cnn.Open();
+                    string sql = "SELECT Surgeon.userType,Surgeon.SurgeonID FROM Surgeon WHERE Surgeon.username = @username AND Surgeon.password = @password";
+                    SqlCommand getClassification = new SqlCommand(sql, cnn);
+                    getClassification.Parameters.AddWithValue("@username", username);
+                    getClassification.Parameters.AddWithValue("@password", password);
+
+                    SqlDataReader reader = getClassification.ExecuteReader();
+                    if (reader.HasRows && reader.Read())
+                    {
+                        return ""+reader[0]+reader[1];
+                    }
+                    cnn.Close();
+                    return "0";
+                }
+                catch
+                {
+                    //ignored
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+                return "0";
+            }
+        }
+
+        //Artifact Name: account register model
+        //DBA: Logan Stark
+        //Date: 4/27/2015
+        //approval:
+        //approval date:
+        public Boolean createAccount(int userType, String firstName, String lastName, String username, String password, String email, int institution_id)
+        {
+            string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
+            using (SqlConnection cnn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    cnn.Open();
+                    String sql = "INSERT INTO Surgeon(userType, firstName, lastName, username, password, email, institution_id) VALUES(@userType,@firstName,@lastName,@username,@password,@email,@institution_id)";
+                    SqlCommand registerSurgeon = new SqlCommand(sql, cnn);
+                    registerSurgeon.Parameters.AddWithValue("@userType", userType);
+                    registerSurgeon.Parameters.AddWithValue("@firstName", firstName);
+                    registerSurgeon.Parameters.AddWithValue("@lastName", lastName);
+                    registerSurgeon.Parameters.AddWithValue("@username", username);
+                    registerSurgeon.Parameters.AddWithValue("@password", password);
+                    registerSurgeon.Parameters.AddWithValue("@email", email);
+                    registerSurgeon.Parameters.AddWithValue("@institution_id", institution_id);
+                    cnn.Close();
+                    return true;
+                }
+                catch
+                {
+                    //ignore
+                }
+                finally
+                {
+                    cnn.Close();
+                }
+            }
+            return false;
+        }
+
+    }
 
     //#region Contexts
     //public partial class TEAM4OIESEntities : ObjectContext
