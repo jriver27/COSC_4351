@@ -139,10 +139,21 @@ namespace TEAM4OIES.Controllers
         //Date Approved: 04/29/2015  
         //SQA Approver: Paul Miller
         [HttpPost]
-        public ActionResult GetCtScans(FormCollection form)
+        public ActionResult PatientInfoActionResult(FormCollection form)
         {
+            string accessType = "Retrieving patient " + Request.Form["patientId"];
+            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
+
+            Patient patient = new DataAnalysisModel().GetPatientStats(Int32.Parse(Request.Form["patientId"]));
             PatientModel patientModel = new PatientModel();
-            return View(Patient) ;
+
+            patientModel.SurgeryDate = patient.entryDate;
+            patientModel.Age = patient.age;
+            patientModel.PatienId = patient.patient_id;
+            patientModel.Sex = patient.sex;
+            patientModel.StudiesId = patient.Studies;
+
+            return View(patientModel);
         }
     }
 }

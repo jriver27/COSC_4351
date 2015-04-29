@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TEAM4OIES.Models
 {
@@ -9,11 +10,12 @@ namespace TEAM4OIES.Models
     //SQA Approver:
     public class PatientModel
     {
-        public string PatienId { get; set; }
-
+        public int PatienId { get; set; }
+        public DateTime SurgeryDate { set; get; }
         public string PatientNumber { get; set; }
         public DateTime PatientDOB { get; set; }
         public string Sex { get; set; }
-        public string Age { get; set; }
+        public int Age { get; set; }
+        public IEnumerable<Study> StudiesId { set; get; }
     }
 }
