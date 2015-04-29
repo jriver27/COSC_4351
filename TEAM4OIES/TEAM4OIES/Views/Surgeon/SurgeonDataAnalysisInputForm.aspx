@@ -12,7 +12,6 @@ Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>"
         <form id="savePatientinfoForm"  class="pull-left" runat="server">
             <div class="container">
                 <div class="pull-right">
-                    
                     <label> Enter Patient id</label>
                     <% using (Html.BeginForm("GetCTScans", "Surgeon")) 
                       { %>
