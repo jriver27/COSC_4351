@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterUserPage.master" 
 Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>" 
 %>
+<%--Name of Artifact: SurgeonDataAnalysisInputForm.aspx
+    Programmers Name: Javier Rivera, Paul Miller
+    Date of Code: 04/27/2015
+    Date of Approval:
+    SQA Name:--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	SurgeonDataAnalysisInputForm
 </asp:Content>
@@ -9,13 +14,12 @@ Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>"
     <h2>Surgeon Data Analysis Input Form</h2>
     
     <div class="container">
-        <form id="savePatientinfoForm"  class="pull-left" runat="server">
             <div class="container">
                 <div class="pull-right">
-                    <form action="SurgeonDataAnalysisInputForm." method="POST">
-                        <label>Enter Patient id<input name="patient" value="patient" type="number"/></label>
-                        <input type="submit" value="Get Scans" />
-                    </form>
+                    <% Html.BeginForm("GetCtScans", "Surgeon"); %>              
+                    <input type="text" id="patientp" name="patientp" />
+                    <input type="submit" id="patient submit" value="Submit Patient ID" />
+                    <% Html.EndForm(); %>    
                 </div>
                 <br/>
                 <div class="container">
@@ -53,6 +57,8 @@ Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>"
                 </div>
                 <asp:Button ID="btnSavePatientInfo" Text="Save Patient Info" BorderColor="Blue" BorderStyle="Solid" BorderWidth="5px"  runat="server"/>
             </div>
+            
+        <form id="idk"  class="pull-left" runat="server">
         </form>
     </div>
 
