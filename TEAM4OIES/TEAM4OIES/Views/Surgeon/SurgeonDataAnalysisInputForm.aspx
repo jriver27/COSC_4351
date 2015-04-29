@@ -15,11 +15,10 @@ Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>"
     
     <div class="container">
             <div class="container">
+                <form runat="server">
                 <div class="pull-right">
-                    <% Html.BeginForm("GetCtScans", "Surgeon"); %>              
-                    <input type="text" id="patientp" name="patientp" />
-                    <input type="submit" id="patient submit" value="Submit Patient ID" />
-                    <% Html.EndForm(); %>    
+                        <input type="text" id="patientp" name="patientp" />
+                        <button type="submit" id="patient submit" value="Submit Patient ID">ClickMe</button>
                 </div>
                 <br/>
                 <div class="container">
@@ -56,10 +55,8 @@ Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>"
                     <label>Total Slices in ROI<input type="number" value=""/></label><label>Length ROI(cm)<input type="number" value=""/></label><label>Comments<input name=""/></label>
                 </div>
                 <asp:Button ID="btnSavePatientInfo" Text="Save Patient Info" BorderColor="Blue" BorderStyle="Solid" BorderWidth="5px"  runat="server"/>
+                </form>
             </div>
-            
-        <form id="idk"  class="pull-left" runat="server">
-        </form>
     </div>
 
 </asp:Content>
