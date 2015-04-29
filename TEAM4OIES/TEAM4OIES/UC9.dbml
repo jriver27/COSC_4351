@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TEAM4OIES" Class="UC9DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;Persist Security Info=True;User ID=TEAM4OIES" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TEAM4OIESConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="TEAM4OIES.Testimonial" Member="Testimonials">
+    <Type Name="Testimonial">
+      <Column Name="TestimonialID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="content" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="tDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="surgeonID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Surgeon_Testimonial" Member="Surgeon" ThisKey="surgeonID" OtherKey="surgeonID" Type="Surgeon" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="TEAM4OIES.Audit" Member="Audits">
     <Type Name="Audit">
       <Column Name="audit_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -9,15 +18,6 @@
       <Column Name="table_" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
       <Column Name="attribute" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
       <Column Name="access" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="TEAM4OIES.Testimonial" Member="Testimonials">
-    <Type Name="Testimonial">
-      <Column Name="TestimonialID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="content" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
-      <Column Name="tDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="surgeonID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Surgeon_Testimonial" Member="Surgeon" ThisKey="surgeonID" OtherKey="surgeonID" Type="Surgeon" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="TEAM4OIES.Brand" Member="Brands">
@@ -55,7 +55,7 @@
       <Column Name="patient_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="originalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="sex" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="age" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="entryDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="surgeonID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="endograft_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -84,6 +84,7 @@
       <Column Name="width" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="height" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="resolution" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="thickness" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="coordinateOrigin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="bitsPerPixel" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="displayRange" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />

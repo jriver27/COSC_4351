@@ -4,6 +4,13 @@
     Log On
 </asp:Content>
 
+
+<%--Artifact Name: account login view
+DBA: Logan Stark
+TM: Janaye Maggart
+Date: 4/27/2015
+approval:
+approval date:--%>
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Log On</h2>
     <p>

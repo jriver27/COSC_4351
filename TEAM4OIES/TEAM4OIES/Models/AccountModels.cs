@@ -9,9 +9,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Data.SqlClient;
 using System.Data;
-//using System.Data.EntityClient;
-//using System.Data.Objects;
-//using System.Data.Objects.DataClasses;
+
 
 namespace TEAM4OIES.Models
 {
@@ -20,6 +18,7 @@ namespace TEAM4OIES.Models
     {
         //Artifact Name: account login model
         //DBA: Logan Stark
+        //TM: Janaye Maggart
         //Date: 4/27/2015
         //approval:
         //approval date:
@@ -58,6 +57,7 @@ namespace TEAM4OIES.Models
 
         //Artifact Name: account register model
         //DBA: Logan Stark
+        //TM: Janaye Maggart
         //Date: 4/27/2015
         //approval:
         //approval date:

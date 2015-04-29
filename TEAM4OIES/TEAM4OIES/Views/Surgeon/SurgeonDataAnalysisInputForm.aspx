@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterUserPage.master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterUserPage.master" 
+Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>" 
+%>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	SurgeonDataAnalysisInputForm
 </asp:Content>
@@ -6,42 +8,51 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Surgeon Data Analysis Input Form</h2>
     
-    <div class="pull-right">
-        <form class="form-group">
-            <div class="pull-right">
-                <label>Request Patient from Database<input type="text"/></label>
-            </div>
+    <div class="container">
+        <form id="savePatientinfoForm"  class="pull-left" runat="server">
             <div class="container">
-                <label>Patient Number<input type="text" value=""/></label>
-                <label>Patient D.O.B.<input type="datetime" value=""/></label><label>Sex<input type="text" value=""/></label>
-                <label>Patient Age<input type="number" value=""/></label>
+                <div class="pull-right">
+                    <form action="SurgeonDataAnalysisInputForm." method="POST">
+                        <label>Enter Patient id<input name="patient" value="patient" type="number"/></label>
+                        <input type="submit" value="Get Scans" />
+                    </form>
+                </div>
+                <br/>
+                <div class="container">
+                    <label>Patient Number<input name="DataAnalysisModel.PatientNumber"/></label>
+                    <label>Patient D.O.B.<input name="DataAnalysisModel.PatientDOB"/> </label><label>Sex  <input name="DataAnalysisModel.Sex"/></label>
+                    <label>Patient Age<input name="DataAnalysisModel.Age"/></label>
+                    
+                    <label>Date Of Surgery<input name="DataAnalysisModel.DateOfSurgery"/></label><label>Graft Manufacturer<input name="DataAnalysisModel.GraftManufacturer"/></label>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="well" style="border: solid">
+                    // Box of CT Scans goes here
+                    // User selects one
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <label>CT Scan Date<input name="DataAnalysisModel.CtScan"/></label>
+                    <label>CT Id<input name="DataAnalysisModel.CTid"/></label>
+                    <label>Delay<input name="DataAnalysisModel.Delay"/></label>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="well" style="border: solid">
+                    // Box of CT Series goes here
+                    // User selects one
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <label>Total # of Slices <input name="DataAnalysisModel.NumOfSlices"/></label> <label>Thickness <input name="DataAnalysisModel.Thickness"/></label><label>Pixel Size<input name="DataAnalysisModel.PixelSize"/></label>
+                    <label>ROI begin<input type="number" value=""/></label><label>Iliac Bif<input name=""/></label><label>ROI end<input type="number" value=""/></label>
+                    <label>Total Slices in ROI<input type="number" value=""/></label><label>Length ROI(cm)<input type="number" value=""/></label><label>Comments<input name=""/></label>
+                </div>
+                <asp:Button ID="btnSavePatientInfo" Text="Save Patient Info" BorderColor="Blue" BorderStyle="Solid" BorderWidth="5px"  runat="server"/>
             </div>
-            <div class="container, input-group">
-                // Box of CT Scans goes here
-                // User selects one
-            </div>
-            
-            <div class="container">
-                <label>CT Scan Date<input type="date" value=""/></label>
-                <label>CT Id<input type="text" value=""/></label>
-                <label>Delay<input type="text" value=""/></label>
-            </div>
-           
-            <div class="container">
-                // Box of CT Series goes here
-                // User selects one
-            </div>
-            
-            <div class="container">
-                //Total # of slices // Thickness // sllice
-                // ROI begins   // Iliac Bif   // ROI ends
-                
-                // Total sent in ROI    // Lenght ROI       //sometihing
-
-            </div>
-            <button class="pull-right">
-                Submit
-            </button>
         </form>
     </div>
 
