@@ -56,6 +56,10 @@ namespace TEAM4OIES.Controllers
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
         }
+        public ActionResult UCVisualizeEVARMetadata()
+        {
+            return View();
+        }
     }
 }
 

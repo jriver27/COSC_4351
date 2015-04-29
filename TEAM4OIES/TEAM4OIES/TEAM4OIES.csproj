@@ -88,6 +88,13 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AuditService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterForm.aspx.cs">
+      <DependentUpon>RegisterForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.aspx.designer.cs">
+      <DependentUpon>RegisterForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TEAM4OIESDataSet.cs">
       <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -99,7 +106,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Ionic.Zip.dll" />
+    <Content Include="bin\TEAM4OIES.dll" />
+    <Content Include="bin\TEAM4OIES.pdb" />
     <Content Include="Global.asax" />
+    <Content Include="Images\team4.png" />
+    <Content Include="Ionic.Zip.dll" />
+    <Content Include="License Ionic Zip.txt" />
+    <Content Include="obj\Debug\TEAM4OIES.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\TEAM4OIES.dll" />
+    <Content Include="obj\Debug\TEAM4OIES.pdb" />
+    <Content Include="obj\Debug\TempPE\DataSet1.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\TEAM4OIESDataSet.Designer.cs.dll" />
+    <Content Include="RegisterForm.aspx" />
     <Content Include="Views\Audit.aspx" />
     <Content Include="Views\Audit\Index.aspx" />
     <Content Include="Views\ContactUs\Create.aspx" />
@@ -109,6 +128,8 @@
     <Content Include="Views\ContactUs\Index.aspx" />
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
+    <Content Include="Views\Surgeon\Index.aspx" />
+    <Content Include="Views\Surgeon\UCVisualizeEVARMetadata.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />
     <Content Include="Views\Testimonials\Details.aspx" />
@@ -147,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="zip\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
@@ -161,6 +183,9 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\TEAM4OIES.csprojResolveAssemblyReference.cache" />
     <None Include="TEAM4OIESDataSet.xsc">
       <DependentUpon>TEAM4OIESDataSet.xsd</DependentUpon>
     </None>
