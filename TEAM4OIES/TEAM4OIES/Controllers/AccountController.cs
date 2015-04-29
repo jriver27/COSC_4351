@@ -152,8 +152,8 @@ namespace TEAM4OIES.Controllers
         //Artifact Name: account login controller
         //DBA: Logan Stark
         //Date: 4/27/2015
-        //approval:
-        //approval date:
+        //approval: Linh Tong
+        //approval date: 04/29/2015  
         public ActionResult LogInform(String username, String password)
         {
             Session["username"] = username;

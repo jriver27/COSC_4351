@@ -27,8 +27,8 @@ namespace TEAM4OIES.Controllers
         //Name of Code Artifact:SurgeonDataAnalysisInputForm
         //Programmer's Name:Javier Rivera
         //Date it was coded: 04/28/2015
-        //Date Approved:
-        //SQA Approver:
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
         public ActionResult SurgeonDataAnalysisInputForm()
         {
             return View(new DataAnalysisModel());
@@ -74,8 +74,8 @@ namespace TEAM4OIES.Controllers
          * UC4ZipAnonymizedPatientData
          * Sarah Moore
          * 4/27/2015
-         * 
-         * */
+         * SQA: Linh Tong
+         * Date: 04/29/2015  */
 
         private static void UC4ZipAnonymizedPatientData(HttpPostedFileBase file)
         {
@@ -100,8 +100,8 @@ namespace TEAM4OIES.Controllers
         //Name of Code Artifact:GetCTScans
         //Programmer's Name:Javier Rivera
         //Date it was coded: 04/28/2014
-        //Date Approved:
-        //SQA Approver:
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
         [HttpPost]
         public ActionResult GetCtScans(FormCollection form)
         {

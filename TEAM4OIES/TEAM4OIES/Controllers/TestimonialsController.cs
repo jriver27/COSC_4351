@@ -33,8 +33,8 @@ namespace TEAM4OIES.Controllers
         //Name of Code Artifact:Create
         //Programmer's Name:Linh Tong
         //Date it was coded: 04/25/2014
-        //Date Approved:
-        //SQA Approver:
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
         [HttpPost]//form action="/Testimonials/Create"
         public ActionResult Create(FormCollection form)
         {
@@ -62,8 +62,8 @@ namespace TEAM4OIES.Controllers
         //Name of Code Artifact:Search
         //Programmer's Name:Linh Tong
         //Date it was coded: 04/25/2014
-        //Date Approved:
-        //SQA Approver:
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
         [HttpPost]
         public ActionResult Search(FormCollection form)
         {
