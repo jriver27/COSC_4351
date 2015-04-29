@@ -69,7 +69,7 @@ namespace TEAM4OIES.Models
                 try
                 {
                     cnn.Open();
-                    String sql = "INSERT INTO Surgeon(userType, firstName, lastName, username, password, email, institution_id) VALUES(@userType,@firstName,@lastName,@username,@password,@email,@institution_id)";
+                    String sql = "INSERT INTO Surgeon(userType,firstName,lastName,username,password,email,institution_id) VALUES(@userType,@firstName,@lastName,@username,@password,@email,@institution_id)";
                     SqlCommand registerSurgeon = new SqlCommand(sql, cnn);
                     registerSurgeon.Parameters.AddWithValue("@userType", userType);
                     registerSurgeon.Parameters.AddWithValue("@firstName", firstName);
@@ -176,9 +176,6 @@ namespace TEAM4OIES.Models
     [PropertiesMustMatch("Password", "ConfirmPassword", ErrorMessage = "The password and confirmation password do not match.")]
     public class RegisterModel
     {
-        [Required]
-        [DisplayName("User name")]
-        public string UserName { get; set; }
 
         [Required]
         [DisplayName("First name")]
@@ -189,13 +186,8 @@ namespace TEAM4OIES.Models
         public string LastName { get; set; }
 
         [Required]
-        [DisplayName("Institution")]
-        public string Institution { get; set; }
-
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        [DisplayName("Email address")]
-        public string Email { get; set; }
+        [DisplayName("User name")]
+        public string UserName { get; set; }
 
         [Required]
         [ValidatePasswordLength]
@@ -207,6 +199,17 @@ namespace TEAM4OIES.Models
         [DataType(DataType.Password)]
         [DisplayName("Confirm password")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [DisplayName("Email address")]
+        public string Email { get; set; }
+
+        [Required]
+        [DisplayName("Institution")]
+        public string Institution { get; set; }
+
+
     }
     #endregion
 

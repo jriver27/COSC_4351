@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
 <%
-    if (Request.IsAuthenticated) {
+    if (Session["username"] != null){
 %>
-        Welcome <b><%: Page.User.Identity.Name %></b>!
+        Welcome <b><%: Session["username"] %></b>!
          <%: Html.ActionLink("Log Off", "LogOff", "Account") %> 
 <%
     }
