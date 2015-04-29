@@ -10,7 +10,7 @@ namespace TEAM4OIES.Models
 {
     public class DataAnalysisModel
     {
-        public int PatienId;
+        public string PatienId;
         
         public string PatientNumber { get; set; }
         public DateTime PatientDOB { get; set; }

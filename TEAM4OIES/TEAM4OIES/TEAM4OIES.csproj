@@ -103,14 +103,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UC9.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Surgeon\Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\Audit.aspx" />
+    <Content Include="Views\Audit\DispTable.aspx" />
     <Content Include="Views\Audit\Index.aspx" />
     <Content Include="Views\ContactUs\Create.aspx" />
     <Content Include="Views\ContactUs\Delete.aspx" />

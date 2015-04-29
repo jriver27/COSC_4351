@@ -14,10 +14,12 @@
    </head>
    <body>
     <label>Search Testimonials:</label><br />
-    <p><form action="/Testimonials/Search" method="post">
-    <input type="search" name="searchText" value="" style="width: 200px"/>
-    <input type="submit" name="searchButton" value="Search" />
-    </form><br /></p>
+    <p>
+    <form action="/Testimonials/Search" method="post">
+        <input type="search" name="searchText" value="" style="width: 200px"/>
+        <input type="submit" name="searchButton" value="Search" />
+    </form><br />
+    </p>
     
     <label>Add Testimonials:</label><br />
     <form action="/Testimonials/Create" name="add" method="post" runat="server" id="testimonial">

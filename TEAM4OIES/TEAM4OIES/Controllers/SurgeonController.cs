@@ -103,19 +103,21 @@ namespace TEAM4OIES.Controllers
         //Date Approved:
         //SQA Approver:
         [HttpPost]
-        public ActionResult GetCtScans(int patientId, DataAnalysisModel model)
+        public ActionResult GetCtScans(FormCollection form)
         {
+            String patientId = Request.Form["patient"];
+            DataAnalysisModel model = new DataAnalysisModel();
             model.PatienId = patientId;
 
             string accessType = "Retrieving CTScans for patient: " + patientId;
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Study, "Series", accessType);
 
-            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans((int)patientId);
+            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans(Int32.Parse(patientId));
 
             accessType = "Retrieving patient " + patientId;
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
 
-            Patient patient = new DataAnalysisModel().GetPatientStats(patientId);
+            Patient patient = new DataAnalysisModel().GetPatientStats(Int32.Parse(patientId));
             model.PatientNumber = patient.originalID.ToString();
             //model.Age = new DataAnalysisModel().GetAge(patient.age,patient.entryDate).ToString();
             model.DateOfSurgery = patient.entryDate;
