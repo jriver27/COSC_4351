@@ -13,7 +13,7 @@
     <p>
         Passwords are required to be a minimum of <%: ViewData["PasswordLength"] %> characters in length.
     </p>
-
+    <%--
     <% using (Html.BeginForm()) { %>
         <%: Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.") %>
         <div>
@@ -44,12 +44,20 @@
                     <%: Html.ValidationMessageFor(m => m.UserName) %>
                 </div>
 
-                <div class="editor-institution">
-                    <%: Html.LabelFor(m => m.Institution) %>
+                <div class="editor-label">
+                    <%: Html.LabelFor(m => m.InstitutionID) %>
                 </div>
-                <div class="editor-institution">
-                    <%: Html.TextBoxFor(m => m.Institution) %>
-                    <%: Html.ValidationMessageFor(m => m.Institution) %>
+                <div class="editor-field">
+                    <%: Html.TextBoxFor(m => m.InstitutionID) %>
+                    <%: Html.ValidationMessageFor(m => m.InstitutionID) %>
+                </div>
+
+                <div class="editor-label">
+                    <%: Html.LabelFor(m => m.InstitutionName) %>
+                </div>
+                <div class="editor-field">
+                    <%: Html.TextBoxFor(m => m.InstitutionName) %>
+                    <%: Html.ValidationMessageFor(m => m.InstitutionName) %>
                 </div>
 
                 <div class="editor-email">
@@ -81,6 +89,29 @@
                 </p>
             </fieldset>
         </div>
+    <% } %>--%>
+    <% if (TempData["notice"] != null) { %>
+        <p><%= Html.Encode(TempData["notice"]) %></p>
+    <% } %>
+
+    <% using(Html.BeginForm("LogInForm","Account")) %>
+    <% { %>
+        <p>
+            First Name: <%= Html.TextBox("firstName") %>
+        </p>
+        <p>
+            Last Name: <%= Html.TextBox("lastName") %>
+        </p>
+        <p>
+            Username: <%= Html.TextBox("username") %>
+        </p>
+        <p>
+            Password: <%= Html.TextBox("password") %>
+        </p>
+        <p>
+            Email: <%= Html.TextBox("email") %>
+        </p>
+        <input type="submit" value="Submit" />
     <% } %>
     </form>
 </asp:Content>

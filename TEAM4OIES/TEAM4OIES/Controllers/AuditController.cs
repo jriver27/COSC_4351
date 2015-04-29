@@ -25,13 +25,14 @@ namespace TEAM4OIES.Controllers
         [HttpPost]
         public ActionResult DispTable(FormCollection form)
         {
-            TEAM4OIES.Models.AuditService audit = new TEAM4OIES.Models.AuditService();
-
+            String name = Session["username"].ToString();
+            char charTo = Session["userID"].ToString()[0];
+            int ID = (int)(charTo) - 48;
             String date=saveDate(form);
-            audit.AddtoAudit(1, "Auditor", "Audit", "None", "View");
+            TEAM4OIES.Models.AuditService audit = new TEAM4OIES.Models.AuditService();
+            audit.AddtoAudit(ID,name,"Audit", "None", "View");
             ViewData["audits"] = audit.GetAuditList(audit.GetTableByDate(date));
             return View();
-
         }
        
 

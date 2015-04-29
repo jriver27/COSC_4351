@@ -80,7 +80,7 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Register()
         {
-            ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
+            ViewData["PasswordLength"] = "6";
             return View();
         }
 
@@ -149,5 +149,54 @@ namespace TEAM4OIES.Controllers
             return View();
         }
 
+        //Artifact Name: account login controller
+        //DBA: Logan Stark
+        //Date: 4/27/2015
+        //approval:
+        //approval date:
+        public ActionResult LogInform(String username, String password)
+        {
+            Session["username"] = username;
+            TEAM4OIES.Models.AccountModels login = new TEAM4OIES.Models.AccountModels();
+            String classify = login.accountLogin(username, password);
+            if (classify[0] == '2')
+            {
+                Session["userID"] = classify.Substring(1);
+                return View("~/Views/Audit/Index.aspx");
+            }
+            else if (classify[0] == '1')
+            {
+                Session["userID"] = classify.Substring(1);
+                getUserID();
+                return View("~/Views/Surgeon/Index.aspx");
+            }
+            else
+            {
+                TempData["notice"] = "Error: Invalid username or password";
+                return View("LogOn");
+            }
+        }
+
+        public ActionResult RegistrationForm(String password)
+        {
+            if (password.Length < 6)
+            {
+                TempData["notice"] = "Error: Password is too short";
+                return View("Register");
+            }
+
+            return View("~/Views/Home/Index");
+        }
+
+
+        public String getUsername()
+        {
+            return Session["username"].ToString();
+        }
+        public int getUserID()
+        {//'0' = 48 
+            char charTO = Session["UserID"].ToString()[0];
+            return (int)charTO - 48;
+        }
     }
 }
