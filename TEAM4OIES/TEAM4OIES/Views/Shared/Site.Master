@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #8EAACD">
-<head runat="server">
+<head id="Head1" runat="server">
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
     <link rel="stylesheet" href="../../Content/sticky-footer-navbar.css"/>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
@@ -10,7 +10,7 @@
      <link rel="stylesheet" href="../../Content/bootstrap.min.css"/>
       <!--Start of Zopim Live Chat Script-->
     <script type="text/javascript">
-             window.$zopim || (function (d, s) {
+        window.$zopim || (function (d, s) {
             var z = $zopim = function (c) { z._.push(c) }, $ = z.s = d.createElement(s), e = d.getElementsByTagName(s)[0];
             z.set = function (o) { z.set._.push(o) };
             z._ = [];
@@ -20,8 +20,8 @@
             $.src = '//v2.zopim.com/?2srgjUGVaum0iKzECFzHSTXjsWYJUVGp';
             z.t = +new Date;
             $.type = 'text/javascript';
-                 e.parentNode.insertBefore($, e);
-             })(document, 'script');
+            e.parentNode.insertBefore($, e);
+        })(document, 'script');
 
     </script>
     <!--End of Zopim Live Chat Script-->

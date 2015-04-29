@@ -6,11 +6,11 @@ using System.Web.Mvc;
 using System.Reflection;
 using System.Diagnostics;
 using System.IO.Compression;
+using TEAM4OIES.DataSet1TableAdapters;
 using System.IO;
+using Ionic;
 using Ionic.Zip;
-
-
-
+using TEAM4OIES.Models;
 
 namespace TEAM4OIES.Controllers
 {
@@ -21,16 +21,18 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Index()
         {
-            
-
             return View();
         }
 
-        //Name of Artifact: UC5
-        //Programmers Name: Daniel Gonzalez
-        //Date of Code: 04/27/2015
-        //Date of Approval:
-        //SQA Name:
+        //Name of Code Artifact:SurgeonDataAnalysisInputForm
+        //Programmer's Name:Javier Rivera
+        //Date it was coded: 04/28/2015
+        //Date Approved:
+        //SQA Approver:
+        public ActionResult SurgeonDataAnalysisInputForm()
+        {
+            return View();
+        }
 
         // This action handles the form POST and the upload
         [HttpPost]
@@ -40,34 +42,73 @@ namespace TEAM4OIES.Controllers
             if (file != null && file.ContentLength > 0)
             {
                 string extension = Path.GetExtension(file.FileName);
-                if (extension!=".zip")
+                //make sure the extension isn't a zip
+                if (extension != ".zip")
                 {
-                    FileStream stream = System.IO.File.OpenRead(Path.GetFullPath(file.FileName));
-
-                    FileStream outFile = System.IO.File.Create(file.FileName + ".zip");
-                    
-                    GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
-
+                    UC4ZipAnonymizedPatientData(file);
                 }
-                // extract only the fielname
-                var fileName = System.IO.Path.GetFileName(file.FileName);
-
-                // store the file inside D:/COSC4351_Spring2015/TEAM4OIES/ folder
-                var path = System.IO.Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/", fileName);
-                file.SaveAs(path);
-                
-                //Unzip File using Ionic.Zip DLL
-                using(ZipFile zip1 = ZipFile.Read(fileName))
+                else
                 {
-                    foreach(ZipEntry e in zip1)
+                    // extract only the fielname
+                    var fileName = Path.GetFileName(file.FileName);
+
+                    // store the file inside D:/COSC4351_Spring2015/TEAM4OIES/ folder
+                    var path = Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/", fileName);
+                    file.SaveAs(path);
+
+                    //Unzip File using Ionic.Zip DLL
+                    using (ZipFile zip1 = ZipFile.Read(fileName))
                     {
-                        e.Extract(path, ExtractExistingFileAction.OverwriteSilently);
+                        foreach (ZipEntry e in zip1)
+                        {
+                            e.Extract(path, ExtractExistingFileAction.OverwriteSilently);
+                        }
                     }
                 }
             }
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
         }
+
+        /*
+         * UC4ZipAnonymizedPatientData
+         * Sarah Moore
+         * 4/27/2015
+         * 
+         * */
+
+        private static void UC4ZipAnonymizedPatientData(HttpPostedFileBase file)
+        {
+            //while the file is open
+            using (FileStream stream = System.IO.File.OpenRead(Path.GetFullPath(file.FileName)))
+            {
+                //create the stream of the zip file name
+                FileStream outFile = System.IO.File.Create(file.FileName + ".zip");
+                //compress the outfile
+                GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
+                //copy data from the original file to the compressed file
+                stream.CopyTo(Compress);
+                string endDirectory = @"D:/COSC4351_Spring2015/TEAM4OIES/";
+                //save the compressed file
+                using (FileStream destinationStream = System.IO.File.Create(endDirectory))
+                {
+                    stream.CopyTo(destinationStream);
+                }
+            }
+        }
+
+        //Name of Code Artifact:GetCTScans
+        //Programmer's Name:Javier Rivera
+        //Date it was coded: 04/28/2014
+        //Date Approved:
+        //SQA Approver:
+        [AcceptVerbs(HttpVerbs.Post)]
+        private void GetCTScans(int paitentId)
+        {
+            string accessType = "Retrieving CTScans for patient " + paitentId;
+
+            new AuditService().AddtoAudit(0, null, "" , null, accessType);
+            ViewData["result"] = new DataAnalysisModel().GetCtScans((int)paitentId);
+        }
     }
 }
-
