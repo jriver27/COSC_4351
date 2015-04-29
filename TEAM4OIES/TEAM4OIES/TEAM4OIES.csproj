@@ -124,6 +124,7 @@
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
     <Content Include="Views\Surgeon\Index.aspx" />
+    <Content Include="Views\Surgeon\Patient.aspx" />
     <Content Include="Views\Surgeon\SurgeonDataAnalysisInputForm.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />

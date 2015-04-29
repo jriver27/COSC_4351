@@ -39,7 +39,8 @@
         <% } %>
          <h3>Choose Anonymized Zip File: </h3> 
         <%: Html.ActionLink("Data Analysis Input Form", "SurgeonDataAnalysisInputForm", "Surgeon",new{@style="color:#2b1faa"}) %>
-
+        
+        <%: Html.ActionLink("Data Analysis Input Form", "Patient", "Surgeon",new{@style="color:#2b1faa"}) %>
 </asp:Content>
 
 

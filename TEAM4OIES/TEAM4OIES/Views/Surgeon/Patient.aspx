@@ -8,9 +8,10 @@
 
     <h2>Patient</h2>
     <form id="Form1" runat="server">
-        <div class="pull-right">
+        <div class="well">
                 <input type="text" id="patientp" name="patientp" />
-                <button type="submit" id="patient submit" value="Submit Patient ID">ClickMe</button>
+                <label> Please input Patient ID</label><br/>
+                <button type="submit" id="patient submit" value="Submit Patient ID">Retrieve Patient</button>
         </div>
     </form>
 

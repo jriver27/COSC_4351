@@ -31,10 +31,18 @@ namespace TEAM4OIES.Controllers
         //SQA Approver: Paul Miller
         public ActionResult SurgeonDataAnalysisInputForm()
         {
-          
             return View();
         }
 
+        //Name of Code Artifact:Patient
+        //Programmer's Name:Javier Rivera
+        //Date it was coded: 04/29/2015
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
+        public ActionResult Patient()
+        {
+            return View();
+        }
         // This action handles the form POST and the upload
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
@@ -103,7 +111,6 @@ namespace TEAM4OIES.Controllers
         //Date it was coded: 04/28/2014
         //Date Approved: 04/29/2015  
         //SQA Approver: Paul Miller
-
         public ActionResult GetCtScans(String patientp)
         {
             DataAnalysisModel model = new DataAnalysisModel();
@@ -124,6 +131,18 @@ namespace TEAM4OIES.Controllers
             model.GraftManufacturer = patient.Endograft.Brand.ToString();
 
             return View("SurgeonDataAnalysisInputForm", model);
+        }
+
+        //Name of Code Artifact:GetPatientInfo
+        //Programmer's Name:Javier Rivera
+        //Date it was coded: 04/28/2014
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
+        [HttpPost]
+        public ActionResult GetCtScans(FormCollection form)
+        {
+            PatientModel patientModel = new PatientModel();
+            return View(Patient) ;
         }
     }
 }
