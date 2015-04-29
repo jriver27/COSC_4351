@@ -12,6 +12,8 @@ using System.IO;
 using Ionic;
 using Ionic.Zip;
 using TEAM4OIES.Models;
+using AuditTableAdapter = TEAM4OIES.UC13TableAdapters.AuditTableAdapter;
+
 namespace TEAM4OIES.Controllers
 {
     public class SurgeonController : Controller
@@ -29,6 +31,7 @@ namespace TEAM4OIES.Controllers
         //Date it was coded: 04/28/2015
         //Date Approved:
         //SQA Approver:
+        [HttpGet]
         public ActionResult SurgeonDataAnalysisInputForm()
         {
             return View(new DataAnalysisModel());
@@ -103,21 +106,23 @@ namespace TEAM4OIES.Controllers
         //Date Approved:
         //SQA Approver:
         [HttpPost]
-        public ActionResult GetCtScans(FormCollection form)
+        public ActionResult GetCtScans(int patientId, DataAnalysisModel model)
         {
-            String patientId = Request.Form["patient"];
-            DataAnalysisModel model = new DataAnalysisModel();
             model.PatienId = patientId;
 
             string accessType = "Retrieving CTScans for patient: " + patientId;
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Study, "Series", accessType);
 
-            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans(Int32.Parse(patientId));
+            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans((int)patientId);
 
             accessType = "Retrieving patient " + patientId;
+<<<<<<< HEAD
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
+=======
+            new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Series", accessType);
+>>>>>>> master
 
-            Patient patient = new DataAnalysisModel().GetPatientStats(Int32.Parse(patientId));
+            Patient patient = new DataAnalysisModel().GetPatientStats(patientId);
             model.PatientNumber = patient.originalID.ToString();
             //model.Age = new DataAnalysisModel().GetAge(patient.age,patient.entryDate).ToString();
             model.DateOfSurgery = patient.entryDate;

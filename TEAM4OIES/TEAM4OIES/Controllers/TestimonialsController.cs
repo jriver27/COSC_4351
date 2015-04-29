@@ -40,7 +40,7 @@ namespace TEAM4OIES.Controllers
         {
             TEAM4OIES.Models.TestimonialModels testimonials = new TEAM4OIES.Models.TestimonialModels();
             String comment = Request.Form["comments"];
-            testimonials.addToTestimonial(comment, 3);
+            testimonials.addToTestimonial(comment, 2);
             List<Testimonials> createTestList = new List<Testimonials>();
             DataSet ds = new DataSet();
             SqlConnection con = new SqlConnection("Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#");
