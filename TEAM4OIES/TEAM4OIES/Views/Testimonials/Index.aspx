@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<TEAM4OIES.Models.Testimonials>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Testimonials
@@ -21,13 +21,53 @@
     </form><br />
     </p>
     
+    <table>
+   <col width="130" />
+   <col width="130" />
+   <col width="250" />
+   <col width="200" />
+<tr>
+    <th>
+        First Name
+    </th>
+    <th>
+        Last Name
+    </th>
+    <th>
+        Comments
+    </th>
+    <th>
+        Date
+    </th>
+</tr>
+<%foreach (var keywordTest in Model)
+  {%>
+  <tr>
+    <td>
+       <% =keywordTest.firstName%>
+    </td>
+    <td>
+       <% =keywordTest.lastName%>
+    </td>
+    <td>
+        <% =keywordTest.content%>
+    </td>
+    <td>
+        <% =keywordTest.tDate%>
+    </td>
+
+</tr>
+<%} %>
+
+</table>
+<br />
     <label>Add Testimonials:</label><br />
     <form action="/Testimonials/Create" name="add" method="post" runat="server" id="testimonial">
 
    <p>
    <div class="editor-label">Comments:</div>
    <div class="editor-field">
-   <textarea id="comments" name="comments" rows="6" cols="55"></textarea>
+   <textarea id="comments" name="comments" rows="4" cols="55"></textarea>
    </div>
    </p>
 
