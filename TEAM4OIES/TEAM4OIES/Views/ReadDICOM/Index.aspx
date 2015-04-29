@@ -14,6 +14,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2>Index</h2>
+        <form action="/UploadEVARToDB/Submit" method=post>
+    </br>
+    <input type=submit value="Submit" /><br/>
+    <br />
+    </form>
    
 <% using (Html.BeginForm("FileUpload", "ReadDICOM", 
                     FormMethod.Post, new { enctype = "multipart/form-data" }))
