@@ -12,8 +12,6 @@ using System.IO;
 using Ionic;
 using Ionic.Zip;
 using TEAM4OIES.Models;
-using AuditTableAdapter = TEAM4OIES.UC13TableAdapters.AuditTableAdapter;
-
 namespace TEAM4OIES.Controllers
 {
     public class SurgeonController : Controller

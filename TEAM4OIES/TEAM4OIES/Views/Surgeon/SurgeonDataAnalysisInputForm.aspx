@@ -11,14 +11,16 @@ Inherits="System.Web.Mvc.ViewPage<TEAM4OIES.Models.DataAnalysisModel>"
     <div class="container">
         <form id="savePatientinfoForm"  class="pull-left" runat="server">
             <div class="container">
+                <%--PAUL TAKE A LOOK HERE 
+                *********************--%>
                 <div class="pull-right">
-                    <label> Enter Patient id</label>
-                    <% using (Html.BeginForm("GetCTScans", "Surgeon")) 
-                      { %>
-                    <%= Html.TextBox("Id")%>
-                    <input type="submit" value="submit"/>
-                    <% } %>
+                    <form action="" method="post">
+                        <label>Enter Patient id<input type="number"/></label>
+                        <input type="submit" name="inputPatientIdButton" value="GetCtScans" />
+                    </form>
                 </div>
+                <%--PAUL TAKE A LOOK HERE 
+                *********************--%>
                 <br/>
                 <div class="container">
                     <label>Patient Number<input name="DataAnalysisModel.PatientNumber"/></label>
