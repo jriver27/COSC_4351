@@ -1,6 +1,6 @@
 ﻿/*
  * TM: Janaye Maggart
- * LogOnModel, 
+ * LogOnModel,Register Model CreateUser 
  * April 24, 2015
  */
 
