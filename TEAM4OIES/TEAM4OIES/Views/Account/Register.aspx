@@ -13,7 +13,7 @@
     <p>
         Passwords are required to be a minimum of <%: ViewData["PasswordLength"] %> characters in length.
     </p>
-
+    <%--
     <% using (Html.BeginForm()) { %>
         <%: Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.") %>
         <div>
@@ -81,6 +81,29 @@
                 </p>
             </fieldset>
         </div>
+    <% } %>--%>
+    <% if (TempData["notice"] != null) { %>
+        <p><%= Html.Encode(TempData["notice"]) %></p>
+    <% } %>
+
+    <% using(Html.BeginForm("LogInForm","Account")) %>
+    <% { %>
+        <p>
+            First Name: <%= Html.TextBox("firstName") %>
+        </p>
+        <p>
+            Last Name: <%= Html.TextBox("lastName") %>
+        </p>
+        <p>
+            Username: <%= Html.TextBox("username") %>
+        </p>
+        <p>
+            Password: <%= Html.TextBox("password") %>
+        </p>
+        <p>
+            Email: <%= Html.TextBox("email") %>
+        </p>
+        <input type="submit" value="Submit" />
     <% } %>
     </form>
 </asp:Content>
