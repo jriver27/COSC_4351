@@ -1,8 +1,8 @@
 ﻿<%--Name of Artifact: UC3
     Programmers Name: Daniel Gonzalez
     Date of Code: 04/27/2015
-    Date of Approval: 04/29/2015  
-    SQA Name:Linh Tong--%>
+    Date of Approval:
+    SQA Name:--%>
 
 
 <%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MasterUserPage.master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>

@@ -94,7 +94,7 @@
         <p><%= Html.Encode(TempData["notice"]) %></p>
     <% } %>
 
-    <% using(Html.BeginForm("LogInForm","Account")) %>
+    <% using(Html.BeginForm("RegistrationForm","Account")) %>
     <% { %>
         <p>
             First Name: <%= Html.TextBox("firstName") %>
@@ -109,7 +109,13 @@
             Password: <%= Html.TextBox("password") %>
         </p>
         <p>
+            Confirm Password: <%= Html.TextBox("confirmPassword") %>
+        </p>
+        <p>
             Email: <%= Html.TextBox("email") %>
+        </p>
+         <p>
+            Institution: <%= Html.TextBox("institution_id") %>
         </p>
         <input type="submit" value="Submit" />
     <% } %>

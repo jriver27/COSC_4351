@@ -69,8 +69,9 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult LogOff()
         {
-            FormsService.SignOut();
-
+            //FormsService.SignOut();
+            Session["username"] = null;
+            Session["userID"] = null;
             return RedirectToAction("Index", "Home");
         }
 
@@ -90,7 +91,7 @@ namespace TEAM4OIES.Controllers
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
-                MembershipCreateStatus createStatus = MembershipService.CreateUser(model.LastName, model.Password, model.Email);
+                MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
@@ -152,8 +153,8 @@ namespace TEAM4OIES.Controllers
         //Artifact Name: account login controller
         //DBA: Logan Stark
         //Date: 4/27/2015
-        //approval: Linh Tong
-        //approval date: 04/29/2015  
+        //approval:
+        //approval date:
         public ActionResult LogInform(String username, String password)
         {
             Session["username"] = username;
@@ -170,12 +171,6 @@ namespace TEAM4OIES.Controllers
                 getUserID();
                 return View("~/Views/Surgeon/Index.aspx");
             }
-            else if (classify[0] == '3')
-            {
-                Session["userID"] = classify.Substring(1);
-                getUserID();
-                return View("~/Views/Home/Index.aspx");
-            }
             else
             {
                 TempData["notice"] = "Error: Invalid username or password";
@@ -183,15 +178,32 @@ namespace TEAM4OIES.Controllers
             }
         }
 
-        public ActionResult RegistrationForm(String password)
+        public ActionResult RegistrationForm(int userType, String firstName, String lastName, String username, String password, String email, int institution_id)
         {
+            Session["firstName"] = firstName;
+            Session["userType"] = userType;
+            Session["lastName"] = lastName;
+            Session["userName"] = username;
+            Session["password"] = password;
+            Session["email"] = email;
+            Session["institution_id"] = institution_id;
+
             if (password.Length < 6)
             {
                 TempData["notice"] = "Error: Password is too short";
                 return View("Register");
             }
-
-            return View("~/Views/Home/Index");
+            TEAM4OIES.Models.AccountModels register = new TEAM4OIES.Models.AccountModels();
+            bool success = register.createAccount(userType, firstName, lastName, username, password, email, institution_id);
+            if (success == true)
+            {
+                return View("~/Views/Home/Index");
+            }
+            else
+            {
+                TempData["notice"] = "Error: Registration Failed";
+                return View("Register");
+            }
         }
 
 
