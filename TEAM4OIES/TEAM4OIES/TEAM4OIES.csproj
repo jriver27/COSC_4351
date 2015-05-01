@@ -78,6 +78,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SurgeonController.cs" />
     <Compile Include="Controllers\TestimonialsController.cs" />
+    <Compile Include="Controllers\UploadEVARToDBController.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,6 +93,7 @@
     <Compile Include="Models\DataAnalysisModel.cs" />
     <Compile Include="Models\TestimonialModels.cs" />
     <Compile Include="Models\Testimonials.cs" />
+    <Compile Include="Models\UploadEVARToDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UC13.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -124,6 +126,11 @@
     <Content Include="Views\Testimonials\Edit.aspx" />
     <Content Include="Views\Testimonials\Index.aspx" />
     <Content Include="Views\Testimonials\Search.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\UploadEVARToDB\Index.aspx" />
+    <Content Include="Views\UploadEVARToDB\Submit.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
