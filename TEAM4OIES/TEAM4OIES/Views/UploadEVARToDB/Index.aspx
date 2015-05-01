@@ -25,6 +25,7 @@
     <h2>Upload EVAR to Database</h2>
 
     <form action="/UploadEVARToDB/Submit" method=post>
+    </br>
     Patient ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type=text name="PatientID" /><br/>
     Date of Surgery: <input type="date" name="DateOfSurgery" value="Date of Surgery" /><br/>
      <br />
@@ -43,5 +44,6 @@
     <br />
     </br>
     <input type=submit value="Submit" /><br/>
+    <br />
     </form>
 </asp:Content>

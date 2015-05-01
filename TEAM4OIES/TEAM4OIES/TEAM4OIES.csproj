@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EvilDICOM.Core, Version=1.0.5.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EvilDICOM.1.0.5.6\lib\net40\EvilDICOM.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Content\zipDLL\Ionic.Zip.dll</HintPath>
@@ -76,6 +80,7 @@
     <Compile Include="Controllers\AuditController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReadDICOMController.cs" />
     <Compile Include="Controllers\SurgeonController.cs" />
     <Compile Include="Controllers\TestimonialsController.cs" />
     <Compile Include="Controllers\UploadEVARToDBController.cs" />
@@ -91,6 +96,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AuditService.cs" />
     <Compile Include="Models\DataAnalysisModel.cs" />
+    <Compile Include="Models\ReadDICOM.cs" />
     <Compile Include="Models\TestimonialModels.cs" />
     <Compile Include="Models\Testimonials.cs" />
     <Compile Include="Models\UploadEVARToDB.cs" />
@@ -137,6 +143,7 @@
     <Content Include="Views\ContactUs\Index.aspx" />
     <Content Include="Views\Home\ContactUs.aspx" />
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
+    <Content Include="Views\ReadDICOM\Index.aspx" />
     <Content Include="Views\Surgeon\Index.aspx" />
     <Content Include="Views\Surgeon\UCVisualizeEVARMetadata.aspx" />
     <Content Include="Views\Surgeon\SurgeonDataAnalysisInputForm.aspx" />
@@ -146,6 +153,8 @@
     <Content Include="Views\Testimonials\Edit.aspx" />
     <Content Include="Views\Testimonials\Index.aspx" />
     <Content Include="Views\Testimonials\Search.aspx" />
+    <Content Include="Views\UploadEVARToDB\Index.aspx" />
+    <Content Include="Views\UploadEVARToDB\Submit.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -187,6 +196,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="zip\" />
+    <Folder Include="Uploads\" />
+    <Folder Include="Views\NewFolder1\" />
+    <Folder Include="Views\NewFolder2\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSet1.xsc">
@@ -200,6 +212,7 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <Content Include="packages.config" />
     <None Include="UC13.xsc">
       <DependentUpon>UC13.xsd</DependentUpon>
     <None Include="obj\Debug\build.force" />
