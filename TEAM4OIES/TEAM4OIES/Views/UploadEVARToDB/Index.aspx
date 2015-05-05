@@ -1,8 +1,4 @@
-﻿<%--Name of Artifact: UC7
-    Programmers Name: Jainesh Mehta
-    Date of Code: 04/27/2015
-    Date of Approval:
-    SQA Name:--%>
+﻿
 <%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <script runat="server">
@@ -13,10 +9,11 @@
     }
 </script>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	<!--Name of Artifact: UC7
+	﻿<!--Name of Artifact: UC7
     Programmers Name: Jainesh Mehta
-    Date of Code: 04/27/2015
-    Date of Approval: SQA Name:-->
+    Date: April-29-2015
+    Date of Approval:  April 29 2015
+    SQA Name:Paul Miller-->
     Index
 </asp:Content>
 
@@ -25,7 +22,6 @@
     <h2>Upload EVAR to Database</h2>
 
     <form action="/UploadEVARToDB/Submit" method=post>
-    </br>
     Patient ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type=text name="PatientID" /><br/>
     Date of Surgery: <input type="date" name="DateOfSurgery" value="Date of Surgery" /><br/>
      <br />
@@ -44,6 +40,5 @@
     <br />
     </br>
     <input type=submit value="Submit" /><br/>
-    <br />
     </form>
 </asp:Content>

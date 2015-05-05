@@ -153,23 +153,33 @@ namespace TEAM4OIES.Controllers
         //Artifact Name: account login controller
         //DBA: Logan Stark
         //Date: 4/27/2015
-        //approval:
-        //approval date:
+        //approval: Linh Tong
+        //approval date: 04/29/2015
         public ActionResult LogInform(String username, String password)
         {
             Session["username"] = username;
             TEAM4OIES.Models.AccountModels login = new TEAM4OIES.Models.AccountModels();
             String classify = login.accountLogin(username, password);
+            Session["userID"] = classify.Substring(1);
+            
+            String name = Session["username"].ToString();
+            char charTo = Session["userID"].ToString()[0];
+            int ID = (int)(charTo) - 48;
+            TEAM4OIES.Models.AuditService audit = new TEAM4OIES.Models.AuditService();
+            audit.AddtoAudit(ID, name, "Surgeon", "userType,SurgeonID", "View");
+            
             if (classify[0] == '2')
             {
-                Session["userID"] = classify.Substring(1);
-                return View("~/Views/Audit/Index.aspx");
+                return RedirectToAction("Index","Audit");
             }
             else if (classify[0] == '1')
             {
-                Session["userID"] = classify.Substring(1);
-                getUserID();
-                return View("~/Views/Surgeon/Index.aspx");
+                return RedirectToAction("Index", "Surgeon");
+            }
+            else if (classify[0] == '3')
+            {
+                Response.Redirect("http://account.zopim.com/signup?lang=en-us#login");
+                return RedirectToAction("Home", "Index");
             }
             else
             {
@@ -177,27 +187,35 @@ namespace TEAM4OIES.Controllers
                 return View("LogOn");
             }
         }
-
-        public ActionResult RegistrationForm(int userType, String firstName, String lastName, String username, String password, String email, int institution_id)
+        //Artifact Name: Registration form
+        //DBA: Logan Stark
+        //Date: 4/27/2015
+        //approval: Linh Tong
+        //approval date: 04/29/2015
+        public ActionResult RegistrationForm(String firstName, String lastName, String username, String password, String confirmPassword, String email, int institution_id)
         {
+            /*Unneeded
             Session["firstName"] = firstName;
-            Session["userType"] = userType;
+            Session["userType"] = 1;
             Session["lastName"] = lastName;
             Session["userName"] = username;
-            Session["password"] = password;
             Session["email"] = email;
             Session["institution_id"] = institution_id;
-
+            */
             if (password.Length < 6)
             {
                 TempData["notice"] = "Error: Password is too short";
                 return View("Register");
             }
+
+            
             TEAM4OIES.Models.AccountModels register = new TEAM4OIES.Models.AccountModels();
-            bool success = register.createAccount(userType, firstName, lastName, username, password, email, institution_id);
-            if (success == true)
+            bool success = register.createAccount(1, firstName, lastName, username, password, email, institution_id);
+            if (success)
             {
-                return View("~/Views/Home/Index");
+                TEAM4OIES.Models.AuditService audit = new TEAM4OIES.Models.AuditService();
+                audit.AddtoAudit(0, username, "Surgeon", "All", "Insert");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -206,7 +224,10 @@ namespace TEAM4OIES.Controllers
             }
         }
 
-
+        //Artifact Name: username
+        //DBA: Logan Stark
+        //Date: 4/27/2015
+        //approval: Linh Tong
         public String getUsername()
         {
             return Session["username"].ToString();

@@ -1,16 +1,14 @@
 ﻿/*Name of Artifact: UC7
     Programmers Name: Jainesh Mehta
     Date of Code: 04/27/2015
-    Date of Approval:
-    SQA Name:-  */
+     Date of Approval: April 29 2015
+    SQA Name:- Paul Miller*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TEAM4OIES.Models;
-using EvilDICOM.Core;
-using EvilDICOM.Core.Helpers;
 namespace TEAM4OIES.Controllers
 {
     public class UploadEVARToDBController : Controller
@@ -24,14 +22,9 @@ namespace TEAM4OIES.Controllers
 
         public ActionResult Submit()
         {
-             var dcm = DICOMObject.Read(@"C:\Users\Admin\Downloads\CT Scan - Yusuf\CT Scan - Yusuf\DICOM\PA000000\ST000000\SE000000\IM000000");
-            dcm.ToString();
-            Console.Read();
 
-            var holder = dcm.FindFirst(TagHelper.PATIENT_ID);
             UC9DataContext dbContext = new UC9DataContext();
-            
-           
+
             Endograft newEndo = new Endograft()
             {
                 dateOfSurgery = Convert.ToDateTime(Convert.ToString(Request.Form["DateOfSurgery"])),
@@ -48,7 +41,7 @@ namespace TEAM4OIES.Controllers
             {
                 brand1 = Convert.ToString(Request.Form["Brand"])
             };
-            String filepath = Convert.ToString(Request.Form["dcmfile"]);
+
             dbContext.Brands.InsertOnSubmit(newBrand);
             dbContext.SubmitChanges();
             dbContext.Endografts.InsertOnSubmit(newEndo);

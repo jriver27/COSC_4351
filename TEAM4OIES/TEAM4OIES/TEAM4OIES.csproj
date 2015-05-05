@@ -34,9 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EvilDICOM.Core, Version=1.0.5.6, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EvilDICOM.Core">
       <HintPath>..\packages\EvilDICOM.1.0.5.6\lib\net40\EvilDICOM.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -84,6 +83,10 @@
     <Compile Include="Controllers\SurgeonController.cs" />
     <Compile Include="Controllers\TestimonialsController.cs" />
     <Compile Include="Controllers\UploadEVARToDBController.cs" />
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,17 +104,10 @@
     <Compile Include="Models\Testimonials.cs" />
     <Compile Include="Models\UploadEVARToDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterForm.aspx.cs">
-      <DependentUpon>RegisterForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="UC13.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UC13.xsd</DependentUpon>
-    <Compile Include="RegisterForm.aspx.designer.cs">
-      <DependentUpon>RegisterForm.aspx</DependentUpon>
-    </Compile>
     </Compile>
     <Compile Include="UC9.designer.cs">
       <AutoGen>True</AutoGen>
@@ -120,19 +116,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Ionic.Zip.dll" />
-    <Content Include="bin\TEAM4OIES.dll" />
-    <Content Include="bin\TEAM4OIES.pdb" />
     <Content Include="Global.asax" />
-    <Content Include="Images\team4.png" />
-    <Content Include="Ionic.Zip.dll" />
-    <Content Include="License Ionic Zip.txt" />
-    <Content Include="obj\Debug\TEAM4OIES.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\TEAM4OIES.dll" />
-    <Content Include="obj\Debug\TEAM4OIES.pdb" />
-    <Content Include="obj\Debug\TempPE\DataSet1.Designer.cs.dll" />
-    <Content Include="obj\Debug\TempPE\TEAM4OIESDataSet.Designer.cs.dll" />
-    <Content Include="RegisterForm.aspx" />
     <Content Include="Views\Audit.aspx" />
     <Content Include="Views\Audit\DispTable.aspx" />
     <Content Include="Views\Audit\Index.aspx" />
@@ -145,7 +129,6 @@
     <Content Include="Views\Home\TestimonialsSearch.aspx" />
     <Content Include="Views\ReadDICOM\Index.aspx" />
     <Content Include="Views\Surgeon\Index.aspx" />
-    <Content Include="Views\Surgeon\UCVisualizeEVARMetadata.aspx" />
     <Content Include="Views\Surgeon\SurgeonDataAnalysisInputForm.aspx" />
     <Content Include="Views\Testimonials\Create.aspx" />
     <Content Include="Views\Testimonials\Delete.aspx" />
@@ -153,11 +136,6 @@
     <Content Include="Views\Testimonials\Edit.aspx" />
     <Content Include="Views\Testimonials\Index.aspx" />
     <Content Include="Views\Testimonials\Search.aspx" />
-    <Content Include="Views\UploadEVARToDB\Index.aspx" />
-    <Content Include="Views\UploadEVARToDB\Submit.aspx" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Views\UploadEVARToDB\Index.aspx" />
     <Content Include="Views\UploadEVARToDB\Submit.aspx" />
     <Content Include="Web.config">
@@ -195,10 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="zip\" />
-    <Folder Include="Uploads\" />
-    <Folder Include="Views\NewFolder1\" />
-    <Folder Include="Views\NewFolder2\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSet1.xsc">
@@ -212,12 +186,8 @@
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <Content Include="packages.config" />
     <None Include="UC13.xsc">
       <DependentUpon>UC13.xsd</DependentUpon>
-    <None Include="obj\Debug\build.force" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\TEAM4OIES.csprojResolveAssemblyReference.cache" />
     </None>
     <None Include="UC13.xsd">
       <Generator>MSDataSetGenerator</Generator>

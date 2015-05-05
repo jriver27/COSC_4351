@@ -4,8 +4,13 @@
     Register
 </asp:Content>
 
+<%--Artifact Name: account login view
+DBA: Logan Stark
+TM: Janaye Maggart
+Date: 4/27/2015
+approval:Paul Miller
+approval date:4/29/15--%>
 <asp:Content ID="registerContent" ContentPlaceHolderID="MainContent" runat="server">
-    <form id="form1" runat="server">
     <h2>Create a New Account</h2>
     <p>
         Use the form below to create a new account. 
@@ -106,10 +111,10 @@
             Username: <%= Html.TextBox("username") %>
         </p>
         <p>
-            Password: <%= Html.TextBox("password") %>
+            Password: <%= Html.Password("password") %>
         </p>
         <p>
-            Confirm Password: <%= Html.TextBox("confirmPassword") %>
+            Confirm Password: <%= Html.Password("confirmPassword") %>
         </p>
         <p>
             Email: <%= Html.TextBox("email") %>
@@ -119,5 +124,4 @@
         </p>
         <input type="submit" value="Submit" />
     <% } %>
-    </form>
 </asp:Content>

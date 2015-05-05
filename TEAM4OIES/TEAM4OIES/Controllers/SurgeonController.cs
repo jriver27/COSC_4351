@@ -27,11 +27,12 @@ namespace TEAM4OIES.Controllers
         //Name of Code Artifact:SurgeonDataAnalysisInputForm
         //Programmer's Name:Javier Rivera
         //Date it was coded: 04/28/2015
-        //Date Approved:
-        //SQA Approver:
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
         public ActionResult SurgeonDataAnalysisInputForm()
         {
-            return View(new DataAnalysisModel());
+          
+            return View();
         }
 
         // This action handles the form POST and the upload
@@ -56,72 +57,86 @@ namespace TEAM4OIES.Controllers
                     var path = Path.Combine(@"D:/COSC4351_Spring2015/TEAM4OIES/", fileName);
                     file.SaveAs(path);
 
+                    //Artifact Name: UCUnzipAnonymizedData
+                    //DBA:
+                    //TM: Steven Pate
+                    //Date: 4/27/2015
+                    //approval: Paul Miller 
+                    //approval date: 04/29/2015
                     //Unzip File using Ionic.Zip DLL
-                    using (ZipFile zip1 = ZipFile.Read(fileName))
+                    try
                     {
-                        foreach (ZipEntry e in zip1)
+                        using (ZipFile zip1 = ZipFile.Read(fileName))
                         {
-                            e.Extract(path, ExtractExistingFileAction.OverwriteSilently);
+                            foreach (ZipEntry e in zip1)
+                            {
+                                e.Extract(path, ExtractExistingFileAction.OverwriteSilently);
+                            }
                         }
+                    }
+                    catch
+                    {
+                        //ignored
                     }
                 }
             }
             // redirect back to the index action to show the form once again
             return RedirectToAction("Index");
         }
-        public ActionResult UCVisualizeEVARMetadata()
-        {
-            return View();
-        }
 
         /*
          * UC4ZipAnonymizedPatientData
          * Sarah Moore
          * 4/27/2015
-         * 
-         * */
+         * SQA: Linh Tong
+         * Date: 04/29/2015  */
 
         private static void UC4ZipAnonymizedPatientData(HttpPostedFileBase file)
         {
-            //while the file is open
-            using (FileStream stream = System.IO.File.OpenRead(Path.GetFullPath(file.FileName)))
+            try
             {
-                //create the stream of the zip file name
-                FileStream outFile = System.IO.File.Create(file.FileName + ".zip");
-                //compress the outfile
-                GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
-                //copy data from the original file to the compressed file
-                stream.CopyTo(Compress);
-                string endDirectory = @"D:/COSC4351_Spring2015/TEAM4OIES/";
-                //save the compressed file
-                using (FileStream destinationStream = System.IO.File.Create(endDirectory))
+                using (FileStream stream = System.IO.File.OpenRead(Path.GetFullPath(file.FileName)))
                 {
-                    stream.CopyTo(destinationStream);
+                    //create the stream of the zip file name
+                    FileStream outFile = System.IO.File.Create(file.FileName + ".zip");
+                    //compress the outfile
+                    GZipStream Compress = new GZipStream(outFile, CompressionMode.Compress);
+                    //copy data from the original file to the compressed file
+                    stream.CopyTo(Compress);
+                    string endDirectory = @"D:/COSC4351_Spring2015/TEAM4OIES/";
+                    //save the compressed file
+                    using (FileStream destinationStream = System.IO.File.Create(endDirectory))
+                    {
+                        stream.CopyTo(destinationStream);
+                    }
                 }
+            }
+            catch
+            {
+                //ignored
             }
         }
 
         //Name of Code Artifact:GetCTScans
-        //Programmer's Name:Javier Rivera
+        //Programmer's Name:Javier Rivera, Paul Miller
         //Date it was coded: 04/28/2014
-        //Date Approved:
-        //SQA Approver:
-        [HttpPost]
-        public ActionResult GetCtScans(FormCollection form)
-        {
-            String patientId = Request.Form["patient"];
-            DataAnalysisModel model = new DataAnalysisModel();
-            model.PatienId = patientId;
+        //Date Approved: 04/29/2015  
+        //SQA Approver: Paul Miller
 
-            string accessType = "Retrieving CTScans for patient: " + patientId;
+        public ActionResult GetCtScans(String patientp)
+        {
+            DataAnalysisModel model = new DataAnalysisModel();
+            model.PatienId = patientp;
+            
+            string accessType = "Retrieving CTScans for patient: " + patientp;
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Study, "Series", accessType);
 
-            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans(Int32.Parse(patientId));
+            model.CtScansEnumerable = new DataAnalysisModel().GetCtScans(Int32.Parse(patientp));
 
-            accessType = "Retrieving patient " + patientId;
+            accessType = "Retrieving patient " + patientp;
             new AuditService().AddtoAudit(1, "JavierRivera", Misc.TableNames.Patient, "Patient", accessType);
 
-            Patient patient = new DataAnalysisModel().GetPatientStats(Int32.Parse(patientId));
+            Patient patient = new DataAnalysisModel().GetPatientStats(Int32.Parse(patientp));
             model.PatientNumber = patient.originalID.ToString();
             //model.Age = new DataAnalysisModel().GetAge(patient.age,patient.entryDate).ToString();
             model.DateOfSurgery = patient.entryDate;

@@ -17,11 +17,21 @@ namespace TEAM4OIES.Controllers
             
             return View("Index");
         }
+        //Name of Code Artifact: saveDate
+        //Programmer's Name:Paul Miller
+        //Date it was coded: 04/25/2014
+        //Date Approved: 04/29/2014
+        //SQA Approver: Linh Tong
         public String saveDate(FormCollection form)
         {
             String date = Request.Form["Auditdate"];
             return date;
         }
+        //Name of Code Artifact: dispTable
+        //Programmer's Name:Paul Miller
+        //Date it was coded: 04/25/2014
+        //Date Approved: 04/29/2014
+        //SQA Approver: Linh Tong
         [HttpPost]
         public ActionResult DispTable(FormCollection form)
         {

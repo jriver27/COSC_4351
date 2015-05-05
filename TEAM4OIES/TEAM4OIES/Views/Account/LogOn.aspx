@@ -9,12 +9,12 @@
 DBA: Logan Stark
 TM: Janaye Maggart
 Date: 4/27/2015
-approval:
-approval date:--%>
+approval:Paul Miller
+approval date: 4/29/15--%>
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Log On</h2>
     <p>
-        Please enter your username and password if you have an account. Otherwise, use this link -> <%: Html.ActionLink("Register", "Register") %>
+        Please enter your username and password if you have an account. Otherwise, use this the Register tab to create an account.
     </p>
     <%--
     <% using (Html.BeginForm()) { %>

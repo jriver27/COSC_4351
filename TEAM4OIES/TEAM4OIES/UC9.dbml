@@ -126,18 +126,4 @@
       <Association Name="Institution_Surgeon" Member="Institution" ThisKey="institution_id" OtherKey="institution_id" Type="Institution" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="TEAM4OIES.Patient" Member="Patients">
-    <Type Name="Patient">
-      <Column Name="patient_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="originalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sex" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="entryDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="surgeonID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="endograft_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Patient_Study" Member="Studies" ThisKey="patient_id" OtherKey="patient_id" Type="Study" />
-      <Association Name="Endograft_Patient" Member="Endograft" ThisKey="endograft_id" OtherKey="endograft_id" Type="Endograft" IsForeignKey="true" />
-      <Association Name="Surgeon_Patient" Member="Surgeon" ThisKey="surgeonID" OtherKey="surgeonID" Type="Surgeon" IsForeignKey="true" />
-    </Type>
-  </Table>
 </Database>

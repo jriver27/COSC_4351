@@ -20,8 +20,8 @@ namespace TEAM4OIES.Models
         //DBA: Logan Stark
         //TM: Janaye Maggart
         //Date: 4/27/2015
-        //approval:
-        //approval date:
+        //approval:Paul Miller
+        //approval date:4/29/15
         public String accountLogin(String username, String password)
         {
             string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
@@ -41,7 +41,7 @@ namespace TEAM4OIES.Models
                         return ""+reader[0]+reader[1];
                     }
                     cnn.Close();
-                    return "0";
+                    return "0-1";
                 }
                 catch
                 {
@@ -51,7 +51,7 @@ namespace TEAM4OIES.Models
                 {
                     cnn.Close();
                 }
-                return "0";
+                return "0-1";
             }
         }
 
@@ -59,18 +59,51 @@ namespace TEAM4OIES.Models
         //DBA: Logan Stark
         //TM: Janaye Maggart
         //Date: 4/27/2015
-        //approval:
-        //approval date:
-        public Boolean createAccount(int userType, String firstName, String lastName, String username, String password, String email, int institution_id)
+        //approval: Paul Miller
+        //approval date: 4/29/15
+        public Boolean createAccount(int userT, String firstN, String lastN, String usern, String passw, String mail, int institution)
         {
+
+            //Artifact Name: Registration fix
+            //DB: Logan Stark
+            //Date: 5/4/2015
+            //approval: Paul Miller
+            //apprval Date:5/4/2015
+            UC9DataContext db = new UC9DataContext();
+            Surgeon surg = new Surgeon
+            {
+                userType = userT,
+                firstName = firstN,
+                lastName = lastN,
+                username = usern,
+                password = passw,
+                email = passw,
+                institution_id = institution,
+                online = false,
+                active = false
+            };
+            db.Surgeons.InsertOnSubmit(surg);
+
+            try
+            {
+                db.SubmitChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            /*
             string connectionString = "Data Source=sqlserver.cs.uh.edu,1044;Initial Catalog=TEAM4OIES;User ID=TEAM4OIES;Password=TEAM4OIES#";
             using (SqlConnection cnn = new SqlConnection(connectionString))
             {
                 try
                 {
                     cnn.Open();
-                    String sql = "INSERT INTO Surgeon(userType,firstName,lastName,username,password,email,institution_id) VALUES(@userType,@firstName,@lastName,@username,@password,@email,@institution_id)";
+                    //RegisterModel surgeon = new RegisterModel(); 
+                    String sql = "INSERT INTO Surgeon(userType,firstName,lastName,username,password,email,institution_id,online,active) VALUES(@userType,@firstName,@lastName,@username,@password,@email,@institution_id,@online,@active)";
                     SqlCommand registerSurgeon = new SqlCommand(sql, cnn);
+                   // var newUserType = connectionString.registerSurgeon.Single(u => u.userType == userType);
                     registerSurgeon.Parameters.AddWithValue("@userType", userType);
                     registerSurgeon.Parameters.AddWithValue("@firstName", firstName);
                     registerSurgeon.Parameters.AddWithValue("@lastName", lastName);
@@ -78,6 +111,9 @@ namespace TEAM4OIES.Models
                     registerSurgeon.Parameters.AddWithValue("@password", password);
                     registerSurgeon.Parameters.AddWithValue("@email", email);
                     registerSurgeon.Parameters.AddWithValue("@institution_id", institution_id);
+                    registerSurgeon.Parameters.AddWithValue("@online", '0');
+                    registerSurgeon.Parameters.AddWithValue("@active", '0');
+                    registerSurgeon.BeginExecuteNonQuery();
                     cnn.Close();
                     return true;
                 }
@@ -90,7 +126,7 @@ namespace TEAM4OIES.Models
                     cnn.Close();
                 }
             }
-            return false;
+            return false;*/
         }
 
     }
